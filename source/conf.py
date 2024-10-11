@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'TonyPi'
+project = 'TonyPi Pro'
 copyright = '2024, Hiwonder'
 author = 'Hiwonder'
 release = 'v1.0'
