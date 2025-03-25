@@ -22,7 +22,7 @@ Using t**he Android system** as an example, these instructions also apply to iOS
 
 <img class="common_img" src="../_static/media/11.network_configuration/section_1/image1.png" />
 
-(2)  Tap the "+" button in the bottom right corner of the screen, and choose **"Direct Connection Mode".**
+(2)  Tap the "**+**" button in the bottom right corner of the screen, and choose **"Direct Connection Mode".**
 
 <img class="common_img" src="../_static/media/11.network_configuration/section_1/image2.png"/>
 
@@ -50,7 +50,7 @@ for iOS: Wait until the Wi-Fi icon <img src="../_static/media/11.network_configu
 If a pop-up message appears saying "**Network Unavailable, Continue Connection?**", simply tap "**Keep Connection**".
 :::
 
-(6) If you see a prompt asking **"Switch to and Enter Found Device Screen?",** it indicates that an incorrect product version was selected in Step 1. Tap "OK" to switch directly to the correct version's mode selection screen.
+(6) If you see a prompt asking **"Switch to and Enter Found Device Screen?",** it indicates that an incorrect product version was selected in Step 1. Tap "**OK**" to switch directly to the correct version's mode selection screen.
 
 <img class="common_img" src="../_static/media/11.network_configuration/section_1/image8.png" style="width:350px" />
 
@@ -98,7 +98,7 @@ The configuration file defaults to AP Direct Connection Mode. If all code lines 
 vim wifi.py
 ```
 
-(8) After confirming the entries, press the ESC key, then type ":wq" to save and exit the file.
+(8) After confirming the entries, press the ESC key, then type "**:wq**" to save and exit the file.
 
 <img class="common_img" src="../_static/media/11.network_configuration/section_1/image17.png"/>
 
