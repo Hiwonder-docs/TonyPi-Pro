@@ -14,10 +14,10 @@ TonyPi Pro
    docs/1.getting_ready.md
    docs/2.quick_user_experience.md
    docs/6.remote.md
-   docs/8.ai_vision_games_lesson.md
    docs/9.upper_computer.md
-   docs/10.pc_control_course.md
+   docs/8.ai_vision_games_lesson.md
    docs/11.voice_intelligent_handling.md
+   docs/10.pc_control_course.md
    docs/12_network_configuration.md
    docs/13.ai_autonomous_omnibus.md
    docs/14.combined_palm_gripping.md
