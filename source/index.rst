@@ -25,4 +25,5 @@ TonyPi Pro
    docs/16.sensor_combined_practical.md
    docs/17.mass_messaging_control.md
    docs/resources_download.md
+   Download <Hiwonder Humanoid Robot Professional Development Kit Powered by Raspberry Pi 4B 4GB>
 
