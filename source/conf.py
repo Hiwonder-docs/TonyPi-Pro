@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'TonyPi Pro'
+project = 'TonyPi'
 copyright = '2025, Hiwonder'
 author = 'Hiwonder'
 release = 'v1.0'
@@ -19,14 +19,15 @@ extensions = ['sphinx_markdown_tables','myst_parser','sphinx_copybutton']
 templates_path = ['_templates']
 exclude_patterns = []
 
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = "sphinx"  # 或者其他主题，如 'friendly', 'monokai'
+html_codeblock_linenos_style = 'table'  # 推荐的样式
+
 myst_enable_extensions = [
     "attrs_block",
     "colon_fence",
     "substitution",
 ]
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
