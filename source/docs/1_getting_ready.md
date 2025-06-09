@@ -10,7 +10,7 @@ With the support of a dedicated mobile app, even users with no prior experience 
 
 TonyPi also integrates a multimodal model. When used with the AI voice interaction module, it can understand its environment, plan actions, and execute tasks with flexibility—enabling more advanced applications in embodied AI. Hiwonder provides comprehensive development resources, detailed tutorials, and open-source Python code to help users fully explore and master this intelligent humanoid robot.
 
-<img src="../_static/media/chapter_1/section_1/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image2.png" class="common_img" />
 
 * **TonyPi Standard Packing List**
 
@@ -28,49 +28,49 @@ TonyPi also integrates a multimodal model. When used with the AI voice interacti
       <td>1</td>
       <td>TonyPi(Ready to use)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image2.png" style="width:300px;" /></td>
+      <td><img src="../_static/media/chapter_1/section_1/image2.png" style="width:300px;" /></td>
     </tr>
     <tr>
       <td>2</td>
       <td>12.6V Lipo battery charger</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image3.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image3.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>3</td>
       <td>Balls</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image4.png"  style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image4.png"  style="width:150px;"/></td>
     </tr>
     <tr>
       <td>4</td>
       <td>Tags</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image5.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image5.png" style="width:150px;"/></td>
     </tr>
     <tr>
       <td>5</td>
       <td>Card Reader</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image6.png" style="width:50px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image6.png" style="width:50px;"/></td>
     </tr>
     <tr>
       <td>6</td>
       <td>Screwdriver</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image7.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image7.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>7</td>
       <td>Accessory Bag <br> (M2*4 Round head screw * 5<br/>M2*6 round head screw * 5<br/>M3*6 Black round head screw * 2<br/>M2*5 Round head self-tapping screw * 5<br/>M2*6 Round head self-tapping screw * 5<br/>A3*5*7 Round head cross-recessed washer-equipped self-tapping screw * 2<br/>M2 nut * 5<br/>10cm 3pin wire * 1<br/>20cm 3pin wire * 1<br/>Main plastic steering wheel * 2<br/>Auxiliary plastic steering wheel * 2)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image8.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image8.png" style="width:300px;"/></td>
     </tr>
     <tr>
       <td>8</td>
       <td>User Manual</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image10.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image10.png" style="width:300px;"/></td>
     </tr>
   </tbody>
 </table>
@@ -92,61 +92,61 @@ TonyPi also integrates a multimodal model. When used with the AI voice interacti
       <td>1</td>
       <td>TonyPi(Ready to use)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image2.png" style="width:300px;" /></td>
+      <td><img src="../_static/media/chapter_1/section_1/image2.png" style="width:300px;" /></td>
     </tr>
     <tr>
       <td>2</td>
       <td>12.6V Lipo battery charger</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image3.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image3.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>3</td>
       <td>Balls</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image4.png"  style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image4.png"  style="width:150px;"/></td>
     </tr>
     <tr>
       <td>4</td>
       <td>Tags</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image5.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image5.png" style="width:150px;"/></td>
     </tr>
     <tr>
       <td>5</td>
       <td>Card Reader</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image6.png" style="width:50px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image6.png" style="width:50px;"/></td>
     </tr>
     <tr>
       <td>6</td>
       <td>Screwdriver</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image7.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image7.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>7</td>
       <td>Accessory Bag <br> (M2*4 Round head screw * 5<br/>M2*6 round head screw * 5<br/>M3*6 Black round head screw * 2<br/>M2*5 Round head self-tapping screw * 5<br/>M2*6 Round head self-tapping screw * 5<br/>A3*5*7 Round head cross-recessed washer-equipped self-tapping screw * 2<br/>M2 nut * 5<br/>10cm 3pin wire * 1<br/>20cm 3pin wire * 1<br/>Main plastic steering wheel * 2<br/>Auxiliary plastic steering wheel * 2)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image8.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image8.png" style="width:300px;"/></td>
     </tr>
     <tr>
       <td>8</td>
       <td>User Manual</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image10.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image10.png" style="width:300px;"/></td>
     </tr>
      <tr>
       <td>9</td>
       <td>Type C cable</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image11.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image11.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>10</td>
       <td>WonderEcho Pro AI voice interaction box</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image9.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image9.png" style="width:180px;"/></td>
     </tr>
   </tbody>
 </table>
@@ -167,151 +167,151 @@ TonyPi also integrates a multimodal model. When used with the AI voice interacti
       <td>1</td>
       <td>TonyPi(Ready to use)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image2.png" style="width:150px;" /></td>
+      <td><img src="../_static/media/chapter_1/section_1/image2.png" style="width:150px;" /></td>
     </tr>
     <tr>
       <td>2</td>
       <td>12.6V Lipo battery charger</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image3.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image3.png" style="width:150px;"/></td>
     </tr>
     <tr>
       <td>3</td>
       <td>Balls</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image4.png"  style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image4.png"  style="width:150px;"/></td>
     </tr>
     <tr>
       <td>4</td>
       <td>Tags</td>
       <td>3</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image5.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image5.png" style="width:150px;"/></td>
     </tr>
     <tr>
       <td>5</td>
       <td>Card Reader</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image6.png" style="width:100px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image6.png" style="width:100px;"/></td>
     </tr>
     <tr>
       <td>6</td>
       <td>Screwdriver</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image7.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image7.png" style="width:150px;"/></td>
     </tr>
     <tr>
       <td>7</td>
       <td>Accessory Bag <br> (M2*4 Round head screw * 5<br/>M2*6 round head screw * 5<br/>M3*6 Black round head screw * 2<br/>M2*5 Round head self-tapping screw * 5<br/>M2*6 Round head self-tapping screw * 5<br/>A3*5*7 Round head cross-recessed washer-equipped self-tapping screw * 2<br/>M2 nut * 5<br/>10cm 3pin wire * 1<br/>20cm 3pin wire * 1<br/>Main plastic steering wheel * 2<br/>Auxiliary plastic steering wheel * 2)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image8.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image8.png" style="width:300px;"/></td>
     </tr>
     <tr>
       <td>8</td>
       <td>User Manual</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image10.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image10.png" style="width:300px;"/></td>
     </tr>
      <tr>
       <td>9</td>
       <td>Type C cable</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image11.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image11.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>10</td>
       <td>WonderEcho Pro AI voice interaction box</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image9.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image9.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>11</td>
       <td>TonyPi Hands</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image12.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image12.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>12</td>
       <td>Wireless handle + Handle receiver</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image13.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image13.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>13</td>
       <td>Glowy ultrosoric sensor</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image14.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image14.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>14</td>
       <td>Light sensor</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image15.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image15.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>15</td>
       <td>Dot matrix display</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image16.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image16.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>16</td>
       <td>Temperature and humidity sensor</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image17.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image17.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>17</td>
       <td>Fan module</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image18.png" style="width:180px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image18.png" style="width:180px;"/></td>
     </tr>
     <tr>
       <td>18</td>
       <td>Brockets</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image19.png" style="width:200px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image19.png" style="width:200px;"/></td>
     </tr>
     <tr>
       <td>19</td>
       <td>Map</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image20.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image20.png" style="width:300px;"/></td>
     </tr>   
     <tr>
       <td>20</td>
       <td>Sponge cubes(10*10cm)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image21.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image21.png" style="width:150px;"/></td>
     </tr> 
     <tr>
       <td>21</td>
       <td>Line Map</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image22.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image22.png" style="width:300px;"/></td>
     </tr> 
     <tr>
       <td>22</td>
       <td>Stair</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image23.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image23.png" style="width:300px;"/></td>
     </tr> 
     <tr>
       <td>23</td>
       <td>Hurde</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image24.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image24.png" style="width:300px;"/></td>
     </tr> 
     <tr>
       <td>24</td>
       <td>EVA blocks(3.5*3.5cm)</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image25.png" style="width:150px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image25.png" style="width:150px;"/></td>
     </tr> 
     <tr>
       <td>25</td>
       <td>Accessories</td>
       <td>1</td>
-      <td><img src="../_static/media/chapter_1/section_1/media/image26.png" style="width:300px;"/></td>
+      <td><img src="../_static/media/chapter_1/section_1/image26.png" style="width:300px;"/></td>
     </tr> 
   </tbody>
 </table>
