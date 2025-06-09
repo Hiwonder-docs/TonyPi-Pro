@@ -599,12 +599,10 @@ Set initial state, including the initial position of servo, PID, color threshold
 
 {lineno-start=67}
 ```python
-# 加载配置文件数据(load configuration file data)
-def load_config():
-    global lab_data, servo_data
-    
-    lab_data = yaml_handle.get_yaml_data(yaml_handle.lab_file_path)
-    servo_data = yaml_handle.get_yaml_data(yaml_handle.servo_file_path)
+# 初始化机器人舵机初始位置(initialize the servo initialization position of robot)
+def initMove():
+    ctl.set_pwm_servo_pulse(1, 1500, 500)
+    ctl.set_pwm_servo_pulse(2, servo_data['servo2'], 500)
 ```
 
 (3) Image pre-processing
@@ -1922,8 +1920,6 @@ Pay attention to the text format in the input of instructions.
 
 (1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
 
-<img src="../_static/media/chapter_5/section_6/media/image3.png" class="common_img" />
-
 (2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
@@ -2042,7 +2038,7 @@ Use `inRange()` function in cv2 library to process binarization.
 frame_mask = cv2.inRange(frame_lab, tuple(min_color), tuple(max_color))
 ```
 
-The first parameter **"frame_lab"** is inputting image.
+The first parameter `frame_lab` is inputting image.
 
 The second parameter `lab_data[i]['min'][0]` is the lower limit of the threshold.
 
@@ -2622,7 +2618,7 @@ In this lesson, we use a pre-trained facial recognition model. The image is firs
 
 (1) Power on the device and, following the instructions in ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"](), use the VNC remote connection tool to connect.
 
-(2) Click the icon in the top left corner of the system desktop to open the LX terminal.
+(2) Click the icon <img src="../_static/media/chapter_5/section_1/media/image4.png" />in the top left corner of the system desktop to open the LX terminal.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
@@ -2753,3 +2749,1481 @@ def buzzer():
         else:
             time.sleep(0.01)
 ```
+
+
+
+## 5.10 Face Recognition
+
+### 5.10.1 Program Logic
+
+The robot recognizes a human face, and after recognition, it performs a "greeting" action.
+
+In artificial intelligence, one of the most widespread applications is image recognition, with facial recognition being the hottest application in image recognition. It is commonly used in scenarios like door locks and phone facial unlocking.
+
+In this section, the trained face model is first zoomed to detect the face. Then the recognized face coordinates are converted to the coordinates before scaling. Judge whether it is the largest face, and frame the recognized face.
+
+Then set the servo to rotate left and right to obtain the face, and call the action group to let the robot perform the recognized feedback.
+
+### 5.10.2 Operation Steps
+
+:::{Note}
+
+Pay attention to the text format in the input of instructions.
+
+:::
+
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+
+(3) Input the following command and press Enter to locate to the directory where the program is stored.
+
+```python
+cd TonyPi/Functions
+```
+
+(4) Input the command below, then press Enter to start the game.
+
+```python
+python3 FaceDetect.py
+```
+
+(5) If you want to exit the game programming, press "Ctrl+C". If the exit fails, please try it few more times.
+
+### 5.10.3 Project Outcome
+
+:::{Note}
+
+Please do not try the Facial Recognition game under strong light, such as sunlight. Strong light will affect the recognition performance, so it is recommended to play this game indoors. It’s better to set the distance between face and camera with 50-100cm.
+
+:::
+
+Start the facial recognition function, TonyPi will rotate its head to detect face. It will stop when the face is recognized, and run the greeting actions.
+
+### 5.10.4 Programming Instruction
+
+The source code of this program is locate in [/home/pi/TonyPi/Functions/FaceDetect.py]().
+
+(1) Import Parameter Module
+
+{lineno-start=1}
+
+```python
+import sys
+import os
+import cv2
+import math
+import time
+import threading
+import numpy as np
+
+import mediapipe as mp
+import hiwonder.Camera as Camera
+import hiwonder.Misc as Misc
+import hiwonder.ros_robot_controller_sdk as rrc
+from hiwonder.Controller import Controller
+import hiwonder.ActionGroupControl as AGC
+import hiwonder.yaml_handle as yaml_handle
+```
+
+① `import sys` :The Python "**sys**" module has been imported for accessing system-related functions and variables.
+
+② `import os`:The Python “os” module has been imported, providing functions and methods for interacting with the operating system.
+
+③ `import cv2`:The OpenCV library has been imported for image processing and computer vision-related functionalities
+
+④ `import time`:The Python “time” module has been imported for time-related functionalities, such as delay operations.
+
+⑤ `import math`:The “math” module provides low-level access to mathematical operations, including many commonly used mathematical functions and constants.
+
+⑥ `import threading`:Provides an environment for running multiple threads concurrently.
+
+⑦ `import np`:The NumPy library has been imported. It is an open-source numerical computing extension for Python, used for handling array and matrix operations.
+
+⑧ `import mediapipe as mp`:Import mediapipe library, which is used to detect human face
+
+⑨ `import sensor.camera as camera`:Import camera library
+
+⑩ `from common import misc`:The "Misc" module has been imported for handling recognized rectangular data.
+
+⑪ `import common.ros_robot_controller_sdk as rrc`:The robot's underlying control library has been imported for controlling servos, motors, RGB lights, and other hardware.
+
+⑫ `import common.yaml_handle`:Contains functionalities or tools related to processing YAML format files.
+
+⑬ `from common.controller import Controller`:Import action group execution library.
+
+(2) Set initial state
+
+Set initial state, including the initial position of servo, human face recognition module, Minimum Face Confidence, etc.
+
+{lineno-start=33}
+
+```python
+# 导入人脸识别模块(import human face recognition module)
+face = mp.solutions.face_detection
+# 自定义人脸识别方法，最小的人脸检测置信度0.5(custom human face recognition method, the minimum face detection confidence is 0.5)
+face_detection = face.FaceDetection(min_detection_confidence=0.7)
+```
+
+{lineno-start=50}
+
+```python
+servo2_pulse = servo_data['servo2']
+
+# 初始化机器人舵机初始位置(initialize the servo initialization position of robot)
+def initMove():
+    ctl.set_pwm_servo_pulse(1, 1800, 500)
+    ctl.set_pwm_servo_pulse(2, servo2_pulse, 500)
+```
+
+(3) Color space conversion
+
+Convert the BGR image to LAB image.
+
+{lineno-start=138}
+
+```python
+    image_rgb = cv2.cvtColor(img_copy, cv2.COLOR_BGR2RGB) # 将BGR图像转为RGB图像(convert BGR image to RGB image)
+```
+
+(4) Use mediapipe human face model recognition
+
+Perform face detection and draw rectangles around the detected faces. Then, based on whether the position of the face center is in the center of the frame, if so, set "start_greet" to True to execute the action group.
+
+{lineno-start=139}
+
+```python
+    results = face_detection.process(image_rgb) # 将每一帧图像传给人脸识别模块(pass each frame of the image to the face recognition module)
+    if results.detections:   # 如果检测不到人脸那就返回None
+        for index, detection in enumerate(results.detections): # 返回人脸索引index(第几张脸)，和关键点的坐标信息(return the face index (which face) and the coordinate information of the keypoints)
+            bboxC = detection.location_data.relative_bounding_box # 设置一个边界框，接收所有的框的xywh及关键点信息(set up a bounding box to receive the xywh and keypoint information for all boxes)
+            
+            # 将边界框的坐标点,宽,高从比例坐标转换成像素坐标(convert the coordinates, width, and height of the bounding box from relative coordinates to pixel coordinates)
+            bbox = (int(bboxC.xmin * img_w), int(bboxC.ymin * img_h),  
+                   int(bboxC.width * img_w), int(bboxC.height * img_h))
+            cv2.rectangle(img, bbox, (0,255,0), 2)  # 在每一帧图像上绘制矩形框(draw a rectangle on each frame of the image)
+            x, y, w, h = bbox  # 获取识别框的信息,xy为左上角坐标点(get the information of the recognition box, where xy is the coordinate point of the upper left corner)
+            center_x =  int(x + (w/2))
+           
+            if abs(center_x - img_w/2) < img_w/4:
+                if action_finish:
+                    start_greet = True
+```
+
+(5) Face detection
+
+If a face is detected, use the "agc.run_action_group" function to invoke the "wave" action group.
+
+{lineno-start=105}
+
+```python
+    while True:
+        if __isRunning:
+            if start_greet:
+                start_greet = False
+                action_finish = False
+                AGC.runActionGroup('wave') # 识别到人脸时执行的动作(the action to be performed when a face is recognized)
+                action_finish = True
+                time.sleep(0.5)
+```
+
+If no face is detected, control the pan-tilt servo to rotate left and right to search for a face.
+
+{lineno-start=113}
+
+```python
+            else:
+                if servo2_pulse > 2000 or servo2_pulse < 1000:
+                    d_pulse = -d_pulse
+            
+                servo2_pulse += d_pulse 
+                ctl.set_pwm_servo_pulse(2, servo2_pulse, 50)
+                time.sleep(0.05)
+        else:
+            time.sleep(0.01)
+```
+
+### 5.10.5 Function Extension
+
+* **Modify Feedback Action**
+
+:::{Note}
+
+The built-in file is located in "/home/pi/TonyPi/ActionGroups".
+
+:::
+
+Program default setting is that TonyPi will execute the greeting action when detect the face. The feedback action can be revised to others such as bowing.
+
+(1) Enter the following command to the directory where the game program is located.
+
+```python
+cd TonyPi/Functions/
+```
+
+(2) Enter the command below to go into the game program through vi editor.
+
+```python
+vim FaceDetect.py
+```
+
+(3) Find code `AGC.runActionGroup('wave')`.
+
+<img src="../_static/media/chapter_5/section_10/media/image1.png" />
+
+"**wave**" in the above image is the name of greeting action. If we want to revise the action to bowing, enter "**bow**" instead of “wave” in the "**Action group instruction**" in the path /home/pi/TonyPi/ActionGroups.
+
+:::{Note}
+
+The action name can be found in the "Action group instruction".
+
+:::
+
+(4) Press "**i**" to enter the editing mode, then modify "**wave**" to "**bow**".
+
+<img src="../_static/media/chapter_5/section_10/media/image2.png" />
+
+(5) Press "**Esc**" to enter last line command mode. Input ":wq" to save the file and exit the editor.
+
+<img src="../_static/media/chapter_5/section_10/media/image3.png" />
+
+
+
+## 5.11 Gesture Control
+
+### 5.11.1 Game Overview
+
+This program leverages MediaPipe's hand detection model to recognize palm joints. Upon detecting a specific hand gesture, the robot locks onto the fingertip within the camera frame, initiates tracking, and visualizes the fingertip’s movement by drawing its trajectory.
+
+The process begins by invoking the MediaPipe hand detection model and capturing real-time images from the camera. The input image is then flipped and preprocessed to extract hand landmarks. By analyzing the connections between key points, the system calculates finger angles to accurately identify gestures.
+
+Once a target gesture is recognized, the robot starts tracking the fingertip and overlays its movement path directly onto the video feed for visual feedback.
+
+### 5.11.2 Start and Close the Game
+
+:::{Note}
+
+The input of commands must strictly distinguish between uppercase and lowercase letters.
+
+:::
+
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+
+(3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
+
+```python
+cd TonyPi/Functions/
+```
+
+(4) Enter the command and press Enter to start the program:
+
+```python
+python3 gesture_control.py
+```
+
+(5) To close the program, simply press "**Ctrl+C**" in the LX terminal. If it does not close, press it multiple times.
+
+### 5.11.3 Program Outcome
+
+After starting the program, place your hand within the camera’s field of view. Once the hand is detected, the system will mark the key points of the hand on the live video feed.
+
+The camera displays the real-time view. When the gesture "1" (index finger pointing) is recognized, the system begins tracking the fingertip and drawing its movement path on the screen.
+
+For example, if the fingertip moves to the right, a path will be drawn in that direction. When the system detects the open palm gesture "5", the buzzer will beep once, the robot will strafe to the right, and the previously drawn trajectory will be cleared from the screen.
+
+Similarly:
+
+* Moving the fingertip upward on the screen prompts the robot to move forward.
+
+* Moving it downward prompts the robot to move backward.
+
+* In each case, the robot responds to the drawn trajectory by executing the corresponding movement.
+
+<img src="../_static/media/chapter_5/section_11/media/image2.png" style="width:400px" class="common_img" /><img src="../_static/media/chapter_5/section_11/media/image3.png" style="width:400px" class="common_img" />
+
+### 5.11.4 Brief Program Analysis
+
+The program file corresponding to this lesson is located at:[/home/pi/TonyPi/Functions/gesture_control.py]()1
+
+This feature captures images through the camera and performs preprocessing—specifically, converting the image to a different color space to enhance recognition. After preprocessing, the program extracts gesture feature points by identifying key landmarks on the hand. It then uses logical analysis (based on angles) to determine different hand gestures. Finally, the system draws the recognized gesture trajectory on the live video feed.
+
+:::{Note}
+Before making any modifications, be sure to back up the original factory program.
+Do not edit the source file directly, as improper parameter changes may result in serious malfunctions that could render the robot unusable.
+
+:::
+
+* **Definition of the Drawing Object**
+
+{lineno-start=155}
+
+```python
+drawing = mp.solutions.drawing_utils
+```
+
+drawing is a tool used to draw joint feature points. After detecting the key hand landmarks, it is used to visualize and connect those points accordingly.
+
+mp refers to the MediaPipe recognition module, which is used to extract hand features. Its drawing_utils module serves as the toolkit for rendering the detected landmarks.
+
+* **Definition of the Hand Feature Detector (hand_detector)**
+
+{lineno-start=157}
+
+```python
+hand_detector = mp.solutions.hands.Hands(
+     static_image_mode=False,
+    max_num_hands=1,
+    min_tracking_confidence=0.05,
+    min_detection_confidence=0.6
+)
+```
+
+hand_detector is the hand feature detection tool.
+Here, mp refers to the MediaPipe recognition module, and mp.solutions.hands.Hands is the specific component used for extracting hand landmarks.
+
+Several key parameters within this module require attention:
+
+(1) static_image_mode: When set to False, the system dynamically tracks hands based on the value of max_num_hands. It is recommended to keep this set to False by default.
+
+(2) max_num_hands: Specifies the maximum number of hands to detect. The default is 1.
+
+(3) min_tracking_confidence:A threshold for hand tracking confidence. If the recognition confidence during movement exceeds this value, the system will update the hand’s position based on the current image. Otherwise, it will use the previously recognized position. If tracking is unstable, you may adjust this value by ±0.3, but it must not be lower than 0.
+
+(4) min_detection_confidence: The minimum confidence threshold (between 0 and 1) for the hand detection model. If the detection exceeds this value, the content in the image is recognized as a hand. If detection is unreliable, consider adjusting this value by ±0.1, but it must not be lower than 0.
+
+* **Gesture Recognition Processing Function**
+
+Once the basic tool parameters are defined, the program proceeds to the logic recognition phase. The following points outline the core parts of the code—from initial image preprocessing to the final drawing of the fingertip trajectory.
+
+(1) Storing Key Landmark Detection Results
+
+{lineno-start=277}
+
+```python
+            results = hand_detector.process(image)
+```
+
+The process function within self.hand_detector is used to extract the hand’s key landmarks. The results (i.e., the positions of these key points in the image) are stored in the results variable for further logical processing.
+
+(2) Drawing Parameter Configuration
+
+{lineno-start=282}
+
+```python
+                    drawing.draw_landmarks(
+                        display_image,
+                        hand_landmarks,
+                        mp.solutions.hands.HAND_CONNECTIONS)
+```
+
+After detecting the key landmarks, the drawing tool must be configured to define how the landmarks and their connections are rendered.
+
+① bgr_image: the input image.
+
+② hand_landmarks: the detected key points of the hand.
+
+③ HAND_CONNECTIONS: the connection scheme based on standard landmark indices to draw the lines between points.
+
+(3) Finger Type Logical Classification (Thumb, Index Finger, etc.)
+
+{lineno-start=53}
+
+```python
+def hand_angle(landmarks):
+    """
+    计算各个手指的弯曲角度
+    :param landmarks: 手部关键点
+    :return: 各个手指的角度
+    """
+    angle_list = []
+    # thumb 大拇指
+    angle_ = vector_2d_angle(landmarks[3] - landmarks[4], landmarks[0] - landmarks[2])
+    angle_list.append(angle_)
+    # index 食指
+    angle_ = vector_2d_angle(landmarks[0] - landmarks[6], landmarks[7] - landmarks[8])
+    angle_list.append(angle_)
+    # middle 中指
+    angle_ = vector_2d_angle(landmarks[0] - landmarks[10], landmarks[11] - landmarks[12])
+    angle_list.append(angle_)
+    # ring 无名指
+    angle_ = vector_2d_angle(landmarks[0] - landmarks[14], landmarks[15] - landmarks[16])
+    angle_list.append(angle_)
+    # pink 小拇指
+    angle_ = vector_2d_angle(landmarks[0] - landmarks[18], landmarks[19] - landmarks[20])
+    angle_list.append(angle_)
+    angle_list = [abs(a) for a in angle_list]
+    return angle_list
+```
+
+Once the landmarks have been stored in the results variable, logical processing is performed to classify the finger types. This is achieved by analyzing the angles between specific key points to determine which finger is which (e.g., thumb, index finger).
+
+The hand_angle function receives the landmark set (landmarks(results)) and uses the vector_2d_angle function to calculate the angles between relevant points. Each element in the landmarks set corresponds to a specific finger joint, as illustrated in the following diagram.
+
+<img src="../_static/media/chapter_5/section_11/media/image4.png" style="width:400px" class="common_img" />
+
+The vector_2d_angle function is used to calculate the angle between joints. Specifically, the points landmarks[3], landmarks[4], landmarks[0], and landmarks[2] correspond to the key landmarks numbered 3, 4, 0, and 2 in the hand feature extraction diagram. By computing the angle formed by these joints at the fingertip, the posture characteristics of the thumb can be determined.
+
+Similarly, the processing logic for the other fingers’ joints follows the same approach.
+
+To ensure accurate recognition, the parameters and basic logic (addition and subtraction of angles) inside the hand_angle function should be kept at their default settings.
+
+(4) Gesture Feature Detection
+
+{lineno-start=78}
+
+```python
+def h_gesture(angle_list):
+    """
+    通过二维特征确定手指所摆出的手势
+    :param angle_list: 各个手指弯曲的角度
+    :return : 手势名称字符串
+    """
+    thr_angle = 65.
+    thr_angle_thumb = 53.
+    thr_angle_s = 49.
+    gesture_str = "none"
+    if (angle_list[0] > thr_angle_thumb) and (angle_list[1] > thr_angle) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "fist"
+    elif (angle_list[0] < thr_angle_s) and (angle_list[1] < thr_angle_s) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "hand_heart"
+    elif (angle_list[0] < thr_angle_s) and (angle_list[1] < thr_angle_s) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] < thr_angle_s):
+        gesture_str = "nico-nico-ni"
+    elif (angle_list[0] < thr_angle_s) and (angle_list[1] > thr_angle) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "hand_heart"
+    elif (angle_list[0] > 5) and (angle_list[1] < thr_angle_s) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "one"
+    elif (angle_list[0] > thr_angle_thumb) and (angle_list[1] < thr_angle_s) and (angle_list[2] < thr_angle_s) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "two"
+    elif (angle_list[0] > thr_angle_thumb) and (angle_list[1] < thr_angle_s) and (angle_list[2] < thr_angle_s) and (
+            angle_list[3] < thr_angle_s) and (angle_list[4] > thr_angle):
+        gesture_str = "three"
+    elif (angle_list[0] > thr_angle_thumb) and (angle_list[1] > thr_angle) and (angle_list[2] < thr_angle_s) and (
+            angle_list[3] < thr_angle_s) and (angle_list[4] < thr_angle_s):
+        gesture_str = "OK"
+    elif (angle_list[0] > thr_angle_thumb) and (angle_list[1] < thr_angle_s) and (angle_list[2] < thr_angle_s) and (
+            angle_list[3] < thr_angle_s) and (angle_list[4] < thr_angle_s):
+        gesture_str = "four"
+    elif (angle_list[0] < thr_angle_s) and (angle_list[1] < thr_angle_s) and (angle_list[2] < thr_angle_s) and (
+            angle_list[3] < thr_angle_s) and (angle_list[4] < thr_angle_s):
+        gesture_str = "five"
+    elif (angle_list[0] < thr_angle_s) and (angle_list[1] > thr_angle) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] < thr_angle_s):
+        gesture_str = "six"
+    else:
+        "none"
+    return gesture_str
+```
+
+After identifying different finger types and determining their positions in the image, you can implement the function h_gesture to perform logical recognition for various hand gestures.
+
+In the h_gesture function shown above, the parameters thr_angle = 65, thr_angle_thenum = 53, and thr_angle_s = 49 serve as threshold angle values for gesture logic decisions. These values were determined through testing and provide stable recognition results. It is not recommended to change them significantly; if the recognition performance is unsatisfactory, you may adjust these thresholds by ±5 degrees.
+
+The list angle_list[0,1,2,3,4] corresponds to the angles of the five fingers of the hand.
+
+Taking the gesture "**one**" as an example:
+
+{lineno-start=100}
+
+```python
+    elif (angle_list[0] > 5) and (angle_list[1] < thr_angle_s) and (angle_list[2] > thr_angle) and (
+            angle_list[3] > thr_angle) and (angle_list[4] > thr_angle):
+        gesture_str = "one"
+```
+
+① angle_list[0] > 5 checks whether the thumb’s joint angle in the image is greater than 5 degrees.
+
+② angle_list[1] < thr_angle_s verifies if the index finger’s angle is less than the threshold thr_angle_s.
+
+③ angle_list[2] < thr_angle checks if the middle finger’s angle is less than thr_angle.
+
+④ The logic for the other two fingers, angle_list[3] and angle_list[4], follows a similar pattern.
+
+When these conditions are met, the current gesture is recognized as "**one**." Recognition of other gestures follows similar logical frameworks.
+
+Although the specific logic varies by gesture, the overall structure is consistent. You can refer to the previous section for details on other gesture recognition logics.
+
+(5) Fingertip Feature Detection, Motion Trajectory Drawing, and Trajectory Clearing
+
+The fingertip feature detection process is illustrated in the diagram below:
+
+{lineno-start=290}
+
+```py
+                if state != State.TRACKING:
+                    if gesture == "one":  # 检测食指手势， 开始指尖追踪
+                        count += 1
+                        if count > 5:
+                            count = 0
+                            state = State.TRACKING
+                            points = []
+                            points_list = []
+                    else:
+                        count = 0
+```
+
+The code snippet above shows the logic used when the gesture “one” is detected. The variable self.count tracks the number of consecutive frames the gesture has been maintained. When self.count < 5, it means the gesture must be held for 5 frames before it is confirmed as gesture “one.” (Adjusting this frame count allows control over the duration needed for recognition—typically set around 5 to 7 frames. Too long a duration may negatively impact recognition accuracy.)
+
+Once confirmed, the current gesture state is set to TRACKING, meaning the system can start tracking motion. At this point, self.points (representing the positions of the current two adjacent points) and points_list (a collection of feature points used to draw the trajectory line) are initialized.
+
+The motion trajectory drawing process is illustrated in the following diagram:
+
+{lineno-start=301}
+
+```python
+                elif state == State.TRACKING:
+                    if gesture != "two":
+                        if len(points) > 0:
+                            last_point = points[-1]
+                            if distance(last_point, index_finger_tip) < 5:
+                                count += 1
+                            else:
+                                count = 0
+                                points_list.append([int(index_finger_tip[0]), int(index_finger_tip[1])])
+                                points.append(index_finger_tip)
+                        else:
+                            points_list.append([int(index_finger_tip[0]), int(index_finger_tip[1])])
+                            points.append(index_finger_tip)
+                    draw_points(display_image, points)
+```
+
+While the gesture is in the sliding (tracking) state, a custom function distance is used to calculate the distance between two points before and after movement. The logical condition distance(last_point, index_finger_tip) < 5 checks whether the pixel distance between these two points is less than 5.
+
+The value 5 represents the pixel threshold for movement between frames. If a faster movement speed and still accurate logic are required, this value can be slightly increased—though it is recommended not to exceed 10. Conversely, lowering the value tightens the movement threshold.
+
+The fingertip’s positional data is stored in pixels, which holds the (x, y) coordinates of the fingertip and is used for drawing the trajectory on the image.
+
+The trajectory clearing process is illustrated in the diagram below:
+
+```python
+                if gesture == "five":
+                    state = State.NULL
+                    if len(points_list) > 10 and not start_move:
+                        board.set_buzzer(1900, 0.1, 0.9, 1)
+                        target_points = points_list
+                        start_move = True
+                    points = []
+                    points_list = []
+                    draw_points(display_image, points)
+        except Exception as e:
+            print(e)
+    return display_image
+```
+
+When the gesture is recognized as "**five**", the gesture recognition state is set to NULL (empty), and the current collection of points (the recorded trajectory positions) is cleared.
+
+## 5.12 Pose Control
+
+### 5.12.1 Game Overview
+
+This experiment is designed to use MediaPipe’s pose detection model to recognize key human body points (such as hands, arms, shoulders, etc.) and, based on their positions and angles, achieve real-time control of body posture. By detecting the posture of the hands, the robot can respond accordingly, enabling gesture-based human-robot interaction.
+
+The core of the experiment is to capture the user’s posture information in real time using MediaPipe’s pose detection model and map it to the robot’s motion control system.
+
+The process includes:
+
+* Using MediaPipe’s pose model to obtain the coordinates of key body points.
+
+* Calculating movements (e.g., raising an arm, bending an elbow) based on changes in key point positions.
+
+* Mapping the user’s movements to the robot’s arm joint controls, allowing the robot to mimic the user’s actions.
+
+* Displaying the user’s posture and the robot’s action status in real time on the screen.
+
+### 5.12.2 Start and Close the Game
+
+:::{Note}
+
+The input of commands must strictly distinguish between uppercase and lowercase letters.
+
+:::
+
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+
+(3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
+
+```python
+cd TonyPi/Functions/
+```
+
+(4) Enter the command and press Enter to start the program:
+
+```py
+python3 pose_control.py
+```
+
+(5) To close the program, simply press "**Ctrl+C**" in the LX terminal. If it does not close, press it multiple times.
+
+### 5.12.3 Program Outcome
+
+After starting the activity, place your hand within the camera’s field of view. Once the upper body skeleton is detected, key points of the human body will be marked in the returned video feed.
+
+The camera will display the live video and automatically recognize the body’s key points. Based on the key points of the hands, the servos will be driven to mimic the movements of the human arm. When the user opens their arms, the robot will simultaneously open its arms as well, achieving posture-based control.
+
+### 5.12.4 Brief Program Analysis
+
+The program file corresponding to this lesson is located at [/home/pi/TonyPi/Functions/pose_control.py]()
+
+:::{Note}
+
+Always back up the original factory program before making any modifications. Directly editing the source code is strictly prohibited, as improper changes to parameters may result in serious malfunctions that could render the robot inoperable and beyond repair.
+
+:::
+
+(1) Import Function Library
+
+{lineno-start=3}
+
+```python
+import os
+import cv2
+import math
+import copy
+import threading
+import numpy as np
+import mediapipe as mp
+from hiwonder import fps
+from mediapipe import solutions
+from mediapipe.tasks import python
+import hiwonder.yaml_handle as yaml_handle
+from hiwonder.Controller import Controller
+from mediapipe.tasks.python import vision
+import hiwonder.ros_robot_controller_sdk as rrc
+from mediapipe.framework.formats import landmark_pb2
+from mediapipe_visual import draw_pose_landmarks_on_image
+```
+
+① `import os`:Imports Python’s os module, which provides functions for interacting with the operating system.
+
+② `import cv2`:Imports the OpenCV library for image processing and computer vision tasks.
+
+③`import math`:Provides access to mathematical functions and constants.
+
+④ `import copy`:Enables object copying functionality.
+
+⑤ `import threading`:Provides support for running multiple threads concurrently.
+
+⑥ `import numpy as np`:Imports NumPy, a library for numerical computing, commonly used for handling arrays and matrix operations.
+
+⑦ `import mediapipe as mp`:Imports the MediaPipe library for pose and hand gesture detection.
+
+⑧ `from hiwonder import fps `:Imports the FPS (frames per second) calculator for performance monitoring.
+
+⑨ `from mediapipe import solutions`:Imports pre-defined modules from MediaPipe, such as hand tracking, face detection, and pose estimation.
+
+⑩ `from mediapipe.tasks import python`: Imports the Python API from MediaPipe’s task module.
+
+⑪ `import hiwonder.yaml_handle as yaml_handle`:Provides tools for handling YAML-format configuration files.
+
+⑫ `from hiwonder.Controller import Controller`:Imports the motion control library for managing robot movements.
+
+⑬ `from mediapipe.tasks.python import vision`:Imports the vision module for handling visual processing tasks.
+
+⑭ `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the low-level robot control SDK for controlling servos, motors, RGB lights, and other hardware.
+
+⑮ `from mediapipe.framework.formats import landmark_pb2`:Handles serialization and deserialization of landmark data.
+
+⑯ `from mediapipe_visual import draw_pose_landmarks_on_image`:Used to draw pose landmarks on images, helping to visualize detected key points.
+
+(2) Pose Detection Initialization
+
+{lineno-start=57}
+
+```python
+model_path = os.path.join(os.path.abspath(os.path.split(os.path.realpath(__file__))[0]), 'model/pose_landmarker_lite.task')
+```
+
+Load a pre-trained MediaPipe Lite pose detection model to detect 33 human body keypoints.
+model_path: Specifies the path to the model file.
+base_options: Sets the model file path using MediaPipe’s base options.
+options: Configures the pose detector, including whether to output a segmentation mask.
+detector: Instantiates the pose detection object.
+
+(3) Image Preprocessing
+
+① cv2.cvtColor: Converts the image from BGR format to RGB format, as required by MediaPipe.
+
+② cv2.flip: Horizontally flips the image to better match natural viewing habits.
+
+③ mp.Image: Converts the image into a format compatible with MediaPipe.
+
+(3) Posture Detection
+
+{lineno-start=72}
+
+```py
+        detection_result = detector.detect(mp_image)
+```
+
+Use the MediaPipe pose detector to analyze the image and return the detection results.
+
+(4) Drawing Pose Landmarks
+
+{lineno-start=79}
+
+```python
+            # Draw the pose landmarks.
+            pose_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
+            pose_landmarks_proto.landmark.extend([
+              landmark_pb2.NormalizedLandmark(x=landmark.x, y=landmark.y, z=landmark.z) for landmark in pose_landmarks
+```
+
+① pose_landmarks_list: A list of detected human pose landmarks.
+
+② annotated_image: A copy of the original image used to draw the detection results.
+
+③ Iterate through each detected human pose to visualize the landmarks.
+
+(5) Calculate Joint Angle
+
+{lineno-start=107}
+
+```python
+            # up 0 1000down
+            angle1 = vector_2d_angle(np.array(left_p1) - np.array(left_p0), np.array(left_p1) - np.array(left_p2))
+            angle2 = vector_2d_angle(np.array(left_p2) - np.array(left_p1), np.array(left_p3) - np.array(left_p2)) 
+            # 90 -90
+            # 1000 0
+            angle3 = vector_2d_angle(np.array(right_p1) - np.array(right_p0), np.array(right_p1) - np.array(right_p2))
+            angle4 = vector_2d_angle(np.array(right_p2) - np.array(right_p1), np.array(right_p3) - np.array(right_p2))
+```
+
+Use the vector_2d_angle() function to calculate the angles between human joints (such as shoulders, elbows, knees, etc.). This function computes the angle using the dot product and cross product of 2D vectors. Each angle is determined by applying the cosine and sine rules.
+
+(6) Set Servo Angle Range
+
+{lineno-start=123}
+
+```python
+                if servo6 > 875:
+                    servo6 = 875
+                if servo6 < 125:
+                    servo6 = 125
+                if servo7 > 875:
+                    servo7 = 875
+                if servo7 < 125:
+                    servo7 = 125
+                if servo14 > 875:
+                    servo14 = 875
+                if servo14 < 125:
+                    servo14 = 125
+                if servo15 > 875:
+                    servo15 = 875
+                if servo15 < 125:
+                    servo15 = 125
+```
+
+(7) Control Servo
+
+Control the servo based on the calculated angle.
+
+{lineno-start=148}
+
+```python
+                if x1 > 0 and x2 > 0:
+                    board.bus_servo_set_position(0.1, [[7, servo7], [6, servo6], [14, servo14], [15, servo15]])
+                elif x1 > 0 and x2 < 0:
+                    board.bus_servo_set_position(0.05, [[7, servo7], [6, servo6]])
+                elif x1 < 0 and x2 > 0:
+                    board.bus_servo_set_position(0.05, [[14, servo14], [15, servo15]])
+```
+
+The calculated joint angles are mapped to the servo’s operating range (between 125 and 875). The val_map() function is used to convert the angle values into the valid range for servo control. For each angle, it checks whether the value falls within the allowed limits and clamps it if necessary. The function board.bus_servo_set_position() sets the servo position accordingly to control the movement.
+
+(8) Drawing MediaPipe Default Pose Landmarks
+
+Use MediaPipe’s default style to draw pose landmarks.
+
+{lineno-start=155}
+
+```python
+                solutions.drawing_utils.draw_landmarks(
+                  annotated_image,
+                  pose_landmarks_proto,
+                  solutions.pose.POSE_CONNECTIONS,
+                  solutions.drawing_styles.get_default_pose_landmarks_style())
+                last_angle = [servo6, servo7, servo14, servo15]
+```
+
+The function solutions.drawing_utils.draw_landmarks() is used to render the human pose keypoints and their connecting lines on the image. The pose_landmarks_proto stores the coordinates of each landmark, which are then drawn onto the output image.
+
+## 5.13 Intelligent Transport
+
+:::{Note}
+
+This section is only applicable to users who have purchased the advanced version. The demonstration effect can be viewed in the folder for this section.
+
+:::
+
+### 5.13.1 Program Logic
+
+The robot will sequentially transport sponge blocks on the map to the corresponding AprilTag label locations until all items are delivered.
+
+This lesson focuses on how the robot accomplishes the task of item transportation, which is divided into two main stages: the recognition stage and the transportation stage.
+
+**Recognition Stage:**
+Using coordination between the robot base and the pan-tilt mechanism, the robot “searches” for recognizable objects on the map. When a recognizable color appears within the visual range, the robot begins processing color recognition. The image is first converted to the Lab color space and then binarized. After applying dilation and erosion operations, contours containing only the program-defined colors are obtained. By bounding these color contours, the robot achieves object color recognition.
+**Transportation Stage:**
+Once recognition is complete, the robot moves into transportation. Based on the processed image feedback, when multiple objects are within the field of view, the robot assesses their relative distances and prioritizes transporting the closest object. The robot approaches the selected object and, upon reaching a set range, lifts it up to its head level.
+According to the object’s color, the robot matches it with the corresponding AprilTag label, which determines the final delivery location. Then, by controlling the pan-tilt and the robot base, it scans the map for tags. When a tag is detected, the robot takes different actions depending on whether it is the target tag.
+
+* If the scanned tag is the target, the robot transports the object directly to that point and places it down.
+
+* If the scanned tag is not the target, the robot uses the tag’s position to infer the location of the target tag, then reorients itself toward the target. Once the target tag is scanned, the robot transports the object there and releases it.
+
+### 5.13.2 Getting Ready
+
+(1) The function of this section should be operated on the provided map. The right side is the items placement zone and the left side is the receiving space.
+
+<img src="../_static/media/chapter_5/section_13/media/image2.png"  class="common_img" />
+
+
+
+(2) Place the map on the smooth floor. Place the TonyPi and color blocks in the placement zone.
+
+### 5.13.3 Operation Steps
+
+:::{Note}
+
+Pay attention to the text format in the input of instructions.
+
+:::
+
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+
+(3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
+
+```python
+cd TonyPi/Functions/
+```
+
+(4) Input the following command , then press Enter to start the game.
+
+```python
+python3 Transport.py
+```
+
+(5) If you want to exit the game programming, press "**Ctrl+C**" in the LX terminal interface. If the exit fails, please try it few more times.
+
+### 5.13.4 Project Outcome
+
+:::{Note}
+
+It is recommended to place the map on a flat and open surface for optimal performance.
+
+:::
+
+Place the robot and sponge blocks of red, green, and blue colors randomly within the placement area of the map. After starting the intelligent transportation gameplay, the robot will sequentially transport sponge blocks to the corresponding AprilTag markers based on their proximity until all three blocks are transported.
+
+### 5.13.5 Comparison Between Voice Transport and Intelligent Transport
+
+<table><thead><tr><th></th><th>Voice transport</th><th>Intelligent transport</th></tr></thead><tbody><tr><td rowspan="2">control methods</td><td colspan="2">After starting the command-line game</td></tr><tr><td>Voice control</td><td>Auto work</td></tr><tr><td>Application scenarios</td><td>Quiet Environment (Voice commands effective within a distance of less than 30cm)</td><td>Noisy Environment (No distance requirement)</td></tr><tr><td>Work mode</td><td>Single Transport</td><td>Continuous Transport</td></tr></tbody></table>
+
+### 5.13.6 Program Parameter Instruction
+
+The source code of this program is located in: [/home/pi/TonyPi/Functions/Transport.py]().
+
+* **Import Parameter Module**
+
+(1) `import sys`:Imports Python’s sys module, used for accessing system-related functions and variables
+
+(2) `import os`:Imports Python’s os module, providing functions and methods to interact with the OS
+
+(3) `import cv2`:Imports the OpenCV library for image processing and computer vision-related functions
+
+(4) `import time`:Imports Python’s time module for time-related functions, such as delays
+
+(5) `import math`:Provides low-level access to mathematical operations, including many common math functions and constants
+
+(6) `import threading`:Provides a multi-threading runtime environment
+
+(7) `import np`:Imports the NumPy library, an open-source Python numerical computation extension for array and matrix operations
+
+(8) `import hiwonder.TTS as TTS`:Imports the speech recognition library
+
+(9) `import hiwonder.Camera as Camera`:Imports the camera library
+
+(10) `from hiwonder.Misc import Misc`:Imports the Misc module used to process recognized rectangular data
+(11) `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the robot’s low-level control library, used to control servos, motors, RGB lights, and other hardware
+
+(12) `from hiwonder.controller import Controller`:Imports the motion control library
+
+(13) `import hiwonder.ActionGroupControl as AGC`:Imports the action group execution library
+
+(14) `import common.yaml_handle`:Includes functions or tools for processing YAML format files
+
+*  **Transport color and preset position parameters**
+
+In this game, set up objects of three colors: red, green, and blue, and transport them to their corresponding tag positions, as shown in the pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image3.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image4.png"  class="common_img" />
+
+* **Detect transported object**
+
+(1) detect adjustment
+
+At the beginning, the robot adjusts its left and right direction to find the objects to be transported. The specific settings are as shown in the following image:
+
+<img src="../_static/media/chapter_5/section_13/media/image5.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image6.png"  class="common_img" />
+
+(2) To detect the objects for transportation based on their color, the following code is used.
+
+{lineno-start=545}
+
+```python
+	    color, color_center_x, color_center_y, color_angle = colorDetect(img)  # 颜色检测，返回颜色，中心坐标，角度(color detection, return color, center coordinates, angle)
+```
+
+The main process involved in detecting object colors is as follows:
+
+① Before converting the image to the LAB color space, noise reduction processing is required. The `GaussianBlur()` function is used for Gaussian filtering as pictured:
+
+{lineno-start=226}
+
+```python
+	frame_resize = cv2.resize(img, size, interpolation=cv2.INTER_NEAREST)
+    frame_gb = cv2.GaussianBlur(frame_resize, (3, 3), 3)   
+```
+
+The first parameter “frame_resize” is inputting image.
+
+The second parameter "(3, 3)" is the size of the Gaussian kernel. A larger kernel size typically results in a greater degree of filtering, making the output image more blurry, and it also increases computational complexity.
+
+The third parameter "3" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
+
+②By using the `inRange` function to perform binaryzation on the input image as pictured:
+
+{lineno-start=234}
+
+```python
+	            frame_mask = cv2.inRange(frame_lab,
+                                     (lab_data[i]['min'][0],
+                                      lab_data[i]['min'][1],
+                                      lab_data[i]['min'][2]),
+                                     (lab_data[i]['max'][0],
+                                      lab_data[i]['max'][1],
+                                      lab_data[i]['max'][2]))  #对原图像和掩模进行位运算(perform bitwise operation to original image and mask)
+```
+
+③ To reduce interference and make the image smoother, it is necessary to perform erosion and dilation operations on the image as pictured:
+
+{lineno-start=241}
+
+```python
+	        eroded = cv2.erode(frame_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))  #腐蚀(corrosion)
+            dilated = cv2.dilate(eroded, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))) #膨胀(dilation)
+```
+
+In the processing, the `getStructuringElement` function is used to generate structuring elements of different shapes.
+
+The first parameter `cv2.MORPH_RECT` is the shape of the kernel, which is a rectangle in this case.
+
+The second parameter `(3, 3)` is the size of the rectangle, which is 3x3 in this case.
+
+④ Find out the largest contour of the object as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image7.png"  class="common_img" />
+
+To avoid interference, the `if area_max > 500` instruction is used to ensure that only contours with an area greater than 500 are considered valid for the largest area.
+
+⑤ When the robot detects colored objects, use the `cv2.drawContours()` function to draw the contours of the colored objects as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image8.png"  class="common_img" />
+
+The first parameter `img` is the input image.
+
+The second parameter `[box]` is the contour itself, represented as a list in Python.
+
+The third parameter "-1" is the index of the contour, where the numerical value represents drawing all contours within the list.
+
+The fourth parameter `(0, 255, 255)` is the contour color, with the order being B, G, R, where (0, 255, 255) represents yellow in this case.
+
+The fifth parameter "2" is the contour width. If set to "-1", it means to fill the contour with the specified color.
+
+⑥ After the robot detects the colored object, use the `cv2.circle()` function to draw the center point of the colored object on the feedback screen as pictured:
+
+{lineno-start=261}
+
+```python
+	                cv2.circle(img, (center_x_, center_y_), 5, (0, 255, 255), -1)#画出中心点(draw center point)
+```
+
+The first parameter `img` is the input image, which is the image of the detected colored object in this case.
+
+The second parameter `(centerX, centerY)` is the coordinates of the center point of the circle to be drawn (determined based on the detected object).
+
+The third parameter "5" is the radius of the circle to be drawn.
+
+The fourth parameter `(0, 255, 255)` is the color of the circle to be drawn, with the order being B, G, R, and in this case, it represents yellow.
+
+The fifth parameter "-1" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
+
+* **Start transporting**
+
+After detecting a colored object, the robot starts transporting the object, which can be divided into several steps: approaching the object, picking up the object, finding the transportation location, transporting the object, and putting down the object.
+
+(1) approach the object
+
+Before starting the transport, first control the robot to gradually approach the object to be transported as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image9.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image10.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image11.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image12.png"  class="common_img" />
+
+(2) pick up the object
+
+After approaching the object, control the robot to pick up the object to be transported as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image13.png"  class="common_img" />
+
+(3) find the transportation location
+
+Before transporting the object, find the placement position for the colored object by detecting and recognizing the tag as pictured:
+
+{lineno-start=551}
+
+```python
+	        tag_data = apriltagDetect(img) # apriltag检测(apriltag detection)
+```
+
+The main control parameters involved in the process are as follows:
+
+① After obtaining the information of the four corner points of the tag code, use the `cv2.drawContours()` function to draw the contour of the tag as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image14.png"  class="common_img" />
+
+② After the robot detects the tag, use the cv2.circle() function to draw the center point of the tag on the feedback screen as pictured:
+
+{lineno-start=288}
+
+```python
+	        object_center_x, object_center_y = int(detection.center[0]), int(detection.center[1])  # 中心点(center point)
+            cv2.circle(frame, (object_center_x, object_center_y), 5, (0, 255, 255), -1)
+```
+
+(4) transport object
+
+After picking up the object, transport the object to the corresponding position as pictured:
+
+<img src="../_static/media/chapter_5/section_13/media/image15.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image16.png"  class="common_img" />
+
+<img src="../_static/media/chapter_5/section_13/media/image17.png"  class="common_img" />
+
+After picking up the object, set "step = 1", then control the robot to adjust its left and right position to face the tag position as pictured:
+
+{lineno-start=390}
+
+```python
+	            elif step == 1:  # 左右调整，保持在正中(adjust left or right to maintain in the center)
+                    x_dis = servo_data['servo2']
+                    y_dis = servo_data['servo1']                   
+                    turn = ''
+                    haved_find_tag = False
+                    
+                    if (object_center_x - CENTER_X) > 170 and object_center_y > 330:
+                        AGC.runActionGroup(back, lock_servos=lock_servos)   
+                    elif object_center_x - CENTER_X > 80:  # 不在中心，根据方向让机器人转向一步(not in the center, turn the robot one step according to the direction)
+                        AGC.runActionGroup(turn_right, lock_servos=lock_servos)
+                    elif object_center_x - CENTER_X < -80:
+                        AGC.runActionGroup(turn_left, lock_servos=lock_servos)                        
+                    elif 0 < object_center_y <= 250:
+                        AGC.runActionGroup(go_forward, lock_servos=lock_servos)
+```
+
+Then, gradually set "`step = 2`", "`step = 3`", "`step = 4`" to control the robot to transport the object to the tag position as pictured:
+
+{lineno-start=405}
+
+```python
+	                    step = 2
+                elif step == 2:  # 接近物体(approach the object)
+                    if 330 < object_center_y:
+                        AGC.runActionGroup(back, lock_servos=lock_servos)
+                    if find_box:
+                        if object_center_x - CENTER_X > 150:  
+                            AGC.runActionGroup(right_move_large, lock_servos=lock_servos)
+                        elif object_center_x - CENTER_X < -150:
+                            AGC.runActionGroup(left_move_large, lock_servos=lock_servos)                        
+                        elif -10 > object_angle > -45:# 不在中心，根据方向让机器人转向一步(not in the center, turn the robot one step according to the direction)
+                            AGC.runActionGroup(turn_left, lock_servos=lock_servos)
+                        elif -80 < object_angle <= -45:
+                            AGC.runActionGroup(turn_right, lock_servos=lock_servos)
+                        elif object_center_x - CENTER_X > 40:  
+                            AGC.runActionGroup(right_move_large, lock_servos=lock_servos)
+                        elif object_center_x - CENTER_X < -40:
+                            AGC.runActionGroup(left_move_large, lock_servos=lock_servos)
+```
+
+{lineno-start=454}
+
+```python
+	                    step = 4 
+                elif step == 4:  #靠近物体(approach the object)
+                    if 280 < object_center_y <= 340:
+                        AGC.runActionGroup('go_forward_one_step', lock_servos=lock_servos)
+                        time.sleep(0.2)
+                    elif 0 <= object_center_y <= 280:
+                        AGC.runActionGroup(go_forward, lock_servos=lock_servos)
+                    else:
+                        if object_center_y >= 370:
+                            go_step = 2
+                        else:
+                            go_step = 3
+                        if abs(object_center_x - CENTER_X) <= 40:
+                            stop_detect = True
+```
+
+During the transportation process, if the target tag is not detected, use other tags to determine the relative position as pictured:
+
+{lineno-start=303}
+
+```python
+# 通过其他apriltag判断目标apriltag位置(determine the position of the target apriltag using Other apriltags)
+# apriltag摆放位置：红(tag36h11_1)，绿(tag36h11_2)，蓝(tag36h11_3)(apriltag placement: red(tag36h_11_1), green(tag36h11_2), blue(tag36h11_3))
+def getTurn(tag_id, tag_data):
+    tag_1 = tag_data[0]
+    tag_2 = tag_data[1]
+    tag_3 = tag_data[2]
+
+    if tag_id == 1:  # 目标apriltag为1(target apriltag is 1)
+        if tag_2[0] == -1:  # 没有检测到apriltag 2(apriltag 2 is not detected)
+            if tag_3[0] != -1:  # 检测到apriltag 3， 则apriltag 1在apriltag 3左边，所以左转(detected apriltag 3, therefore apriltag 1 is to the left of apriltag 3, so turn left)
+                return 'left'
+        else:  # 检测到apriltag 2，则则apriltag 1在apriltag 2左边，所以左转(detected apriltag 2, therefore apriltag 1 is to the left of apriltag 2, so turn left)
+            return 'left'
+    elif tag_id == 2:
+        if tag_1[0] == -1:
+            if tag_3[0] != -1:
+                return 'left'
+        else:
+            return 'right'
+    elif tag_id == 3:
+        if tag_1[0] == -1:
+            if tag_2[0] != -1:
+                return 'right'
+        else:
+            return 'right'
+
+    return 'None'
+```
+
+{lineno-start=570}
+
+```python
+	        if turn == 'None':
+                object_center_x, object_center_y, object_angle = -1, -1, 0
+            else:  # 完全没有检测到apriltag(if no AprilTag is detected at all)
+                object_center_x, object_center_y, object_angle = -3, -1, 0
+```
+
+(5) put down object
+
+After completing the transportation, put down the object as pictured:
+
+{lineno-start=570}
+
+```python
+	            elif step == 5:  # 拿起或者放下物体(pick up or put down the object)
+                    if find_box:
+                        AGC.runActionGroup('go_forward_one_step', times=2)
+                        AGC.runActionGroup('stand', lock_servos=lock_servos)
+                        AGC.runActionGroup('move_up')
+                        lock_servos = LOCK_SERVOS
+                        step = 6    
+                    else:
+                        AGC.runActionGroup('go_forward_one_step', times=go_step, lock_servos=lock_servos)
+                        AGC.runActionGroup('stand', lock_servos=lock_servos)
+                        AGC.runActionGroup('put_down')
+                        AGC.runActionGroup(back, times=5, with_stand=True)
+                        color_list.remove(object_color)
+                        if color_list == []:
+                            color_list = ['red', 'green', 'blue']
+                        lock_servos = ''
+```
+
+## 5.14 Object Tracking
+
+### 5.14.1 Program Logic
+
+The robot recognizes colors, and its body can move according to the movement of the target color.
+
+First, program TonyPi to recognize colors with Lab color space. Convert the RGB color space to Lab, image binarization, and then perform operations such as expansion and corrosion to obtain an outline containing only the target color. Use circles to frame the color outline to realize object color recognition.
+
+Next, the traversal algorithm compares all correctly recognized colored objects and selects the object with the largest contour area as the target.
+
+Finally, the servo is called to perform real-time tracking, while the body is driven to perform follow-up actions through action groups, thus completing the object tracking function.
+
+### 5.14.2 Operation Steps
+
+:::{Note}
+
+Instructions must be entered with strict attention to case sensitivity and spacing.
+
+:::
+
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+
+(3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
+
+```python
+cd TonyPi/Functions/
+```
+
+(4) Input the command below, then press Enter to start the game.
+
+```python
+python3 Follow.py
+```
+
+(5) If you want to exit the game programming, press "**Ctrl+C**". If the exit fails, please try it few more times.
+
+### 5.14.3 Project Outcome
+
+:::{Note}
+
+The default recognized and tracking color is green. If you want to change to blue or red, please refer to [5.14.4 Function Extension/Modify Default Recognition Color](). Furthermore, when moving the handheld colored sponge blocks, the speed should not be too fast, and it should be within the range of camera recognition.
+
+:::
+
+After the game is started, slowly move the red sponge block by hand or place the block on a movable carrier. The TonyPi robot will move along with the movement of the target color.
+
+### 5.14.4 Function Extension
+
+* **Modify Default Recognition Color**
+
+Black, red and green are the built-in colors in the motion tracking program and red is the default color. In the following steps, we’re going to modify the tracking color as green.
+
+(1) Enter the following command to the directory where the game program is located.
+
+```python
+cd TonyPi/Functions/
+```
+
+(2) Enter the command below to go into the game program through vi editor.
+
+```python
+vim Follow.py
+```
+
+(3) Find the code `object_color = ('red',)`.
+
+<img src="../_static/media/chapter_5/section_14/media/image2.png"  class="common_img" />
+
+:::{Note}
+
+After entering the code position number on the keyboard, press "**Shift+G**" to directly locate to the corresponding location. This section aims to introduce quick location methods, so the code position number is for reference only. Please rely on actual positions.
+
+:::
+
+(4) Press "**i**" to enter the editing mode, then modify red in `_target_color = (‘red’)` to green.
+
+<img src="../_static/media/chapter_5/section_14/media/image3.png"  class="common_img" />
+
+(5) Press "**Esc**" to enter last line command mode. Input "**:wq**" to save the file and exit the editor.
+
+<img src="../_static/media/chapter_5/section_14/media/image4.png"  class="common_img" />
+
+* **Add Recognized Color**
+
+In addition to the built-in recognized colors, you can set other recognized colors in the programming. Take orange as example:
+
+(1) Open VNC, input command the following command to open Lab color setting document.
+
+```python
+vim /home/pi/TonyPi/lab_config.yaml
+```
+
+<img src="../_static/media/chapter_5/section_14/media/image5.png"  class="common_img" />
+
+(2) Click the debugging tool icon in the system desktop. Choose "**Execute**" in the pop-up window.
+
+<img src="../_static/media/chapter_5/section_14/media/image6.png"  class="common_img" />
+
+(3) Click "**Connect**" button in the lower left hand. When the interface display the camera returned image, the connection is successful. Select "**red**" in the right box first.
+
+<img src="../_static/media/chapter_5/section_14/media/image7.png"  class="common_img" />
+
+(4) Drag the corresponding sliders of L, A, and B until the color area to be recognized in the left screen becomes white and other areas become black.
+
+For example, if you want to recognize orange, you can put the orange ball in the camera's field of view. Adjust the corresponding sliders of L, A, and B until the blue part of the left screen becomes white and other colors become black, and then click "**Save**" button to keep the modified data.
+
+<img src="../_static/media/chapter_5/section_14/media/image8.png"  class="common_img" />
+
+(5) After the modification is completed, check whether the modified data was successfully written in. Enter the command again to check the color setting parameters.
+
+```py
+vim /home/pi/TonyPi/lab_config.yaml
+```
+
+(6) Check the data in red frame. If the edited value was written in the program, press "**Esc**" and enter "**:wq**" to save it and exit.
+
+### 5.14.5 Programming Instruction
+
+The source code of this program is locate in [/home/pi/TonyPi/Functions/Follow.py]().
+
+*  **Import Parameter Module**
+
+{lineno-start=3}
+
+```python
+import sys
+import os
+import cv2
+import time
+import math
+import threading
+import numpy as np
+import pandas as pd
+
+import hiwonder.PID as PID
+import hiwonder.Camera as Camera
+import hiwonder.Misc as Misc
+import hiwonder.ros_robot_controller_sdk as rrc
+from hiwonder.Controller import Controller
+import hiwonder.ActionGroupControl as AGC
+import hiwonder.yaml_handle as yaml_handle
+from CameraCalibration.CalibrationConfig import *
+```
+
+(1) `import sys`:Imports Python's sys module, used to access system-related functions and variables
+
+(2) `import os`:Imports Python's os module, providing functions and methods to interact with the operating system
+
+(3) `import cv2`:Imports the OpenCV library, used for image processing and computer vision-related functions
+
+(4) `import time`:Imports Python's time module, used for time-related functions such as delay operations
+
+(5) `import math`:The math module provides low-level access to mathematical operations, including many commonly used math functions and constants
+
+(6) `import threading`:Provides a multi-threading runtime environment
+
+(7) `import np`:Imports the NumPy library, an open-source numerical computing extension for Python, used for array and matrix operations
+
+(8) `import hiwonder.TTS as TTS`:Imports the speech recognition library
+
+(9) `import hiwonder.Camera as Camera`:Imports the camera library
+
+(10) `from hiwonder.Misc import Misc`:Imports the Misc module, used for processing recognized rectangular data
+
+(11) `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the robot's low-level control library, used to control servos, motors, RGB lights, and other hardware
+
+(12) `from hiwonder.controller import Controller`:Imports the motion control library
+
+(13) `import hiwonder.ActionGroupControl as AGC`:Imports the action group execution library
+
+(14) `import common.yaml_handle`:Includes some functions or tools related to processing YAML format files.
+
+* **Color detection parameter**
+
+In the object tracking program, the detected object color is red.
+
+{lineno-start=289}
+
+```python
+    __target_color = ('red')
+```
+
+The main detection parameters involved in the detection process are as follows:
+
+(1) Before converting the image to the LAB color space, noise reduction processing is required. The `GaussianBlur()` function is used for Gaussian filtering as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image9.png"  class="common_img" />
+
+The first parameter `frame_resize` is inputting image.
+
+The second parameter `(3, 3)` is the size of the Gaussian kernel. A larger kernel size typically results in a greater degree of filtering, making the output image more blurry, and it also increases computational complexity.
+
+The third parameter "3" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
+
+(2) By using the `inRange` function to perform binaryzation on the input image as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image10.png"  class="common_img" />
+
+(3) To reduce interference and make the image smoother, it is necessary to perform erosion and dilation operations on the image as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image11.png"  class="common_img" />
+
+In the processing, the `getStructuringElement` function is used to generate structuring elements of different shapes.
+
+The first parameter `cv2.MORPH_RECT` is the shape of the kernel, which is a rectangle in this case.
+
+The second parameter `(3, 3)` is the size of the rectangle, which is 3x3 in this case.
+
+(4) Find out the largest contour of the object as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image12.png"  class="common_img" />
+
+To avoid interference, the `if area_max_contour is not None and area_max > 100` instruction is used to ensure that only contours with an area greater than 100 are considered valid for the largest area.
+
+* **Color recognition parameter**
+
+The main control parameters involved in the color recognition process are as follows:
+
+(1) When the robot detects a colored object, use the `cv2.drawContours()` function to draw the contour of the colored object as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image13.png"  class="common_img" />
+
+The first parameter `img` is inputting image.
+
+The second parameter `[box]` is the contour itself, represented as a list in Python.
+
+The third parameter `-1` is the index of the contour, where the numerical value represents drawing all contours within the list.
+
+The fourth parameter `(0, 255, 255)` is the contour color, with the order being B, G, R, and in this case, it represents yellow.
+
+The fifth parameter `2` is the contour width. If set to `-1`, it means to fill the contour with the specified color.
+
+(2) After the robot detects a colored object, use the `cv2.circle()` function to draw the center point of the colored object on the feedback screen as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image14.png"  class="common_img" />
+
+The first parameter `img` is the input image, which is the image of the detected colored object in this case.
+
+The second parameter `(centerX, centerY)` is the coordinates of the center point of the circle to be drawn (determined based on the detected object).
+
+The third parameter "5" is the radius of the circle to be drawn.
+
+The fourth parameter `(0, 255, 255)` is the color of the circle to be drawn, with the order being B, G, R, and in this case, it represents yellow.
+
+The fifth parameter "-1" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
+
+* **Perform motion parameter**
+
+(1) After detecting a red object, control servo 1 and servo 2 of the robot to move the upper camera with the movement of the red object.
+
+<img src="../_static/media/chapter_5/section_14/media/image15.png"  class="common_img" />
+
+Take code `ctl.set_pwm_servo_pulse(1, vertical_servo_position,use_time*1000)` as example:
+
+The first parameter "1" represents controlling servo ID 1.
+
+The second parameter `vertical_servo_position` represents the pulse width of servo ID 1.
+
+The third parameter `use_time*1000` represents the movement time of the servo, in milliseconds.
+
+(2) After detecting the red ball, the robot calls the action group file in the "**/home/pi/TonyPi/ActionGroups**" directory to control the robot to move along with the red object as pictured:
+
+<img src="../_static/media/chapter_5/section_14/media/image16.png"  class="common_img" />
