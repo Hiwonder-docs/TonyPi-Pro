@@ -927,3 +927,370 @@ elif objective_y >= 320:
 Take the code `AGC.runAction('turn_right')` as example:
 
 Use the `AGC.runAction` function to call the action group. `turn_right` is the name of action group.
+
+## 8.4 Voice-Controlled Object Gripping
+
+### 8.4.1 Preparation
+
+:::{Note}
+
+The palm’s servo ID and limits have already been preconfigured before shipment, so users do not need to set them manually. 
+
+:::
+
+(1) This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [8. Vision Gripping Lesson->8.1 Assembly]().
+
+(2) Install the WonderEchoPro module. Installation instructions can be found in [6.1.2 WonderEcho Pro Installation]().
+
+(3) Place the color block on a platform 15 cm high. The height deviation must not exceed 1 cm, as it may affect functionality. You may use the robot’s packaging box as a platform for this activity.
+
+### 8.4.2 Feature Overview
+
+The workflow for this feature is as follows:
+
+First, the WonderEchoPro module is activated to receive and interpret voice commands. Based on the interpreted result, the system identifies the target color to locate.
+
+Next, color recognition is performed using the Lab color space. The RGB color input is converted to Lab, and then a series of image processing steps—such as binarization, dilation, and erosion—are applied to isolate contours that match the target color. A rectangular bounding box is drawn around the detected color area, and the center coordinates of the object are extracted to determine its position.
+
+Finally, using the object's coordinates, the robot is guided to move close to the object and execute an action group to grasp it, completing the voice-controlled object-grabbing task.
+
+### 8.4.3 Operation Steps
+
+:::{Note}
+
+The entered command must be pay attention to case sensitivity and space.
+
+:::
+
+(1) Turn on the robot and connect to Raspberry Pi desktop with VNC.
+
+(2) Click the icon <img src="../_static/media/chapter_8/section_3/media/image4.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
+
+(3) Enter command to go to the directory of game program:
+
+```python
+cd /home/pi/TonyPi/Extend/vision_grab_course/
+```
+
+(4) Enter the command below, and then press “ Enter” to start the game.
+
+```python
+python3 asr_color_detect.py
+```
+
+(5) If want to exit the game, press "**Ctrl+C**" in the LX terminal. Please try multiple times if fail to exit.
+
+### 8.4.4 Project Outcome
+
+Once the feature is activated, the user can speak a specific command, and the robot will grasp the corresponding color block.
+
+Before using this function, please ensure the wake word is set to either "**小幻小幻(Chinese)**" or "**TonyPi**". For detailed instructions on setting the wake word, refer to  [6.3.3 Firmware Flashing Method]() .
+
+The following table outlines the relationship between voice commands and the robot’s corresponding actions:
+
+<table>
+  <thead>
+    <tr>
+      <th>NO.</th>
+      <th>Command</th>
+      <th>Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>小幻小幻/Tonypi</td>
+      <td>Wake word (must be spoken)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>na hong se (pick red)</td>
+      <td>Robot picks up the red block</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>na lv se (pick green)</td>
+      <td>Robot picks up the green block</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>na lan se (pick blue)</td>
+      <td>Robot picks up the blue block</td>
+    </tr>
+  </tbody>
+</table>
+
+:::{Note}
+
+* Always say the wake word before giving a pick-up command.
+
+* After saying the wake word, if the WonderEchoPro module responds with “I'm here,” it means the wake-up was successful.
+
+:::
+
+### 8.4.5 Program Analysis
+
+The source code for this program is located at:[/home/pi/TonyPi/Extend/vision_grab_course/asr_color_detect.py]().
+
+* **Import Parameter Modules**
+
+(1) `import sys`:Imports Python's sys module to access system-specific functions and variables.
+
+(2) `import os`:Imports the os module for interacting with the operating system.
+
+(3) `import cv2`:Imports the OpenCV library for image processing and computer vision tasks.
+
+(4) `import time`:Imports Python's time module for time-related functions, such as delays.
+
+(5) `import serial`:Used for serial communication with hardware devices.
+
+(6) `import threading`:Provides a multithreading environment.
+
+(7) `import numpy as np`:Imports the NumPy library for numerical operations on arrays and matrices.
+
+(8) `from hiwonder import fps`:Calculates frames per second (FPS).
+
+(9) `from speech import speech`:Imports speech recognition and synthesis modules.
+
+(10) `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the robot control SDK for controlling servos, motors, RGB lights, etc.
+
+(11) `import hiwonder.yaml_handle as yaml_handle`:Provides tools for handling YAML-formatted files.
+
+(12) `from hiwonder.Controller import Controller`:Imports the motion control library.
+
+* **Feature Logic**
+
+The camera captures image data, which is then processed through binarization. To reduce noise and make the image smoother, erosion and dilation operations are applied.
+
+Next, based on the voice recognition result, the robot is controlled to approach the color block, perform a grasping action, and place the block accordingly.
+
+* **Program Logic and Code Analysis**
+
+(1) Initialization:
+
+① Import Function Library
+
+The first step in initialization is to import all the necessary libraries. This ensures that the required functions and modules are available for use throughout the program and lays the foundation for the subsequent operations.
+
+{lineno-start=4}
+
+```python
+import os
+import sys
+import cv2
+import math
+import time
+import serial
+import threading
+import numpy as np
+from hiwonder import fps
+from speech import speech
+import hiwonder.ros_robot_controller_sdk as rrc
+from hiwonder.Controller import Controller
+import hiwonder.Misc as Misc
+import hiwonder.ActionGroupControl as AGC
+import hiwonder.yaml_handle as yaml_handle
+```
+
+② Set the Initial Status
+
+Configure the initial state, including servo starting positions, color threshold settings, and voice command keywords.
+
+{lineno-start=38}
+
+```python
+lab_data = None
+servo_data = None
+def load_config():
+    global lab_data
+    global servo_data
+    lab_data = yaml_handle.get_yaml_data(yaml_handle.lab_file_path)
+    servo_data = yaml_handle.get_yaml_data(yaml_handle.servo_file_path)
+
+load_config()
+
+range_rgb = {
+    'red': (0, 0, 255),
+    'blue': (255, 0, 0),
+    'green': (0, 255, 0),
+    'black': (0, 0, 0),
+    'white': (255, 255, 255),
+    'None': (255, 255, 255)}
+
+board = rrc.Board()
+ctl = Controller(board)
+
+# 初始位置(initial position)
+def initMove():
+    ctl.set_pwm_servo_pulse(1,servo_data['servo1'],1000)
+    ctl.set_pwm_servo_pulse(2,servo_data['servo2'],1000) 
+    ctl.set_bus_servo_pulse(17, 500, 1000)
+    ctl.set_bus_servo_pulse(18, 500, 1000)
+```
+
+(2) Image Processing
+
+① Image Preprocessing
+
+The image undergoes resizing and Gaussian blur to prepare it for further analysis.
+
+{lineno-start=155}
+
+```python
+    frame_resize = cv2.resize(img, size, interpolation=cv2.INTER_NEAREST)
+    frame_gb = cv2.GaussianBlur(frame_resize, (3, 3), 3)   
+```
+
+`cv2.resize(img_copy, size, interpolation=cv2.INTER_NEAREST)`: This function resizes the input image.
+
+* `img_copy`: The image to be resized.
+
+* `size`: The target dimensions (width, height).
+
+* `interpolation`: The interpolation method used for resizing. cv2.INTER_NEAREST applies nearest-neighbor interpolation.
+
+cv2.GaussianBlur(frame_resize, (3, 3), 3): This applies Gaussian blur to the image to reduce noise and smooth the result.
+
+* `frame_resize`: The image to be blurred.
+
+* `(3, 3)`: The size of the Gaussian kernel (width and height both set to 3).
+
+* `3`: The standard deviation of the Gaussian kernel. Larger values result in a stronger blur effect.
+
+② Color Space Conversion
+
+Convert the image from BGR to LAB color space.
+
+{lineno-start=157}
+
+```python
+    frame_lab = cv2.cvtColor(frame_gb, cv2.COLOR_BGR2LAB)  # 将图像转换到LAB空间(convert the image to LAB space)
+```
+
+③ Binarization Processing
+
+The cv2.inRange() function from the OpenCV library is used to perform binarization on the image.
+
+{lineno-start=162}
+
+```python
+        frame_mask = cv2.inRange(frame_lab,
+                                 (lab_data[target_color]['min'][0],
+                                  lab_data[target_color]['min'][1],
+                                  lab_data[target_color]['min'][2]),
+                                 (lab_data[target_color]['max'][0],
+                                  lab_data[target_color]['max'][1],
+                                  lab_data[target_color]['max'][2]))  #对原图像和掩模进行位运算(perform bitwise operation to original image and mask)
+```
+
+**First parameter**: frame_lab — the input image in LAB color space
+
+**Second parameter**: lab_data[i]['min'][0] — the lower threshold
+
+**Third parameter**: lab_data[i]['max'][0] — the upper threshold
+
+④ Corrosion and Dilation
+
+{lineno-start=169}
+
+```python
+        eroded = cv2.erode(frame_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))  #腐蚀(corrosion)
+        dilated = cv2.dilate(eroded, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))) #膨胀(dilation)
+```
+
+`eroded = cv2.erode(frame_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))`:This line performs erosion on a binary image.
+
+**First parameter**: `frame_mask` — the binary image to be processed using morphological operations.
+
+**Second parameter**: `cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))` — the structuring element used for erosion. In this case, a rectangular kernel of size (3, 3) is applied.
+
+The same logic applies to the dilation function (cv2.dilate()), which uses a similar structuring element to expand white areas in the binary image.
+
+⑤ Obtaining the Largest Contour
+
+After completing the image processing steps above, the next task is to find the contour of the target object using the `cv2.findContours()` function from the OpenCV library.
+
+{lineno-start=171}
+
+```python
+        contours = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2]  # 找出轮廓(find out contours)
+```
+
+For example, consider the code:
+
+`contours = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2]`
+
+**First parameter:** `dilated` — the input image (usually a processed binary image)
+
+**Second parameter:** `cv2.RETR_EXTERNAL` — contour retrieval mode, which retrieves only the external contours
+
+**Third parameter:** `cv2.CHAIN_APPROX_NONE` — contour approximation method, which stores all the points of the contour
+
+Among the retrieved contours, the one with the largest area is selected. To avoid interference from noise or irrelevant contours, a minimum area threshold is set, and only contours exceeding this threshold are considered valid targets.
+
+⑥ Obtain and Return Recognition Results, Center Coordinates, and Angle
+
+Find the minimum-area bounding rectangle of the largest contour. Use the `cv2.drawContours()` function to draw this rectangle on the output image. Then, determine the diagonal points of the rectangle and calculate the coordinates of its center point.
+
+{lineno-start=177}
+
+```python
+            box = np.int0(cv2.boxPoints(rect))#最小外接矩形的四个顶点(the four vertices of the minimum bounding rectangle)
+            for j in range(4):
+                box[j, 0] = int(Misc.map(box[j, 0], 0, size[0], 0, img_w))
+                box[j, 1] = int(Misc.map(box[j, 1], 0, size[1], 0, img_h))
+            cv2.drawContours(img, [box], -1, range_rgb[target_color], 2)#画出四个点组成的矩形(draw the rectangle formed by the four points)
+            #获取矩形的对角点(get the diagonal points of the rectangle)
+            ptime_start_x, ptime_start_y = box[0, 0], box[0, 1]
+            pt3_x, pt3_y = box[2, 0], box[2, 1]            
+            center_x_, center_y_ = int((ptime_start_x + pt3_x) / 2), int((ptime_start_y + pt3_y) / 2)#中心点(center point)
+            cv2.circle(img, (center_x_, center_y_), 5, (0, 255, 255), -1)#画出中心点(draw center point)
+            distance = pow(center_x_ - img_w/2, 2) + pow(center_y_ - img_h, 2)
+            if distance < center_max_distance:  # 寻找距离最近的物体来搬运(find the nearest object for transportation)
+                center_max_distance = distance
+                color = target_color
+                center_x, center_y, angle = center_x_, center_y_, angle_
+```
+
+(3) Color Block Grasping
+
+① Determine the direction of the color block based on the comparison between the block’s center X-coordinate and CentreX, then assign the result to the variable dire.
+
+{lineno-start=98}
+
+```python
+                    if color_x > CentreX:
+                        dire = 'right'
+                    elif color_x < CentreX:
+                        dire = 'left'
+```
+
+② Calculate the difference between the color block’s center X-coordinate and CentreX, and use this value to control the robot’s movement toward the block by calling the corresponding action group.
+
+For example, the code `AGC.runActionGroup('grab_right')` calls an action group, where 'grab_right' is the name of the action group.
+
+③ After approaching the color block, call the appropriate action group to grasp and place the block according to the value of dire.
+
+{lineno-start=111}
+
+```python
+                    board.set_buzzer(1900, 0.1, 0.9, 1)
+                    if dire == 'left':
+                        AGC.runAction('grab_squat_left')
+                        time.sleep(0.5)
+                        AGC.runAction('grab_squat_up_left')
+                        time.sleep(0.5)
+                        AGC.runAction('grab_stand_left')
+                    elif dire == 'right':
+                        AGC.runAction('grab_squat_right')
+                        time.sleep(0.5)
+                        AGC.runAction('grab_squat_up_right')
+                        time.sleep(0.5)
+                        AGC.runAction('grab_stand_right')
+                    dire = None
+                    state = False
+                    target_color = 'None'
+```
+
+Again, using the example `AGC.runActionGroup('grab_right')`, the function calls the action group named 'grab_right'.
+
