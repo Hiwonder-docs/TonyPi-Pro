@@ -2977,9 +2977,7 @@ vim FaceDetect.py
 
 (3) Find code `AGC.runActionGroup('wave')`.
 
-<img src="../_static/media/chapter_5/section_10/image1.png" class="common_img"/>
-
-"**wave**" in the above image is the name of greeting action. If we want to revise the action to bowing, enter "**bow**" instead of "**wave**" in the "**Action group instruction**" in the path /home/pi/TonyPi/ActionGroups.
+"**wave**" in the above image is the name of greeting action. If we want to revise the action to bowing, enter "**bow**" instead of "**wave**" in the "**Action group instruction**" in the path **/home/pi/TonyPi/ActionGroups**.
 
 :::{Note}
 
@@ -2989,11 +2987,7 @@ The action name can be found in the "**Action group instruction**".
 
 (4) Press "**i**" to enter the editing mode, then modify "**wave**" to "**bow**".
 
-<img src="../_static/media/chapter_5/section_10/image2.png" class="common_img"/>
-
 (5) Press "**Esc**" to enter last line command mode. Input "**:wq**" to save the file and exit the editor.
-
-<img src="../_static/media/chapter_5/section_10/image3.png" class="common_img"/>
 
 ## 5.11 Gesture Control
 
