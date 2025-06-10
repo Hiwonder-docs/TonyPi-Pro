@@ -60,11 +60,11 @@ This section uses the Android version as an example, but the steps also apply to
 
 <img src="../_static/media/chapter_2/section_1/image5.png" class="common_img" />
 
-(4) Follow the on-screen instructions to open your phone's settings and connect to the hotspot starting with **"HW"**.
+(4) Follow the on-screen instructions to open your phone's settings and connect to the hotspot starting with **"HW"**（Password: **hiwonder**）.
 
 <img src="../_static/media/chapter_2/section_1/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_2/section_1/image7.png" class="common_img" />
+<img src="../_static/media/chapter_2/section_1/image7.png" style="width:600px" class="common_img" />
 
 (5) Once connected, return to the app. The app will automatically connect to the device. Wait a moment until the robot icon appears, indicating a successful connection.
 
