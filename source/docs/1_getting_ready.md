@@ -316,26 +316,25 @@ TonyPi also integrates a multimodal model. When used with the AI voice interacti
   </tbody>
 </table>
 
-
 * **Safety and Usage Guidelines**
 
 Please observe the following precautions when using and storing this product:
 
-- This product contains small components and sharp pins and is not suitable for children under 12 years of age.
+1. This product contains small components and sharp pins and is not suitable for children under 12 years of age.
 
-- Minors should use this product only under adult supervision and guidance.
+2. Minors should use this product only under adult supervision and guidance.
 
-- The product includes small and sharp parts. Do not swallow or apply pressure to avoid injury.
+3. The product includes small and sharp parts. Do not swallow or apply pressure to avoid injury.
 
-- The product contains electrically conductive components. Do not touch it with metal objects while powered on.
+4. The product contains electrically conductive components. Do not touch it with metal objects while powered on.
 
-- Do not forcibly move any part of the robot while it is powered on, as this may cause damage.
+5. Do not forcibly move any part of the robot while it is powered on, as this may cause damage.
 
-- If the product will not be used for an extended period, fully charge the battery, remove it, and store it in a cool, dry place.
+6. If the product will not be used for an extended period, fully charge the battery, remove it, and store it in a cool, dry place.
 
 * **Copyright Statement**
 
-This manual is the intellectual property of [Shenzhen Hiwonder Technology Co., Ltd.]().
+This manual is the intellectual property of Shenzhen Hiwonder Technology Co., Ltd..
 
 No organization or individual is permitted to reproduce, copy, translate, or distribute any part of this manual without prior written authorization.
 
@@ -359,11 +358,11 @@ Due to transportation regulations, lithium batteries must be disconnected during
 Please ensure that the battery pairing wires are properly connected. The red wire should be connected to red, and the black wire to black.
 :::
 
-<img src="../_static/media/chapter_1/section_2/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image2.png" class="common_img" />
 
 (1) Connect the charger to the charging port located on the Raspberry Pi expansion board at the back of the robot.
 
-<img src="../_static/media/chapter_1/section_2/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image3.png" class="common_img" />
 
 (2) When the charger is connected to the robot's battery **but not yet plugged into an AC power outlet**, the charger's LED indicator will light up **green**.
 
@@ -385,12 +384,12 @@ The Raspberry Pi is a small minicomputer itself. It usually takes a period time 
 
 (2) By default, the device is set to AP (Access Point) direct connection mode, and it will broadcast a Wi-Fi hotspot with a name starting with **"HW"**.
 
-<img src="../_static/media/chapter_1/section_2/media/image4.jpeg" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image4.jpeg" class="common_img" />
 
 * **Battery Level Check**
 
 TonyPi is equipped with a voltage display module on its back, allowing users to monitor the robot's current battery level in real time, as illustrated in the diagram below:
 
-<img src="../_static/media/chapter_1/section_2/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image5.png" class="common_img" />
 
 The operating voltage range of TonyPi is 9V-12.6V. When the battery is fully charged, the voltage display module will show **"12.6"**. Please recharge the robot promptly when the current voltage is below 10V.

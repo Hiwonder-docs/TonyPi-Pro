@@ -2,6 +2,8 @@
 
 ## 6.1 Introduction to WonderEcho Pro and Installation
 
+<p id="anchor_6_1_1"></p>
+
 ### 6.1.1 Introduction to WonderEcho Pro
 
 WonderEcho Pro, also known as the AI Voice Interaction Box, is equipped with a high-performance noise-canceling microphone and a high-fidelity speaker. Featuring a USB-to-audio module, it offers plug-and-play functionality without the need for drivers and is compatible with multiple systems for both playback and recording.
@@ -30,15 +32,15 @@ The following steps demonstrate the process using the Raspberry Pi 5, but the co
 
 * **Connection Setup and Verification**
 
-<img src="../_static/media/chapter_6/section_1/01/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image2.png" class="common_img" />
 
-For Raspberry Pi, you can establish a remote connection to the system using VNC by following the [**"3. Remote Desktop Tool Installation and Connection"**]() guide. Once connected, check the top-right corner of the desktop for the microphone and speaker icons, as shown below. If they are present, the connection has been successfully established.
+For Raspberry Pi, you can establish a remote connection to the system using VNC by following the [**"3. Remote Desktop Tool Installation and Connection"**](3_remote_desktop_tool_installation_and_connection.md) guide. Once connected, check the top-right corner of the desktop for the microphone and speaker icons, as shown below. If they are present, the connection has been successfully established.
 
-<img src="../_static/media/chapter_6/section_1/01/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image3.png" class="common_img" />
 
 For Jetson-based systems, you can use the Nomachine remote connection tool. Once connected, verify the presence of the speaker icon in the top-right corner of the system.
 
-<img src="../_static/media/chapter_6/section_1/01/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image4.png" class="common_img" />
 
 * **Recording Test**
 
@@ -48,7 +50,7 @@ For Jetson-based systems, you can use the Nomachine remote connection tool. Once
 arecord -l
 ```
 
-<img src="../_static/media/chapter_6/section_1/01/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image5.png" class="common_img" />
 
 (2) Then, use the following command to start recording, replacing the highlighted card number (in red) with the one obtained from the previous query:
 
@@ -58,7 +60,7 @@ arecord -D hw:0,0 -f S16_LE -r 16000 -c 2 test.wav
 
 (3) A **"test.wav"** file will be generated in the current folder.
 
-<img src="../_static/media/chapter_6/section_1/01/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image6.png" class="common_img" />
 
 (4) You can record for about 5 seconds, then press **"Ctrl+C"** to stop the recording.
 
@@ -70,7 +72,7 @@ arecord -D hw:0,0 -f S16_LE -r 16000 -c 2 test.wav
 ls
 ```
 
-<img src="../_static/media/chapter_6/section_1/01/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/01/image7.png" class="common_img" />
 
 (2) If **"test.wav"** appears, the recording was successful. To play the recorded file, use the command below, ensuring you replace the card number with the one obtained from your previous query:
 
@@ -78,17 +80,19 @@ ls
 aplay test.wav
 ```
 
-<img src="../_static/media/chapter_6/section_1/01/media/image8.png" class="common_img" />
+<p id="anchor_6_1_2"></p>
 
 ### 6.1.2 WonderEcho Pro Installation
 
 (1) Secure the WonderEcho Pro to the back of TonyPi using M4*6 screws, making sure to align it in the correct orientation.
 
-<img src="../_static/media/chapter_6/section_1/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/02/image2.png" class="common_img" />
 
 (2) Connect the module to the robot's USB port using a Type-C cable.
 
-<img src="../_static/media/chapter_6/section_1/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/02/image3.png" class="common_img" />
+
+<p id="anchor_6_1_3"></p>
 
 ### 6.1.3 Firmware Flashing Method
 
@@ -98,45 +102,45 @@ In this lesson, we will learn how to flash firmware onto the WonderEcho Pro.
 
 (1) Begin by connecting the WonderEcho Pro to your computer using a Type-C data cable.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image2.png" class="common_img" />
 
-(2) Open the file **"PACK_UPDATE_TOOL.exe"** located in [**Firmware Flashing Tool**](). Select the **"CI1302"** chip and click **"Firmware Upgrade."**
+(2) Open the file **"PACK_UPDATE_TOOL.exe"** located in [**Firmware Flashing Tool**](resources_download.md). Select the **"CI1302"** chip and click **"Firmware Upgrade"**.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image3.png" class="common_img" />
 
 **For this example, we will use the "hello hiwonder firmware" (Wake word: "hello hiwonder").**
 
-(3) Select the firmware by locating the [**"hello hiwonder firmware (Wake word: hello hiwonder).bin"**]() file under the [**Appendix**]() path.
+(3) Select the firmware by locating the **"hello hiwonder firmware (Wake word: hello hiwonder).bin"** file under the [**Appendix**](resources_download.md) path.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image4.png" class="common_img" />
 
 (4) Identify the correct COM port and select it.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image5.png" class="common_img" />
 
 (5) Press the RST button on the WonderEcho Pro to initiate the flashing process. Wait for the process to complete successfully.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image6.png" class="common_img" style="widht:400px;"/>
 
-<img src="../_static/media/chapter_6/section_1/03/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image7.png" class="common_img" />
 
 * **Testing the Wake Word**
 
-After flashing the firmware, follow the steps in [**Serial Port Debugging Tool**]() to install the serial port debugging tool. Then, follow the steps below to test whether the firmware is functioning correctly.
+After flashing the firmware, follow the steps in [**Serial Port Debugging Tool**](resources_download.md) to install the serial port debugging tool. Then, follow the steps below to test whether the firmware is functioning correctly.
 
 (1) Connect the WonderEcho Pro to your computer's USB port using a Type-C to USB adapter.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image2.png" class="common_img" />
 
 (2) Open the Serial Port Utility, select the connected COM port (including CH340), and set the baud rate to 115200, as shown in the image below.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image8.png" class="common_img" />
 
 (3) Say the wake word **"hello hiwonder"** as configured in the firmware settings. The corresponding flag information will appear on the right side (in hexadecimal format), confirming that the wake word was successfully recognized.
 
-<img src="../_static/media/chapter_6/section_1/03/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image9.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/03/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/03/image10.png" class="common_img" />
 
 ### 6.1.4 WonderEcho Pro Firmware Development
 
@@ -150,7 +154,7 @@ In this lesson, you'll learn how to create and flash firmware for the WonderEcho
 
 (2) First, visit the ChipIntelli Voice AI Platform by clicking on **"Platform Features"** in the top menu, and then select **"In-depth development of Product Firmware & SDK"** under the Product Development section.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image2.png" class="common_img" />
 
 (3) You will be prompted to log in. (Note: Currently, registration is only available for mainland China mobile numbers. For international users, we provide a shared account:
 **Username: 18033085495
@@ -158,89 +162,89 @@ Password: hiwonder**)
 
 After successfully logging in, click **"In-depth development of Product Firmware & SDK"** again to access the development section.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image3.png" class="common_img" />
 
 (4) To create a new product, click the option in the left sidebar. You will be asked to provide a Product Name and a Description, both of which can be customized. For the other fields, follow the options shown in the red box. Specifically, choose Product Type: 通用 (General) → 智能中控 (Smart Central Control). After completing these steps, click Create.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image5.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image6.png" class="common_img" />
 
 (5) Next, you will need to set the project language. Since we are configuring for English voice recognition, select English under Language Type. If you were configuring for Chinese recognition, you would select Chinese for both Voice Type and Acoustic Model. Once you've selected the appropriate options, click Continue to proceed.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image8.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image9.png" class="common_img" />
 
 (6) In the firmware configuration interface, you will make some important changes to the settings. Start by enabling the Echo Cancellation feature under Algorithm Settings.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image10.png" class="common_img" />
 
 (7) Under Hardware Settings, set the oscillator source to Internal RC and disable the Baud Rate Calibration function.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image11.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image12.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image13.png" class="common_img" />
 
 (8) In the UART Print Settings, configure UART1 to Open-Drain Mode, supporting external 5V pull-up.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image14.png" class="common_img" />
 
 (9) For Communication UART Settings, set the Baud Rate to 115200 and configure UART0 to Open-Drain Mode, also supporting external 5V pull-up. After adjusting these settings, click Continue to move forward.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image15.png" class="common_img" />
 
 (10) The next step involves configuring the command words. You will need to choose a voice output for the wake-up command. For this example, select **"Dane – English Male Voice"** as the output voice. (If you're using Chinese as the language, you may choose the voice option **"Chengcheng – Standard Boy Ver.1"**. The selection between Chinese and English voices is determined by the language settings configured in Step 5.)
 
-<img src="../_static/media/chapter_6/section_1/04/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image16.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image17.png" class="common_img" />
 
-(11) Next, upload the command word configuration file. Navigate to the folder [**Appendix\4. Wake Word Protocol List**]() and locate the spreadsheet titled [**Command Phrase and Playback Protocol List V3 – English Template**](). Simply drag and drop the file into the upload area on the webpage.
+(11) Next, upload the command word configuration file. Navigate to the folder [**Wake Word Protocol List**](resources_download.md) and locate the spreadsheet titled [**Command Phrase and Playback Protocol List V3 – English Template**](resources_download.md). Simply drag and drop the file into the upload area on the webpage.
 
 :::{Note}
 If you wish to change the wake word, open the spreadsheet and replace the default wake word HIWONDER with your preferred word. **Keep in mind that the English version of the firmware only supports English wake words, and mixed-language wake words are not allowed. Additionally, English wake words must be written in uppercase letters to function properly.**
 :::
 
-<img src="../_static/media/chapter_6/section_1/04/media/image18.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image18.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image19.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image19.png" class="common_img" />
 
 (12) After uploading the file, you will see the command data populated in the table below.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image20.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image20.png" class="common_img" />
 
 (13) Click **"Submit"** and wait a few minutes for the firmware generation process to complete. Once finished, click **"Download"** to obtain your customized firmware.
 
-<img src="../_static/media/chapter_6/section_1/04/media/image21.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image21.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image22.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image22.png" class="common_img" />
 
-<img src="../_static/media/chapter_6/section_1/04/media/image23.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_1/04/image23.png" class="common_img" />
 
 ## 6.2 Sing and Dance
 
 ### 6.2.1 Program Download
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 ### 6.2.2 Preparation
 
-Refer to Section 6.1 Introduction to WonderEcho Pro and Installation to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot.
+Refer to Section **[6.1 Introduction to WonderEcho Pro and Installation](#anchor_6_1_1)** to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot.
 
 ### 6.2.3 Brief Game Instructions
 
 The program plays .mp3 audio files using the WonderEcho Pro module's sound card. Create a folder named audio in the same directory as the script. When the program runs, it will execute a corresponding dance routine and play an .mp3 file with the same name.
 
-Script location: [/home/pi/TonyPi/Functions/voice_interaction/sing_and_dance.py]()
+Script location: [/home/pi/TonyPi/Functions/voice_interaction/sing_and_dance.py](../_static/source_code/Functions.zip)
 
-Audio file directory: [/home/pi/TonyPi/audio/]()
+Audio file directory: **/home/pi/TonyPi/audio/**
 
 ### 6.2.4 Starting and Stopping the Game
 
@@ -272,7 +276,7 @@ After running the program, the WonderEcho Pro module will play the specified mus
 
 ### 6.2.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 * **Library Files Import**
 
@@ -295,7 +299,7 @@ speech.play_audio("/home/pi/TonyPi/audio/{}.wav".format(action_name), block=Fals
 AGC.runActionGroup(action_name)
 ```
 
-**/home/pi/TonyPi/audio/{}.wav".format(action_name)**: specifies the path to the corresponding audio file. The `volume=20` parameter sets the audio playback volume to 20.
+**/home/pi/TonyPi/audio/{}.wav.format(action_name)**: specifies the path to the corresponding audio file. The `volume=20` parameter sets the audio playback volume to 20.
 
 The `block=False` parameter enables non-blocking mode.
 
@@ -323,7 +327,7 @@ python3 sing_and_dance.py
 
 (5) Press the **"i"** key to enter edit mode. Modify the action group name at this location to match the action group from the **"ActionGroups"** file. For example, change it to **"22.d6ac,"** as shown in the image.
 
-<img src="../_static/media/chapter_6/section_2/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_2/image12.png" class="common_img" />
 
 (6) Once the modification is complete, press the **"Esc"** key. Then, type the following command (note that a colon **":"** precedes the **"wq"**) and press Enter to save the changes:
 
@@ -333,17 +337,17 @@ python3 sing_and_dance.py
 
 (7) Afterward, repeat the steps outlined in this document to run the program. This will execute Action Group 22 and its corresponding music, reflecting the changes you've made.
 
-(8) If you wish to implement additional actions, refer to the [**4. PC Software Action Control Courses \ 4.3 Action Editing**]() document for guidance on creating action groups.
+(8) If you wish to implement additional actions, refer to the [**4. PC Software Action Control Courses -\> 4.3 Action Group Programming**](4_pc_software_action_control_courses.md#action-group-programming) document for guidance on creating action groups.
 
 ## 6.3 Voice Recognition
 
 ### 6.3.1 Program Download
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 ### 6.3.2 Preparation
 
-Refer to Section 6.1 Introduction to WonderEcho Pro and Installation to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6 AI Voice Interaction Course > 6.1 Introduction to WonderEcho Pro and Installation > 6.1.3 Firmware Flashing Method"**]() for step-by-step instructions.
+Refer to Section **[6.1 Introduction to WonderEcho Pro and Installation](#anchor_6_1_1)** to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6.1.3 Firmware Flashing Method"**](#anchor_6_1_3) for step-by-step instructions.
 
 ### 6.3.3 Brief Game Instructions
 
@@ -383,13 +387,13 @@ Upon running the program, the WonderEcho Pro module will automatically initiate 
 | BACK | Back | TURN-LEFT | Turn_left |
 | TURN-RIGHT | Turn_right |  |  |
 
-<img src="../_static/media/chapter_6/section_3/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_6/section_2/image6.png" class="common_img" />
 
 ### 6.3.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-Script location: [/home/pi/TonyPi/Functions/voice_interaction/word_detect.py]()
+Script location: [/home/pi/TonyPi/Functions/voice_interaction/word_detect.py](../_static/source_code/Functions.zip)
 
 * **Library Files Import**
 
@@ -441,11 +445,11 @@ This method is responsible for reading 5 bytes of data from the serial port and 
 
 ### 6.4.1 Program Download
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 ### 6.4.2 Preparation
 
-Refer to Section 6.1 Introduction to WonderEcho Pro and Installation to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6 AI Voice Interaction Course > 6.1 Introduction to WonderEcho Pro and Installation > 6.1.3 Firmware Flashing Method"**]() for step-by-step instructions.
+Refer to Section **[6.1 Introduction to WonderEcho Pro and Installation](#anchor_6_1_1)** to flash the firmware onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6.1.3 Firmware Flashing Method"**](#anchor_6_1_3) for step-by-step instructions.
 
 ### 6.4.3 Brief Game Instructions
 
@@ -487,9 +491,9 @@ Once the program is running, the WonderEcho Pro module will automatically initia
 
 ### 6.4.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-Script location: [/home/pi/TonyPi/Functions/voice_interaction/voice_control_move.py]()
+Script location: [/home/pi/TonyPi/Functions/voice_interaction/voice_control_move.py](../_static/source_code/Functions.zip)
 
 * **Library Files Import**
 
@@ -545,11 +549,11 @@ import hiwonder.ros_robot_controller_sdk as rrc
 
 ### 6.5.1 Program Download
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 ### 6.5.2 Preparation
 
-Refer to  [Introduction to WonderEcho Pro]() and [Installation to flash the firmware]() onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6 AI Voice Interaction Course > 6.1 Introduction to WonderEcho Pro and Installation > 6.1.3 Firmware Flashing Method"**]() for step-by-step instructions.
+Refer to [Introduction to WonderEcho Pro](#anchor_6_1_1) and [Installation to flash the firmware](#anchor_6_1_2) onto the WonderEcho Pro module. Once the firmware has been successfully burned, install the module onto the robot. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi"**, please refer to the tutorial titled [**"6.1.3 Firmware Flashing Method"**](#anchor_6_1_3) for step-by-step instructions.
 
 ### 6.5.3 Brief Game Instructions
 
@@ -585,9 +589,9 @@ Once the robot announces **"I'm ready,"** place items of different colors in fro
 
 ### 6.5.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-Script location: [/home/pi/TonyPi/Functions/voice_interaction/color_detect_with_voice.py]()
+Script location: [/home/pi/TonyPi/Functions/voice_interaction/color_detect_with_voice.py](../_static/source_code/Functions.zip)
 
 * **Library Files Import**
 
@@ -732,13 +736,13 @@ Upon detecting red, green, or blue balls, the WonderEcho Pro will announce the c
 
 ### 6.6.1 Program Download
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 ### 6.6.2 Brief Game Instructions
 
 Through the set voice commands, the robot will perform the task of transporting objects. It will search for the corresponding red sponge block on the map, move it to the designated area, and complete the task.
 
-Smart voice interaction is a new generation of interactive mode based on voice input, where speaking to the robot results in immediate feedback. In today's lesson, we will explore a new feature by combining voice interaction with intelligent transportation, allowing you to control the robot to transport objects through voice commands. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6 AI Voice Interaction Course > 6.1 Introduction to WonderEcho Pro and Installation > 6.1.3 Firmware Flashing Method"**]() for step-by-step instructions.
+Smart voice interaction is a new generation of interactive mode based on voice input, where speaking to the robot results in immediate feedback. In today's lesson, we will explore a new feature by combining voice interaction with intelligent transportation, allowing you to control the robot to transport objects through voice commands. By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [**"6.1.3 Firmware Flashing Method"**](#anchor_6_1_3) for step-by-step instructions.
 
 Let's walk through the implementation process for this feature:
 
@@ -802,9 +806,9 @@ The following table outlines the commands required to operate the voice-controll
 
 ### 6.6.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code is located at: [/home/pi/TonyPi/Functions/voice_interaction/voice_control_transport.py]()
+The source code is located at: [/home/pi/TonyPi/Functions/voice_interaction/voice_control_transport.py](../_static/source_code/Functions.zip)
 
 * **Module Import**
 
@@ -833,7 +837,15 @@ The system processes the images captured by the camera and, based on voice comma
 
 In this functionality, the red, green, and blue objects are moved to their corresponding tagged locations, as shown in the diagram below:
 
-<img src="../_static/media/chapter_6/section_6/media/image5.png" class="common_img" />
+{lineno-start=70}
+
+```python
+# 颜色对应的tag编号(color corresponds to the tag number)
+color_tag = {'red': 1,
+                    'green': 2,
+                    'blue': 3
+                    }
+```
 
 * **Initializing the Robot's Base-Level Drivers**
 

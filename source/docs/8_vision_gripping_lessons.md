@@ -1,18 +1,20 @@
 # 8. Vision Gripping Lessons
 
+<p id="anchor_8_1"></p>
+
 ## 8.1 Assembly
 
-<img src="../_static/media/chapter_8/section_1/media/image1.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image1.png" class="common_img" />
 
-<img src="../_static/media/chapter_8/section_1/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image2.png" class="common_img" />
 
-<img src="../_static/media/chapter_8/section_1/media/image3.jpeg" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image3.jpeg" class="common_img" />
 
-<img src="../_static/media/chapter_8/section_1/media/image4.jpeg" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image4.jpeg" class="common_img" />
 
-<img src="../_static/media/chapter_8/section_1/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image5.png" class="common_img" />
 
-<img src="../_static/media/chapter_8/section_1/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_1/image6.png" class="common_img" />
 
 ## 8.2 Color Sorting
 
@@ -22,7 +24,7 @@ The servo on robotic hand has been set with corresponding ID and limited angle b
 
 ### 8.2.1 Getting Ready
 
-(1) This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [**"8.1 Assembly"**](#81-assembly).
+(1) This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [**"8.1 Assembly"**](#anchor_8_1).
 
 (2) Place the colored block on the surface at the height of 15 cm and the error of height can not exceed 1 cm, otherwise it will affect the performance. You can use the product package box to experience this game directly.
 
@@ -44,7 +46,7 @@ The entered command must be pay attention to case sensitivity and space.
 
 (1) Turn on the robot and connect to Raspberry Pi desktop with VNC.
 
-(2) Click the icon <img src="../_static/media/chapter_8/section_2/media/image3.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
+(2) Click the icon <img src="../_static/media/chapter_8/section_2/image3.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
 
 (3) Enter the command to come to the directory of game programs:
 
@@ -63,6 +65,8 @@ python3 color_classify.py
 ### 8.2.4 Project Outcome
 
 After the program is started, TonyPi Pro will squat first. When the red block is recognized, it will grip the block with right hand and place it to the right. When the blue block is recognized, it will grip the block and place it to the left. When the green block is recognized, it will shake head.
+
+<p id="anchor_8_2_5"></p>
 
 ### 8.2.5 Function Extension
 
@@ -86,15 +90,15 @@ vim color_classify.py
 
 (3) Find the code shown in the figure below:
 
-<img src="../_static/media/chapter_8/section_2/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image8.png" class="common_img" />
 
 (4) Press **"i"** to enter the editing mode. Then modify **"red"** in **"`if detect_color == 'red':`"** to **"green"**.
 
-<img src="../_static/media/chapter_8/section_2/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image9.png" class="common_img" />
 
 (5) Locate line 123, and then modify **"green"** in **"`elif detect_color == 'green':`"** to **"red"**.
 
-<img src="../_static/media/chapter_8/section_2/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image10.png" class="common_img" />
 
 (6) After modification, press **"Esc"** and then enter **":wq"** (Please note that the colon is in front of wq). Then press **"Enter"** to save and exit the modified content.
 
@@ -112,19 +116,19 @@ sudo vim TonyPi/lab_config.yaml
 
 The initial value can be recorded by screenshot or file backup.
 
-<img src="../_static/media/chapter_8/section_2/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image12.png" class="common_img" />
 
 (2) Click **"LAB_Tool"** on system desktop, and then click **"Execute"** in the pop-up prompt window.
 
-<img src="../_static/media/chapter_8/section_2/media/image13.jpeg" class="common_img" style="width:150px"  />
+<img src="../_static/media/chapter_8/section_2/image13.jpeg" class="common_img" style="width:150px"  />
 
 (3) Click **"Connect"** button in the lower left corner. When the picture transmitted by the camera is displayed in the interface, it means that the connection is successful. Then select **"red"** in the right frame.
 
-<img src="../_static/media/chapter_8/section_2/media/image14.jpeg" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image14.jpeg" class="common_img" />
 
 (4) Point the camera at the color you want to recognize and drag the corresponding sliders of L, A and B until the orange part in left interface becomes white and other colors become black. Then click **"save"** button behind the **"red"** to save the modified data.
 
-<img src="../_static/media/chapter_8/section_2/media/image15.jpeg" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image15.jpeg" class="common_img" />
 
 (5) After modification, enter command to view whether the color setting parameters are modified:
 
@@ -136,21 +140,23 @@ To avoid any impact on the game, it's recommended to use the LAB_Tool to modify 
 
 (6) Check the data in red frame above. If the edited value was written in the configuration program, press **"Esc"** and enter **":wq"** to save it and exit.
 
-<img src="../_static/media/chapter_8/section_2/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image16.png" class="common_img" />
 
-(7) According to the content in [**"8.2.5 Function Extension"**](#825-function-extension), set the default color that make TonyPi Pro shake its head after recognition as red.
+(7) According to the content in [**"8.2.5 Function Extension"**](#anchor_8_2_5), set the default color that make TonyPi Pro shake its head after recognition as red.
 
-<img src="../_static/media/chapter_8/section_2/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image17.png" class="common_img" />
 
 (8) After the game is started, place the orange object in front of the camera, you can see that TonyPi Pro performs **"shake head"** action.
 
 (9) If want to add other colors as the recognition color, please refer to the same operation steps.
 
+<p id="anchor_8_2_6"></p>
+
 ### 8.2.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code of this program is locate in: [/home/pi/TonyPi/Functions/ColorDetect.py]()
+The source code of this program is locate in: [/home/pi/TonyPi/Functions/ColorDetect.py](../_static/source_code/Functions.zip)
 
 * **Import Parameter Module**
 
@@ -173,7 +179,7 @@ The source code of this program is locate in: [/home/pi/TonyPi/Functions/ColorDe
 
 Based on the implementation outcome, the program logic can be summarized as below:
 
-<img src="../_static/media/chapter_8/section_2/media/image19.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image19.png" class="common_img" />
 
 Capture image information through the camera, then process the image, specifically by performing binarization. At the same time, to reduce interference and make the image smoother, perform erosion and dilation operations on the image.
 
@@ -183,7 +189,7 @@ Next, obtain the maximum area contour of the target and the minimum enclosing re
 
 From the program files, the logical flowchart of the program is as pictured:
 
-<img src="../_static/media/chapter_8/section_2/media/image20.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_2/image20.png" class="common_img" />
 
 Based on the above diagram, the program's logical flow mainly consists of image processing and color sorting. The following document will be written in accordance with the program logic.
 
@@ -191,7 +197,7 @@ Based on the above diagram, the program's logical flow mainly consists of image 
 
 (1) Import function library
 
-In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to [**"8.2.6 Import parameter module"**]().
+In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to [**"8.2.6 Import parameter module"**](#anchor_8_2_6).
 
 {lineno-start=4}
 ```python
@@ -465,12 +471,12 @@ Take the code `ctl.set_pwm_servo_pulse(2, 1300, 300)` as example:
 ## 8.3 AprilTag Tracking
 
 :::{Note}
-The servo on robotic hand has been set with corresponding ID and limited angle before delivery. If the ID and the limited angle change due to other operations, please refer to the tutorial in [**"Appendix->8.Servo Debugging Method"**]() to adjust.
+The servo on robotic hand has been set with corresponding ID and limited angle before delivery. If the ID and the limited angle change due to other operations, please refer to the tutorial in [**"Servo Debugging Method"**](resources_download.md) to adjust.
 :::
 
 ### 8.3.1 Getting Ready
 
-This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [**"8. Vision Gripping Lesson->8.1 Assembly"**]().
+This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [**"8.1 Assembly"**](#anchor_8_1).
 
 ### 8.3.2 Working Principle
 
@@ -482,7 +488,7 @@ Next, call the action group that has been set and let the robot pick up the obje
 
 Then, control the robot's head in motion to search AprilTag within the visual range. The screen is processed by positioning, image segmentation and contour finding first. After the contour is positioned, quadrilateral detection is performed. Through the acquisition of the four corner points, the straight line is fitted to form a closed loop, and the identification and position acquisition of AprilTag are completed.
 
-The source code of the program is located in: [/home/pi/TonyPi/Extend/vision_grab_course/apriltag_track.py]()
+The source code of the program is located in: [/home/pi/TonyPi/Extend/vision_grab_course/apriltag_track.py](../_static/source_code/vision_grab_course.zip)
 
 ### 8.3.3 Operation Steps
 
@@ -492,7 +498,7 @@ The entered command must be pay attention to case sensitivity and space.
 
 (1) Turn on the robot and connect to Raspberry Pi desktop with VNC.
 
-(2) Click the icon <img src="../_static/media/chapter_8/section_3/media/image4.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
+(2) Click the icon <img src="../_static/media/chapter_8/section_3/image4.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
 
 (3) Enter command to go to the directory of game program:
 
@@ -512,11 +518,13 @@ python3 apriltag_track.py
 
 After starting the game, TonyPi Pro will detect the object within the visual range. When one of colored blocks is recognized, TonyPi Pro will pick up the block, and then move to the AprilTag and put it down.
 
+<p id="anchor_8_3_5"></p>
+
 ### 8.3.5 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/vision_grab_course.zip)
 
-The source code of this program is locate in: [/home/pi/TonyPi/Extend/vision_grab_course/apriltag_track.py]()
+The source code of this program is locate in: [/home/pi/TonyPi/Extend/vision_grab_course/apriltag_track.py](../_static/source_code/vision_grab_course.zip)
 
 * **Import Parameter Module**
 
@@ -539,7 +547,7 @@ The source code of this program is locate in: [/home/pi/TonyPi/Extend/vision_gra
 
 Based on the implementation outcome, the program logic can be summarized as below:
 
-<img src="../_static/media/chapter_8/section_3/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_3/image9.png" class="common_img" />
 
 Capture image information through the camera, then process the image, specifically by performing binarization. At the same time, to reduce interference and make the image smoother, perform erosion and dilation operations on the image.
 
@@ -549,7 +557,7 @@ Next, proceed with color recognition for block grabbing. Then, based on the labe
 
 From the program files, the logical flowchart of the program is as pictured:
 
-<img src="../_static/media/chapter_8/section_3/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_8/section_3/image10.png" class="common_img" />
 
 Based on the above diagram, the program's logical flow mainly consists of image processing and color tracking. The following document will be written in accordance with the program logic.
 
@@ -557,7 +565,7 @@ Based on the above diagram, the program's logical flow mainly consists of image 
 
 (1) Import function library
 
-In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to [**"8.3.5 Import parameter module"**]().
+In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to [**"8.3.5 Import parameter module"**](#anchor_8_3_5).
 
 {lineno-start=4}
 ```python
@@ -934,15 +942,15 @@ Use the `AGC.runAction` function to call the action group. `turn_right` is the n
 
 :::{Note}
 
-The palm’s servo ID and limits have already been preconfigured before shipment, so users do not need to set them manually. 
+The palm's servo ID and limits have already been preconfigured before shipment, so users do not need to set them manually. 
 
 :::
 
-(1) This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [8. Vision Gripping Lesson->8.1 Assembly]().
+(1) This lesson can be started after the robotic hands are assembled. The specific assembly method refers to [8.1 Assembly](#anchor_8_1).
 
-(2) Install the WonderEchoPro module. Installation instructions can be found in [6.1.2 WonderEcho Pro Installation]().
+(2) Install the WonderEchoPro module. Installation instructions can be found in [6.1.2 WonderEcho Pro Installation](6_ai_voice_interaction_course.md#introduction-to-wonderecho-pro).
 
-(3) Place the color block on a platform 15 cm high. The height deviation must not exceed 1 cm, as it may affect functionality. You may use the robot’s packaging box as a platform for this activity.
+(3) Place the color block on a platform 15 cm high. The height deviation must not exceed 1 cm, as it may affect functionality. You may use the robot's packaging box as a platform for this activity.
 
 ### 8.4.2 Feature Overview
 
@@ -964,17 +972,17 @@ The entered command must be pay attention to case sensitivity and space.
 
 (1) Turn on the robot and connect to Raspberry Pi desktop with VNC.
 
-(2) Click the icon <img src="../_static/media/chapter_8/section_3/media/image4.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
+(2) Click the icon <img src="../_static/media/chapter_8/section_3/image4.png" style="width:0.72917in;height:0.76042in" /> on the upper left corner of the desktop to open command line terminal.
 
 (3) Enter command to go to the directory of game program:
 
-```python
+```bash
 cd /home/pi/TonyPi/Extend/vision_grab_course/
 ```
 
-(4) Enter the command below, and then press “ Enter” to start the game.
+(4) Enter the command below, and then press " **Enter**" to start the game.
 
-```python
+```bash
 python3 asr_color_detect.py
 ```
 
@@ -984,11 +992,11 @@ python3 asr_color_detect.py
 
 Once the feature is activated, the user can speak a specific command, and the robot will grasp the corresponding color block.
 
-Before using this function, please ensure the wake word is set to either "**小幻小幻(Chinese)**" or "**TonyPi**". For detailed instructions on setting the wake word, refer to  [6.3.3 Firmware Flashing Method]() .
+Before using this function, please ensure the wake word is set to either "**小幻小幻(Chinese)**" or "**TonyPi**". For detailed instructions on setting the wake word, refer to  [6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) .
 
-The following table outlines the relationship between voice commands and the robot’s corresponding actions:
+The following table outlines the relationship between voice commands and the robot's corresponding actions:
 
-<table>
+<table class="docutils-nobg" border="1">
   <thead>
     <tr>
       <th>NO.</th>
@@ -1024,13 +1032,13 @@ The following table outlines the relationship between voice commands and the rob
 
 * Always say the wake word before giving a pick-up command.
 
-* After saying the wake word, if the WonderEchoPro module responds with “I'm here,” it means the wake-up was successful.
+* After saying the wake word, if the WonderEchoPro module responds with "**I'm here**", it means the wake-up was successful.
 
 :::
 
 ### 8.4.5 Program Analysis
 
-The source code for this program is located at:[/home/pi/TonyPi/Extend/vision_grab_course/asr_color_detect.py]().
+The source code for this program is located at: [/home/pi/TonyPi/Extend/vision_grab_course/asr_color_detect.py](../_static/source_code/vision_grab_course.zip).
 
 * **Import Parameter Modules**
 
@@ -1254,7 +1262,7 @@ Find the minimum-area bounding rectangle of the largest contour. Use the `cv2.dr
 
 (3) Color Block Grasping
 
-① Determine the direction of the color block based on the comparison between the block’s center X-coordinate and CentreX, then assign the result to the variable dire.
+① Determine the direction of the color block based on the comparison between the block's center X-coordinate and CentreX, then assign the result to the variable dire.
 
 {lineno-start=98}
 
@@ -1265,7 +1273,7 @@ Find the minimum-area bounding rectangle of the largest contour. Use the `cv2.dr
                         dire = 'left'
 ```
 
-② Calculate the difference between the color block’s center X-coordinate and CentreX, and use this value to control the robot’s movement toward the block by calling the corresponding action group.
+② Calculate the difference between the color block's center X-coordinate and CentreX, and use this value to control the robot's movement toward the block by calling the corresponding action group.
 
 For example, the code `AGC.runActionGroup('grab_right')` calls an action group, where 'grab_right' is the name of the action group.
 
@@ -1293,4 +1301,3 @@ For example, the code `AGC.runActionGroup('grab_right')` calls an action group, 
 ```
 
 Again, using the example `AGC.runActionGroup('grab_right')`, the function calls the action group named 'grab_right'.
-

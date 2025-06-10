@@ -26,9 +26,9 @@ For detailed feedback behavior, please refer to section 3. Function Implementati
 The input command is case-sensitive, and keywords can be auto-completed using the Tab key.
 :::
 
-(1) Power on the device and, following the instructions in ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"](), use the VNC remote connection tool to connect.
+(1) Power on the device and, following the instructions in ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection), use the VNC remote connection tool to connect.
 
-(2) Click the icon <img src="../_static/media/chapter_5/section_1/media/image4.png" /> in the top left corner of the system desktop to open the LX terminal.
+(2) Click the icon <img src="../_static/media/chapter_5/section_1/image4.png" /> in the top left corner of the system desktop to open the LX terminal.
 
 (3) Execute the command to navigate to the directory where the program is located, then press Enter:
 
@@ -51,13 +51,12 @@ After starting the game, the camera will be used to detect colors. When a red ba
 :::{Note}
 * During the recognition process, ensure the environment is well-lit to avoid inaccurate recognition due to poor lighting conditions.
 * Ensure that no objects with similar or matching colors to the target are present in the background within the camera's visual range, as this may cause misrecognition.
-* If color recognition is inaccurate, refer to the section ["5.1.5 Function Extensions"]() in this document to adjust the color threshold settings.
-
+* If color recognition is inaccurate, refer to the section ["**5.1.5 Function Extensions**"](#anchor_5_1_5) in this document to adjust the color threshold settings.
 :::
 
 ### 5.1.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 * **Import Function Library**
 
@@ -160,7 +159,7 @@ while True:
 
 (2) Start Image Processing
 
-When an image is received, the **"run()"**function is called to process it.
+When an image is received, the **"run()"** function is called to process it.
 
 {lineno-start=76}
 ```python
@@ -174,7 +173,7 @@ def run(img):
 ```
 
 ① The `img.copy()` function creates a duplicate of the img object and assigns it to frame.
-② The **"run()"**function handles the image processing operations.
+② The **"run()"** function handles the image processing operations.
 
 {lineno-start=161}
 ```python
@@ -353,29 +352,31 @@ def buzzer():
 
 The **buzzer()** function controls the buzzer. Inside this function, `board.set_buzzer()` is used to turn the buzzer on and off at a frequency of 1900 Hz, sounding for 0.1 seconds and silent for 0.9 seconds, repeated once.
 
+<p id="anchor_5_1_5"></p>
+
 ### 5.1.5 Function Extensions
 
 * **Adjusting Color Thresholds**
 
 If the color recognition performance is poor during the game experience, it may be necessary to adjust the color threshold. This section uses red as an example, and the same method can be applied to adjust other colors. Follow the steps below:
 
-(1) Double-click <img src="../_static/media/chapter_5/section_1/media/image24.png" />, and in the popup interface, click **"Execute"**.
+(1) Double-click <img src="../_static/media/chapter_5/section_1/image24.png" />, and in the popup interface, click **"Execute"**.
 
-<img src="../_static/media/chapter_5/section_1/media/image25.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image25.png" class="common_img" />
 
 (2) Once in the interface, click **"Connect"** to link the camera.
 
-<img src="../_static/media/chapter_5/section_1/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image26.png" class="common_img" />
 
 (3) After a successful connection, select **"red"** from the color options in the lower-right corner of the interface.
 
-<img src="../_static/media/chapter_5/section_1/media/image27.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image27.png" class="common_img" />
 
 (4) If the transmitted image does not appear in the popup window, the camera may not have connected successfully. Check that the camera's connection cable is properly plugged in.
 
 In the interface shown below, the right side displays the real-time transmitted image, while the left side shows the color to be detected. Point the camera at the red ball, then adjust the six sliders at the bottom so that the red ball area on the left turns entirely white, and the other areas turn black. Afterward, click the **"Save"** button to save the settings.
 
-<img src="../_static/media/chapter_5/section_1/media/image28.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image28.png" class="common_img" />
 
 * **Changing the Default Recognized Color**
 
@@ -397,19 +398,19 @@ vim Color_Warning.py
 
 (3) Locate the code shown in the image below:
 
-<img src="../_static/media/chapter_5/section_1/media/image31.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image31.png" class="common_img" />
 
 (4) Press the **"i"** key on the keyboard to enter edit mode.
 
-<img src="../_static/media/chapter_5/section_1/media/image32.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image32.png" class="common_img" />
 
 (5) Replace **"red"** (highlighted in red in the image) with **"green"**, as shown in the image below:
 
-<img src="../_static/media/chapter_5/section_1/media/image33.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image33.png" class="common_img" />
 
 (6) To save your changes, press the **"Esc"** key, then type **":wq"** (note the colon before **"wq"**) and press Enter to save and exit.
 
-<img src="../_static/media/chapter_5/section_1/media/image34.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image34.png" class="common_img" />
 
 (7) Enter the following command and press Enter to start the color recognition functionality:
 
@@ -423,27 +424,27 @@ In addition to the three built-in colors for recognition, you can also add custo
 
 (1) **Double-click** the desktop icon on the system. When a prompt appears, simply click **"Execute"**.
 
-<img src="../_static/media/chapter_5/section_1/media/image24.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image24.png" class="common_img" />
 
 (2) In the window that opens, click **"Connect"**.
 
-<img src="../_static/media/chapter_5/section_1/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image26.png" class="common_img" />
 
 (3) Click **"Add"**, name the new color (e.g., **"purple"**), then click **"OK"**.
 
-<img src="../_static/media/chapter_5/section_1/media/image37.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image37.png" class="common_img" />
 
 (4) Use the dropdown menu next to the color selector and choose **"purple"**.
 
-<img src="../_static/media/chapter_5/section_1/media/image38.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image38.png" class="common_img" />
 
 (5) Point the camera at a purple object. Adjust the **L**, **A**, and **B** sliders until the region representing the purple object turns **white** in the left preview window, and all other areas become **black**.
 
-<img src="../_static/media/chapter_5/section_1/media/image39.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image39.png" class="common_img" />
 
 (6) Once satisfied, click **"Save"** to store the adjusted color threshold values.
 
-<img src="../_static/media/chapter_5/section_1/media/image40.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image40.png" class="common_img" />
 
 (7) To verify whether the changes have been saved successfully, open the terminal and navigate to the program directory by entering:
 
@@ -459,7 +460,7 @@ vim lab_config.yaml
 
 (9) Once the file is open, locate the section where color thresholds are defined. You should see the parameters for the newly added **purple** color.
 
-<img src="../_static/media/chapter_5/section_1/media/image43.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image43.png" class="common_img" />
 
 (10) Following the earlier steps (1–4), open the file and press **"i"** to enter edit mode. Locate the section shown below, and manually add the following line (replace the values with the actual maximum threshold from step 9):
 
@@ -467,21 +468,21 @@ vim lab_config.yaml
 'purple':(255, 255, 114),
 ```
 
-<img src="../_static/media/chapter_5/section_1/media/image44.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image44.png" class="common_img" />
 
-<img src="../_static/media/chapter_5/section_1/media/image45.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image45.png" class="common_img" />
 
 (11) Next, locate the section as shown in the figure (assumed visual reference).
 
-<img src="../_static/media/chapter_5/section_1/media/image46.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image46.png" class="common_img" />
 
 (12) Manually add the contents shown in the highlighted area (assumed image reference).
 
-<img src="../_static/media/chapter_5/section_1/media/image47.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image47.png" class="common_img" />
 
 (13) To save your changes, press **Esc**, then type **:wq** (note the colon before **"wq"**) and press **Enter** to save and exit.
 
-<img src="../_static/media/chapter_5/section_1/media/image48.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_1/image48.png" class="common_img" />
 
 (14) Refer back to **"2. Game Start and Stop Instructions"** to relaunch the program. Place a purple object in front of the camera—if successful, you'll see a purple bounding box around it in the video feed and the word **"purple"** printed in the terminal.
 
@@ -513,11 +514,11 @@ Next, judge the recognized color. If the sett color is detected the head servo w
 Pay attention to the text format in the input of instructions.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-<img src="../_static/media/chapter_5/section_2/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image3.png" class="common_img" />
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_2/media/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_2/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
@@ -536,16 +537,18 @@ python3 ColorDetect.py
 ### 5.2.3 Project Outcome
 
 :::{Note}
-The program defaults to recognizing the color red. To switch to blue or green, refer to ["5.2.5 Function Extension"]().
+The program defaults to recognizing the color red. To switch to blue or green, refer to ["**5.2.5 Function Extension**"](#anchor_5_2_5).
 :::
 
 Place the red ball in front of the TonyPi. The robot will **"nod"** upon recognition. Place the blue and green balls in front of the TonyPi. The robot will **"shake its head"** upon recognition.
 
+<p id="anchor_5_2_4"></p>
+
 ### 5.2.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code of this program is locate in ["/home/pi/TonyPi/Functions/ColorDetect.py"]().
+The source code of this program is locate in ["**/home/pi/TonyPi/Functions/ColorDetect.py**"](../_static/source_code/Functions.zip).
 
 * **Import Parameter Module**
 
@@ -574,7 +577,7 @@ Next, it identifies the contour with the largest area and calculates the minimum
 
 (1) Import function library
 
-In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to [4.1 Import parameter module]().
+In this initialization step, the first task is to import the required libraries for subsequent program calls. For details on the imports, refer to ["**5.2.4 Program Analysis -\> Import parameter module**"](anchor_5_2_4).
 
 {lineno-start=3}
 ```python
@@ -827,6 +830,8 @@ elif detect_color == 'green' or detect_color == 'blue':
     time.sleep(0.1)
 ```
 
+<p id="anchor_5_2_5"></p>
+
 ### 5.2.5 Function Extension
 
 * **Modify Default Recognition Color**
@@ -849,7 +854,7 @@ vim ColorDetect.py
 
 (3) Find codes `if detect_color == 'red':` and `elif detect_color == 'green' or detect_color == 'blue':`.
 
-<img src="../_static/media/chapter_5/section_2/media/image21.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image21.png" class="common_img" />
 
 :::{Note}
 After entering the code position number on the keyboard, press **"Shift+G"** to directly locate to the corresponding location. This section aims to introduce quick location methods, so the code position number is for reference only. Please rely on actual positions.
@@ -857,11 +862,11 @@ After entering the code position number on the keyboard, press **"Shift+G"** to 
 
 (4) Press **"i"** to enter the editing mode, then modify red in `if detect_color == 'red'` to green. And modify red in line 152 `elif detect_color== 'green' or detect_color == 'blue'` to green. If you want to recognize blue, please revise to **"blue"**.
 
-<img src="../_static/media/chapter_5/section_2/media/image22.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image22.png" class="common_img" />
 
 (5) Press **"Esc"** to enter last line command mode. Input **":wq"** to save the file and exit the editor.
 
-<img src="../_static/media/chapter_5/section_2/media/image23.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image23.png" class="common_img" />
 
 * **Add Recognized Color**
 
@@ -881,21 +886,21 @@ vim lab_config.yaml
 
 It is recommended to use screenshot to record the initial value.
 
-<img src="../_static/media/chapter_5/section_2/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image26.png" class="common_img" />
 
 (3) Click the debugging tool icon in the system desktop. Choose **"Execute"** in the pop-up window.
 
-<img src="../_static/media/chapter_5/section_2/media/image27.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image27.png" class="common_img" />
 
 (4) Click **"Connect"** button in the lower left hand. When the interface display the camera returned image, the connection is successful. Select **"red"** in the right box first.
 
-<img src="../_static/media/chapter_5/section_2/media/image28.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image28.png" class="common_img" />
 
 (5) Drag the corresponding sliders of L, A, and B until the color area to be recognized in the left screen becomes white and other areas become black. Drag the corresponding sliders of L, A, and B until the color area to be recognized in the left screen becomes white and other colors become black.
 
 For example, if you want to recognize orange, you can put the orange ball in the camera's field of view. Adjust the corresponding sliders of L, A, and B until the orange part of the left screen becomes white and other colors become black, and then click **" Save"** button to keep the modified data.
 
-<img src="../_static/media/chapter_5/section_2/media/image29.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image29.png" class="common_img" />
 
 (6) After the modification is completed, check whether the modified data was successfully written in. Enter the following command again to check the color setting parameters.
 
@@ -903,7 +908,7 @@ For example, if you want to recognize orange, you can put the orange ball in the
 vim TonyPi/lab_config.yaml
 ```
 
-<img src="../_static/media/chapter_5/section_2/media/image30.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/image30.png" class="common_img" />
 
 For the game's performance, it's recommended to use the LAB_Tool tool to modify the value back to the initial value after the modification is completed.
 
@@ -923,8 +928,7 @@ The **Color Position Recognition** feature consists of two key components: **col
 
 * **Color Detection**
 
-To begin, Gaussian filtering is applied to reduce image noise and enhance clarity. The image is then converted to the **Lab color space**, which enables more accurate and consistent color recognition.  
-(For more information on Lab color space, please refer to ["8. OpenCV Basic Course"]())
+To begin, Gaussian filtering is applied to reduce image noise and enhance clarity. The image is then converted to the **Lab color space**, which enables more accurate and consistent color recognition.
 
 Next, using predefined color thresholds, the system identifies the color of the object within the target area. A **mask** is applied to isolate the relevant regions of the image—masking allows for global or local filtering based on the defined object.
 
@@ -946,11 +950,11 @@ To determine the position of the detected object, a dedicated detection algorith
 Pay attention to the text format in the input of instructions.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-<img src="../_static/media/chapter_5/section_3/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image3.png" class="common_img" />
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/media/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
@@ -975,15 +979,14 @@ By default, the program is configured to detect red, green, and blue balls. Once
 :::{Note}
 * Ensure sufficient lighting during operation to improve recognition accuracy. Inadequate lighting may result in detection errors.
 * Avoid placing objects with colors similar to the target colors in the background within the camera's field of view, as this may cause false detections.
-* If color detection is inaccurate, please refer to **Section 5: Function Extensions → 5.1 Color Threshold Adjustment** for instructions on adjusting the color thresholds.
-
+* If color detection is inaccurate, please refer to **[5.3.5 Function Extension -\> Color Threshold Adjustment](#anchor_5_3_5)** for instructions on adjusting the color thresholds.
 :::
 
 ### 5.3.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-**The source code of this program is locate in** [/home/pi/TonyPi/Functions/Color_Recognition.py]()
+**The source code of this program is locate in** [/home/pi/TonyPi/Functions/Color_Recognition.py](../_static/source_code/Functions.zip)
 
 * **Import Function Library**
 
@@ -1012,9 +1015,8 @@ import hiwonder.yaml_handle as yaml_handle
 | `import hiwonder.Camera as Camera` | Imports the camera module. |
 | `import hiwonder.yaml_handle as yaml_handle` | Imports functions and tools for handling YAML format files. |
 
-(1) To begin, import the necessary libraries such as OpenCV, time, math, threading, etc. 
-If you want to use a function from a specific library, you can call it using the format: 
-**LibraryName.FunctionName(parameters)** 
+(1) To begin, import the necessary libraries such as OpenCV, time, math, threading, etc. If you want to use a function from a specific library, you can call it using the format: **LibraryName.FunctionName(parameters)**
+
 For example:
 
 {lineno-start=12}
@@ -1225,57 +1227,59 @@ The function `cv2.imshow()` is used to display an image in a window. Here, **"Fr
 
 The function `cv2.waitKey()` waits for a key press, where the parameter 1 specifies the delay time in milliseconds.
 
+<p id="anchor_5_3_5"></p>
+
 ### 5.3.5 Function Extension
 
 * **Adjusting Color Thresholds**
 
 If the color recognition performance is poor during the game experience, it may be necessary to adjust the color threshold. This section uses red as an example, and the same method can be applied to adjust other colors. Follow the steps below:
 
-(1) Double-click <img src="../_static/media/chapter_5/section_3/media/image22.png" />, and in the popup interface, click **"Execute"**.
+(1) Double-click <img src="../_static/media/chapter_5/section_3/image22.png" />, and in the popup interface, click **"Execute"**.
 
-<img src="../_static/media/chapter_5/section_3/media/image23.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image23.png" class="common_img" />
 
 (2) Once in the interface, click **"Connect"** to link the camera.
 
-<img src="../_static/media/chapter_5/section_3/media/image24.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image24.png" class="common_img" />
 
 (3) After a successful connection, select **"red"** from the color options in the lower-right corner of the interface.
 
-<img src="../_static/media/chapter_5/section_3/media/image25.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image25.png" class="common_img" />
 
 (4) If the transmitted image does not appear in the popup window, the camera may not have connected successfully. Check that the camera's connection cable is properly plugged in.
 
 In the interface shown below, the right side displays the real-time transmitted image, while the left side shows the color to be detected. Point the camera at the red ball, then adjust the six sliders at the bottom so that the red ball area on the left turns entirely white, and the other areas turn black. Afterward, click the **"Save"** button to save the settings.
 
-<img src="../_static/media/chapter_5/section_3/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image26.png" class="common_img" />
 
 * **Changing the Default Recognized Color**
 
 In addition to the three built-in recognizable colors, we can also add other colors for recognition. For example, using purple as a new recognizable color, the specific modification steps are as follows:
 
-(1) Double-click <img src="../_static/media/chapter_5/section_3/media/image22.png" /> and choose **'Execute'** in the prompt box.
+(1) Double-click <img src="../_static/media/chapter_5/section_3/image22.png" /> and choose **'Execute'** in the prompt box.
 
-<img src="../_static/media/chapter_5/section_3/media/image23.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image23.png" class="common_img" />
 
 (2) In the pop-up interface, select **"Connect"** step by step.
 
-<img src="../_static/media/chapter_5/section_3/media/image24.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image24.png" class="common_img" />
 
 (3) Click **"Add,"** then name the new color (using **"purple"** as an example here), and click **"OK"**.
 
-<img src="../_static/media/chapter_5/section_3/media/image27.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image27.png" class="common_img" />
 
 (4) Next, click the dropdown arrow in the color selection box and choose **"purple"**.
 
-<img src="../_static/media/chapter_5/section_3/media/image28.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image28.png" class="common_img" />
 
 (5) Point the camera at a purple object, then adjust the L, A, and B sliders until the target color area in the left preview turns white while the other areas turn black.
 
-<img src="../_static/media/chapter_5/section_3/media/image29.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image29.png" class="common_img" />
 
 (6) Finally, click **"Save"** to save the adjusted color threshold values.
 
-<img src="../_static/media/chapter_5/section_3/media/image30.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image30.png" class="common_img" />
 
 (7) After making changes, verify whether the new values have been saved by entering the following command and pressing Enter to navigate to the program directory:
 
@@ -1291,11 +1295,11 @@ vim lab_config.yaml
 
 (9) After opening the color threshold configuration file, you can view the purple color threshold parameters.
 
-<img src="../_static/media/chapter_5/section_3/media/image33.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image33.png" class="common_img" />
 
 (10) Type **":q"** and press Enter to exit the file.
 
-<img src="../_static/media/chapter_5/section_3/media/image34.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image34.png" class="common_img" />
 
 (11) Enter the command below to navigate to the gameplay directory:
 
@@ -1311,11 +1315,11 @@ vim Color_Recognition.py
 
 (13) Locate the code section as shown in the reference image.
 
-<img src="../_static/media/chapter_5/section_3/media/image37.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image37.png" class="common_img" />
 
 (14) Press the **"i"** key to enter edit mode.
 
-<img src="../_static/media/chapter_5/section_3/media/image38.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image38.png" class="common_img" />
 
 (15) Manually add the following line:
 
@@ -1325,11 +1329,11 @@ Here, (255, 255, 114) corresponds to the max purple threshold value checked in s
 'purple':(255, 255, 114),
 ```
 
-<img src="../_static/media/chapter_5/section_3/media/image39.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image39.png" class="common_img" />
 
 (16) Save your changes by pressing the **"Esc"** key, then type `:wq` (note the colon before wq) and press Enter to save and exit.
 
-<img src="../_static/media/chapter_5/section_3/media/image40.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_3/image40.png" class="common_img" />
 
 (17) If you want to add other colors as recognizable colors, you can follow the same steps above.
 
@@ -1351,9 +1355,9 @@ Finally, the gimbal is activated to perform real-time tracking, completing the c
 Pay attention to the text format in the input of instructions.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. AI Vision Application Course->Lesson 1 Set Development Environment"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection -\> 3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_4/media/image3.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
@@ -1375,9 +1379,9 @@ Once the program is running, hold a red foam block or another colored object. Wh
 
 ### 5.4.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-**The source code of this program is locate in ["/home/pi/TonyPi/Functions/ColorTrack.py"]().**
+**The source code of this program is locate in ["/home/pi/TonyPi/Functions/ColorTrack.py"](../_static/source_code/Functions.zip).**
 
 * **Import Parameter Module**
 
@@ -1506,9 +1510,9 @@ Then, judge whether the object is in the central position after receiving the im
 Command input must strictly distinguish between uppercase and lowercase letters and spaces.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_5/media/image3.png" /> in the Raspberry Pi desktop and open the command-line terminal.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
@@ -1532,13 +1536,15 @@ Please use the robot and ball on the flat surface.
 
 Place the red ball in front of the TonyPi. After recognition, the robot will adjust its position to close the ball and kick it forward.
 
-<img src="../_static/media/chapter_5/section_5/media/image6.png" class="common_img" /><img src="../_static/media/chapter_5/section_5/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_5/image6.png" class="common_img" />
+
+<img src="../_static/media/chapter_5/section_5/image7.png" class="common_img" />
 
 ### 5.5.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code of this program is locate in ["/home/pi/TonyPi/Functions/KickBall.py"]().
+The source code of this program is locate in ["**/home/pi/TonyPi/Functions/KickBall.py**"](../_static/source_code/Functions.zip).
 
 * **Import Parameter Module**
 
@@ -1918,9 +1924,9 @@ Fourthly, calculate according to the feedback of the line position in the image,
 Pay attention to the text format in the input of instructions.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
@@ -1942,9 +1948,9 @@ You can lay red lines using electrical tape, then place the robot on top of the 
 
 ### 5.6.4 Programming Instruction
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-**The source code of this program is locate in** ["/home/pi/TonyPi/Functions/VisualPatrol.py"]().
+**The source code of this program is locate in ["/home/pi/TonyPi/Functions/VisualPatrol.py"](../_static/source_code/Functions.zip).**
 
 * **Import Parameter Module**
 
@@ -2180,11 +2186,11 @@ AprilTags can be easily printed using a regular printer, and the detection syste
 **The input of commands must strictly distinguish between uppercase and lowercase letters, as well as spaces.**
 :::
 
-(1) Power on the device and, following the instructions in ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"](), use the VNC remote connection tool to connect.
+(1) Power on the device and, following the instructions in ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection), use the VNC remote connection tool to connect.
 
-<img src="../_static/media/chapter_5/section_7/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_7/image3.png" class="common_img" />
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_7/media/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open the command-line terminal.
 
 (3) Run the following command to navigate to the directory where the game programs are stored.
 
@@ -2210,11 +2216,11 @@ Once the game is activated, position the included AprilTag tag in front of the c
 
 ### 5.7.4 Program Parameter Explanation
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
 The source code for this program is located at:
 
-[/home/pi/TonyPi/Functions/Tag_Detect.py]()
+[/home/pi/TonyPi/Functions/Tag_Detect.py](../_static/source_code/Functions.zip)
 
 * **Image Acquisition and Processing**
 
@@ -2347,11 +2353,11 @@ Encoding and decoding the detected tags. Finally, add the corresponding executio
 Pay attention to the text format in the input of instructions.
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-<img src="../_static/media/chapter_5/section_8/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image3.png" class="common_img" />
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_8/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_8/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) Input command and press Enter to locate to the directory where the program is stored.
 
@@ -2383,9 +2389,9 @@ After starting the tag recognition, place the tag cards in front of the camera t
 
 ### 5.8.4 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code of this program is locate in [/home/pi/TonyPi/Functions/ApriltagDetect.py"]().
+**The source code of this program is locate in ["/home/pi/TonyPi/Functions/ApriltagDetect.py"](../_static/source_code/Functions.zip).**
 
 * **Import Parameter Module**
 
@@ -2516,6 +2522,8 @@ elif tag_id == 3:
     action_finish = True
 ```
 
+<p id="anchor_5_8_5"></p>
+
 ### 5.8.5 Function Extension
 
 * **Modify the Action Corresponding to the Tag**
@@ -2536,25 +2544,25 @@ vim ApriltagDetect.py
 
 (3) Find code `AGC.runActionGroup(bow)`.
 
-<img src="../_static/media/chapter_5/section_8/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image16.png" class="common_img" />
 
 :::{Note}
 After entering the code position number on the keyboard, press **"Shift+G"** to directly locate to the corresponding location. This section aims to introduce quick location methods, so the code position number is for reference only. Please rely on actual positions.
 :::
 
-(4) Based on the description of the **"TonyPi Action Group List Instruction"** located in the path ["/home/pi/TonyPi/ActionGroups"](), it is known that **"bow"** corresponds to bowing.
+(4) Based on the description of the **"TonyPi Action Group List Instruction"** located in the path "/home/pi/TonyPi/ActionGroups", it is known that **"bow"** corresponds to bowing.
 
-<img src="../_static/media/chapter_5/section_8/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image17.png" class="common_img" />
 
-<img src="../_static/media/chapter_5/section_8/media/image18.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image18.png" class="common_img" />
 
 (5) Press **"i"** to enter the editing mode, then modify the `('bow')` in `AGC.runActionGroup('bow')` to `AGC.runActionGroup('wave')`
 
-<img src="../_static/media/chapter_5/section_8/media/image19.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image19.png" class="common_img" />
 
 (6) Press **"Esc"** to enter last line command mode. Input **":wq"** to save the file and exit the editor.
 
-<img src="../_static/media/chapter_5/section_8/media/image20.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image20.png" class="common_img" />
 
 * **Modify or Add the Tag Recognition**
 
@@ -2568,37 +2576,37 @@ The tag data is located in the **"ApirlTag Tag Collection"** folder under the di
 
 In the following sample, we will add the ID4 as new tag. When the tag is recognized, TonyPi will run the **"Cheering"** action group.
 
-(1) Take the reference of ["5.1Modify the Action Corresponding to the Tag"](), enter the catalog and open the program file.
+(1) Take the reference of ["**5.8.5 Function Extension -\> Modify the Action Corresponding to the Tag**"](#anchor_5_8_5), enter the catalog and open the program file.
 
-<img src="../_static/media/chapter_5/section_8/media/image21.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image21.png" class="common_img" />
 
 (2) Next, you need to copy the code inside the **"elif"** branch. Here, we can copy the code shown in the image. Move the mouse cursor to the corresponding **"elif"** line, then type **"5yy"** on the keyboard (to copy 5 lines). You will see a prompt **"5 lines yanked"** at the bottom, indicating successful copying.
 
-<img src="../_static/media/chapter_5/section_8/media/image22.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image22.png" class="common_img" />
 
 (3) Then paste these 5 lines of code, and move the mouse cursor to the position shown in the figure below:
 
-<img src="../_static/media/chapter_5/section_8/media/image23.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image23.png" class="common_img" />
 
 (4) Enter **"p"** on the keyboard to paste the previously copied 5 lines of code below:
 
-<img src="../_static/media/chapter_5/section_8/media/image24.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image24.png" class="common_img" />
 
 (5) Modify the copy code. Enter **"i"** to the editing mode and revise **"tag_id"** to **"4"**, and the action in the `AGC.runActionGroup` to **"chest"**.
 
-The built-in action groups can be found in ["/home/pi/TonyPi/ActionGroups"]().
+The built-in action groups can be found in "/home/pi/TonyPi/ActionGroups".
 
-<img src="../_static/media/chapter_5/section_8/media/image25.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image25.png" class="common_img" />
 
 (6) The modification is completed now. Press **"Esc"** to enter last line command mode. Input **":wq"** to save the file and exit the editor.
 
 (7) Take the ID4 tag in folder **"ApirlTag Tag Collection"** and print it directly.
 
-<img src="../_static/media/chapter_5/section_8/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image26.png" class="common_img" />
 
 Check the project outcome according to the commands in previous learning.
 
-<img src="../_static/media/chapter_5/section_8/media/image27.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_8/image27.png" class="common_img" />
 
 ## 5.9 Face Recognition
 
@@ -2616,9 +2624,9 @@ In this lesson, we use a pre-trained facial recognition model. The image is firs
 **The input of commands must strictly distinguish between uppercase and lowercase letters.**
 :::
 
-(1) Power on the device and, following the instructions in ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"](), use the VNC remote connection tool to connect.
+(1) Power on the device and, following the instructions in ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection), use the VNC remote connection tool to connect.
 
-(2) Click the icon <img src="../_static/media/chapter_5/section_1/media/image4.png" />in the top left corner of the system desktop to open the LX terminal.
+(2) Click the icon <img src="../_static/media/chapter_5/section_1/image4.png" />in the top left corner of the system desktop to open the LX terminal.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
@@ -2644,9 +2652,9 @@ After the feature is activated, the buzzer will emit a beeping sound when a face
 
 ### 5.9.4 Program Brief Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/Functions.zip)
 
-The source code of the program is saved in: [/home/pi/TonyPi/Functions/Face_Detect.py]()
+The source code of the program is saved in: [/home/pi/TonyPi/Functions/Face_Detect.py](../_static/source_code/Functions.zip)
 
 * **Program Logic**
 
@@ -2756,7 +2764,7 @@ def buzzer():
 
 ### 5.10.1 Program Logic
 
-The robot recognizes a human face, and after recognition, it performs a "greeting" action.
+The robot recognizes a human face, and after recognition, it performs a "**greeting**" action.
 
 In artificial intelligence, one of the most widespread applications is image recognition, with facial recognition being the hottest application in image recognition. It is commonly used in scenarios like door locks and phone facial unlocking.
 
@@ -2772,29 +2780,29 @@ Pay attention to the text format in the input of instructions.
 
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) Input the following command and press Enter to locate to the directory where the program is stored.
 
-```python
+```bash
 cd TonyPi/Functions
 ```
 
 (4) Input the command below, then press Enter to start the game.
 
-```python
+```bash
 python3 FaceDetect.py
 ```
 
-(5) If you want to exit the game programming, press "Ctrl+C". If the exit fails, please try it few more times.
+(5) If you want to exit the game programming, press "**Ctrl+C**". If the exit fails, please try it few more times.
 
 ### 5.10.3 Project Outcome
 
 :::{Note}
 
-Please do not try the Facial Recognition game under strong light, such as sunlight. Strong light will affect the recognition performance, so it is recommended to play this game indoors. It’s better to set the distance between face and camera with 50-100cm.
+Please do not try the Facial Recognition game under strong light, such as sunlight. Strong light will affect the recognition performance, so it is recommended to play this game indoors. It's better to set the distance between face and camera with 50-100cm.
 
 :::
 
@@ -2802,7 +2810,7 @@ Start the facial recognition function, TonyPi will rotate its head to detect fac
 
 ### 5.10.4 Programming Instruction
 
-The source code of this program is locate in [/home/pi/TonyPi/Functions/FaceDetect.py]().
+"**The source code of this program is locate in [/home/pi/TonyPi/Functions/FaceDetect.py](../_static/source_code/Functions.zip).**"
 
 (1) Import Parameter Module
 
@@ -2828,13 +2836,13 @@ import hiwonder.yaml_handle as yaml_handle
 
 ① `import sys` :The Python "**sys**" module has been imported for accessing system-related functions and variables.
 
-② `import os`:The Python “os” module has been imported, providing functions and methods for interacting with the operating system.
+② `import os`:The Python "**os**" module has been imported, providing functions and methods for interacting with the operating system.
 
 ③ `import cv2`:The OpenCV library has been imported for image processing and computer vision-related functionalities
 
-④ `import time`:The Python “time” module has been imported for time-related functionalities, such as delay operations.
+④ `import time`:The Python "**time**" module has been imported for time-related functionalities, such as delay operations.
 
-⑤ `import math`:The “math” module provides low-level access to mathematical operations, including many commonly used mathematical functions and constants.
+⑤ `import math`:The "**math**" module provides low-level access to mathematical operations, including many commonly used mathematical functions and constants.
 
 ⑥ `import threading`:Provides an environment for running multiple threads concurrently.
 
@@ -2844,7 +2852,7 @@ import hiwonder.yaml_handle as yaml_handle
 
 ⑨ `import sensor.camera as camera`:Import camera library
 
-⑩ `from common import misc`:The "Misc" module has been imported for handling recognized rectangular data.
+⑩ `from common import misc`:The "**Misc**" module has been imported for handling recognized rectangular data.
 
 ⑪ `import common.ros_robot_controller_sdk as rrc`:The robot's underlying control library has been imported for controlling servos, motors, RGB lights, and other hardware.
 
@@ -2888,7 +2896,7 @@ Convert the BGR image to LAB image.
 
 (4) Use mediapipe human face model recognition
 
-Perform face detection and draw rectangles around the detected faces. Then, based on whether the position of the face center is in the center of the frame, if so, set "start_greet" to True to execute the action group.
+Perform face detection and draw rectangles around the detected faces. Then, based on whether the position of the face center is in the center of the frame, if so, set "**start_greet**" to True to execute the action group.
 
 {lineno-start=139}
 
@@ -2912,7 +2920,7 @@ Perform face detection and draw rectangles around the detected faces. Then, base
 
 (5) Face detection
 
-If a face is detected, use the "agc.run_action_group" function to invoke the "wave" action group.
+If a face is detected, use the "**agc.run_action_group**" function to invoke the "**wave**" action group.
 
 {lineno-start=105}
 
@@ -2949,7 +2957,7 @@ If no face is detected, control the pan-tilt servo to rotate left and right to s
 
 :::{Note}
 
-The built-in file is located in "/home/pi/TonyPi/ActionGroups".
+The built-in file is located in "**/home/pi/TonyPi/ActionGroups**".
 
 :::
 
@@ -2957,43 +2965,41 @@ Program default setting is that TonyPi will execute the greeting action when det
 
 (1) Enter the following command to the directory where the game program is located.
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (2) Enter the command below to go into the game program through vi editor.
 
-```python
+```bash
 vim FaceDetect.py
 ```
 
 (3) Find code `AGC.runActionGroup('wave')`.
 
-<img src="../_static/media/chapter_5/section_10/media/image1.png" />
+<img src="../_static/media/chapter_5/section_10/image1.png" class="common_img"/>
 
-"**wave**" in the above image is the name of greeting action. If we want to revise the action to bowing, enter "**bow**" instead of “wave” in the "**Action group instruction**" in the path /home/pi/TonyPi/ActionGroups.
+"**wave**" in the above image is the name of greeting action. If we want to revise the action to bowing, enter "**bow**" instead of "**wave**" in the "**Action group instruction**" in the path /home/pi/TonyPi/ActionGroups.
 
 :::{Note}
 
-The action name can be found in the "Action group instruction".
+The action name can be found in the "**Action group instruction**".
 
 :::
 
 (4) Press "**i**" to enter the editing mode, then modify "**wave**" to "**bow**".
 
-<img src="../_static/media/chapter_5/section_10/media/image2.png" />
+<img src="../_static/media/chapter_5/section_10/image2.png" class="common_img"/>
 
-(5) Press "**Esc**" to enter last line command mode. Input ":wq" to save the file and exit the editor.
+(5) Press "**Esc**" to enter last line command mode. Input "**:wq**" to save the file and exit the editor.
 
-<img src="../_static/media/chapter_5/section_10/media/image3.png" />
-
-
+<img src="../_static/media/chapter_5/section_10/image3.png" class="common_img"/>
 
 ## 5.11 Gesture Control
 
 ### 5.11.1 Game Overview
 
-This program leverages MediaPipe's hand detection model to recognize palm joints. Upon detecting a specific hand gesture, the robot locks onto the fingertip within the camera frame, initiates tracking, and visualizes the fingertip’s movement by drawing its trajectory.
+This program leverages MediaPipe's hand detection model to recognize palm joints. Upon detecting a specific hand gesture, the robot locks onto the fingertip within the camera frame, initiates tracking, and visualizes the fingertip's movement by drawing its trajectory.
 
 The process begins by invoking the MediaPipe hand detection model and capturing real-time images from the camera. The input image is then flipped and preprocessed to extract hand landmarks. By analyzing the connections between key points, the system calculates finger angles to accurately identify gestures.
 
@@ -3007,19 +3013,19 @@ The input of commands must strictly distinguish between uppercase and lowercase 
 
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (4) Enter the command and press Enter to start the program:
 
-```python
+```bash
 python3 gesture_control.py
 ```
 
@@ -3027,11 +3033,11 @@ python3 gesture_control.py
 
 ### 5.11.3 Program Outcome
 
-After starting the program, place your hand within the camera’s field of view. Once the hand is detected, the system will mark the key points of the hand on the live video feed.
+After starting the program, place your hand within the camera's field of view. Once the hand is detected, the system will mark the key points of the hand on the live video feed.
 
-The camera displays the real-time view. When the gesture "1" (index finger pointing) is recognized, the system begins tracking the fingertip and drawing its movement path on the screen.
+The camera displays the real-time view. When the gesture "**1**" (index finger pointing) is recognized, the system begins tracking the fingertip and drawing its movement path on the screen.
 
-For example, if the fingertip moves to the right, a path will be drawn in that direction. When the system detects the open palm gesture "5", the buzzer will beep once, the robot will strafe to the right, and the previously drawn trajectory will be cleared from the screen.
+For example, if the fingertip moves to the right, a path will be drawn in that direction. When the system detects the open palm gesture "**5**", the buzzer will beep once, the robot will strafe to the right, and the previously drawn trajectory will be cleared from the screen.
 
 Similarly:
 
@@ -3041,11 +3047,13 @@ Similarly:
 
 * In each case, the robot responds to the drawn trajectory by executing the corresponding movement.
 
-<img src="../_static/media/chapter_5/section_11/media/image2.png" style="width:400px" class="common_img" /><img src="../_static/media/chapter_5/section_11/media/image3.png" style="width:400px" class="common_img" />
+<img src="../_static/media/chapter_5/section_11/image2.png" style="width:400px" class="common_img" />
+
+<img src="../_static/media/chapter_5/section_11/image3.png" style="width:400px" class="common_img" />
 
 ### 5.11.4 Brief Program Analysis
 
-The program file corresponding to this lesson is located at:[/home/pi/TonyPi/Functions/gesture_control.py]()1
+The program file corresponding to this lesson is located at: [/home/pi/TonyPi/Functions/gesture_control.py](../_static/source_code/Functions.zip)
 
 This feature captures images through the camera and performs preprocessing—specifically, converting the image to a different color space to enhance recognition. After preprocessing, the program extracts gesture feature points by identifying key landmarks on the hand. It then uses logical analysis (based on angles) to determine different hand gestures. Finally, the system draws the recognized gesture trajectory on the live video feed.
 
@@ -3089,7 +3097,7 @@ Several key parameters within this module require attention:
 
 (2) max_num_hands: Specifies the maximum number of hands to detect. The default is 1.
 
-(3) min_tracking_confidence:A threshold for hand tracking confidence. If the recognition confidence during movement exceeds this value, the system will update the hand’s position based on the current image. Otherwise, it will use the previously recognized position. If tracking is unstable, you may adjust this value by ±0.3, but it must not be lower than 0.
+(3) min_tracking_confidence:A threshold for hand tracking confidence. If the recognition confidence during movement exceeds this value, the system will update the hand's position based on the current image. Otherwise, it will use the previously recognized position. If tracking is unstable, you may adjust this value by ±0.3, but it must not be lower than 0.
 
 (4) min_detection_confidence: The minimum confidence threshold (between 0 and 1) for the hand detection model. If the detection exceeds this value, the content in the image is recognized as a hand. If detection is unreliable, consider adjusting this value by ±0.1, but it must not be lower than 0.
 
@@ -3105,7 +3113,7 @@ Once the basic tool parameters are defined, the program proceeds to the logic re
             results = hand_detector.process(image)
 ```
 
-The process function within self.hand_detector is used to extract the hand’s key landmarks. The results (i.e., the positions of these key points in the image) are stored in the results variable for further logical processing.
+The process function within self.hand_detector is used to extract the hand's key landmarks. The results (i.e., the positions of these key points in the image) are stored in the results variable for further logical processing.
 
 (2) Drawing Parameter Configuration
 
@@ -3161,11 +3169,11 @@ Once the landmarks have been stored in the results variable, logical processing 
 
 The hand_angle function receives the landmark set (landmarks(results)) and uses the vector_2d_angle function to calculate the angles between relevant points. Each element in the landmarks set corresponds to a specific finger joint, as illustrated in the following diagram.
 
-<img src="../_static/media/chapter_5/section_11/media/image4.png" style="width:400px" class="common_img" />
+<img src="../_static/media/chapter_5/section_11/image4.png" style="width:400px" class="common_img" />
 
 The vector_2d_angle function is used to calculate the angle between joints. Specifically, the points landmarks[3], landmarks[4], landmarks[0], and landmarks[2] correspond to the key landmarks numbered 3, 4, 0, and 2 in the hand feature extraction diagram. By computing the angle formed by these joints at the fingertip, the posture characteristics of the thumb can be determined.
 
-Similarly, the processing logic for the other fingers’ joints follows the same approach.
+Similarly, the processing logic for the other fingers' joints follows the same approach.
 
 To ensure accurate recognition, the parameters and basic logic (addition and subtraction of angles) inside the hand_angle function should be kept at their default settings.
 
@@ -3238,11 +3246,11 @@ Taking the gesture "**one**" as an example:
         gesture_str = "one"
 ```
 
-① angle_list[0] > 5 checks whether the thumb’s joint angle in the image is greater than 5 degrees.
+① angle_list[0] > 5 checks whether the thumb's joint angle in the image is greater than 5 degrees.
 
-② angle_list[1] < thr_angle_s verifies if the index finger’s angle is less than the threshold thr_angle_s.
+② angle_list[1] < thr_angle_s verifies if the index finger's angle is less than the threshold thr_angle_s.
 
-③ angle_list[2] < thr_angle checks if the middle finger’s angle is less than thr_angle.
+③ angle_list[2] < thr_angle checks if the middle finger's angle is less than thr_angle.
 
 ④ The logic for the other two fingers, angle_list[3] and angle_list[4], follows a similar pattern.
 
@@ -3269,7 +3277,7 @@ The fingertip feature detection process is illustrated in the diagram below:
                         count = 0
 ```
 
-The code snippet above shows the logic used when the gesture “one” is detected. The variable self.count tracks the number of consecutive frames the gesture has been maintained. When self.count < 5, it means the gesture must be held for 5 frames before it is confirmed as gesture “one.” (Adjusting this frame count allows control over the duration needed for recognition—typically set around 5 to 7 frames. Too long a duration may negatively impact recognition accuracy.)
+The code snippet above shows the logic used when the gesture "**one**" is detected. The variable self.count tracks the number of consecutive frames the gesture has been maintained. When self.count < 5, it means the gesture must be held for 5 frames before it is confirmed as gesture "**one**". (Adjusting this frame count allows control over the duration needed for recognition—typically set around 5 to 7 frames. Too long a duration may negatively impact recognition accuracy.)
 
 Once confirmed, the current gesture state is set to TRACKING, meaning the system can start tracking motion. At this point, self.points (representing the positions of the current two adjacent points) and points_list (a collection of feature points used to draw the trajectory line) are initialized.
 
@@ -3298,7 +3306,7 @@ While the gesture is in the sliding (tracking) state, a custom function distance
 
 The value 5 represents the pixel threshold for movement between frames. If a faster movement speed and still accurate logic are required, this value can be slightly increased—though it is recommended not to exceed 10. Conversely, lowering the value tightens the movement threshold.
 
-The fingertip’s positional data is stored in pixels, which holds the (x, y) coordinates of the fingertip and is used for drawing the trajectory on the image.
+The fingertip's positional data is stored in pixels, which holds the (x, y) coordinates of the fingertip and is used for drawing the trajectory on the image.
 
 The trajectory clearing process is illustrated in the diagram below:
 
@@ -3323,19 +3331,19 @@ When the gesture is recognized as "**five**", the gesture recognition state is s
 
 ### 5.12.1 Game Overview
 
-This experiment is designed to use MediaPipe’s pose detection model to recognize key human body points (such as hands, arms, shoulders, etc.) and, based on their positions and angles, achieve real-time control of body posture. By detecting the posture of the hands, the robot can respond accordingly, enabling gesture-based human-robot interaction.
+This experiment is designed to use MediaPipe's pose detection model to recognize key human body points (such as hands, arms, shoulders, etc.) and, based on their positions and angles, achieve real-time control of body posture. By detecting the posture of the hands, the robot can respond accordingly, enabling gesture-based human-robot interaction.
 
-The core of the experiment is to capture the user’s posture information in real time using MediaPipe’s pose detection model and map it to the robot’s motion control system.
+The core of the experiment is to capture the user's posture information in real time using MediaPipe's pose detection model and map it to the robot's motion control system.
 
 The process includes:
 
-* Using MediaPipe’s pose model to obtain the coordinates of key body points.
+* Using MediaPipe's pose model to obtain the coordinates of key body points.
 
 * Calculating movements (e.g., raising an arm, bending an elbow) based on changes in key point positions.
 
-* Mapping the user’s movements to the robot’s arm joint controls, allowing the robot to mimic the user’s actions.
+* Mapping the user's movements to the robot's arm joint controls, allowing the robot to mimic the user's actions.
 
-* Displaying the user’s posture and the robot’s action status in real time on the screen.
+* Displaying the user's posture and the robot's action status in real time on the screen.
 
 ### 5.12.2 Start and Close the Game
 
@@ -3345,19 +3353,19 @@ The input of commands must strictly distinguish between uppercase and lowercase 
 
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (4) Enter the command and press Enter to start the program:
 
-```py
+```bash
 python3 pose_control.py
 ```
 
@@ -3365,13 +3373,13 @@ python3 pose_control.py
 
 ### 5.12.3 Program Outcome
 
-After starting the activity, place your hand within the camera’s field of view. Once the upper body skeleton is detected, key points of the human body will be marked in the returned video feed.
+After starting the activity, place your hand within the camera's field of view. Once the upper body skeleton is detected, key points of the human body will be marked in the returned video feed.
 
-The camera will display the live video and automatically recognize the body’s key points. Based on the key points of the hands, the servos will be driven to mimic the movements of the human arm. When the user opens their arms, the robot will simultaneously open its arms as well, achieving posture-based control.
+The camera will display the live video and automatically recognize the body's key points. Based on the key points of the hands, the servos will be driven to mimic the movements of the human arm. When the user opens their arms, the robot will simultaneously open its arms as well, achieving posture-based control.
 
 ### 5.12.4 Brief Program Analysis
 
-The program file corresponding to this lesson is located at [/home/pi/TonyPi/Functions/pose_control.py]()
+**The program file corresponding to this lesson is located at [/home/pi/TonyPi/Functions/pose_control.py](../_static/source_code/Functions.zip)**
 
 :::{Note}
 
@@ -3402,7 +3410,7 @@ from mediapipe.framework.formats import landmark_pb2
 from mediapipe_visual import draw_pose_landmarks_on_image
 ```
 
-① `import os`:Imports Python’s os module, which provides functions for interacting with the operating system.
+① `import os`:Imports Python's os module, which provides functions for interacting with the operating system.
 
 ② `import cv2`:Imports the OpenCV library for image processing and computer vision tasks.
 
@@ -3420,7 +3428,7 @@ from mediapipe_visual import draw_pose_landmarks_on_image
 
 ⑨ `from mediapipe import solutions`:Imports pre-defined modules from MediaPipe, such as hand tracking, face detection, and pose estimation.
 
-⑩ `from mediapipe.tasks import python`: Imports the Python API from MediaPipe’s task module.
+⑩ `from mediapipe.tasks import python`: Imports the Python API from MediaPipe's task module.
 
 ⑪ `import hiwonder.yaml_handle as yaml_handle`:Provides tools for handling YAML-format configuration files.
 
@@ -3444,7 +3452,7 @@ model_path = os.path.join(os.path.abspath(os.path.split(os.path.realpath(__file_
 
 Load a pre-trained MediaPipe Lite pose detection model to detect 33 human body keypoints.
 model_path: Specifies the path to the model file.
-base_options: Sets the model file path using MediaPipe’s base options.
+base_options: Sets the model file path using MediaPipe's base options.
 options: Configures the pose detector, including whether to output a segmentation mask.
 detector: Instantiates the pose detection object.
 
@@ -3537,11 +3545,11 @@ Control the servo based on the calculated angle.
                     board.bus_servo_set_position(0.05, [[14, servo14], [15, servo15]])
 ```
 
-The calculated joint angles are mapped to the servo’s operating range (between 125 and 875). The val_map() function is used to convert the angle values into the valid range for servo control. For each angle, it checks whether the value falls within the allowed limits and clamps it if necessary. The function board.bus_servo_set_position() sets the servo position accordingly to control the movement.
+The calculated joint angles are mapped to the servo's operating range (between 125 and 875). The val_map() function is used to convert the angle values into the valid range for servo control. For each angle, it checks whether the value falls within the allowed limits and clamps it if necessary. The function board.bus_servo_set_position() sets the servo position accordingly to control the movement.
 
 (8) Drawing MediaPipe Default Pose Landmarks
 
-Use MediaPipe’s default style to draw pose landmarks.
+Use MediaPipe's default style to draw pose landmarks.
 
 {lineno-start=155}
 
@@ -3571,20 +3579,20 @@ The robot will sequentially transport sponge blocks on the map to the correspond
 This lesson focuses on how the robot accomplishes the task of item transportation, which is divided into two main stages: the recognition stage and the transportation stage.
 
 **Recognition Stage:**
-Using coordination between the robot base and the pan-tilt mechanism, the robot “searches” for recognizable objects on the map. When a recognizable color appears within the visual range, the robot begins processing color recognition. The image is first converted to the Lab color space and then binarized. After applying dilation and erosion operations, contours containing only the program-defined colors are obtained. By bounding these color contours, the robot achieves object color recognition.
+Using coordination between the robot base and the pan-tilt mechanism, the robot "**searches**" for recognizable objects on the map. When a recognizable color appears within the visual range, the robot begins processing color recognition. The image is first converted to the Lab color space and then binarized. After applying dilation and erosion operations, contours containing only the program-defined colors are obtained. By bounding these color contours, the robot achieves object color recognition.
 **Transportation Stage:**
 Once recognition is complete, the robot moves into transportation. Based on the processed image feedback, when multiple objects are within the field of view, the robot assesses their relative distances and prioritizes transporting the closest object. The robot approaches the selected object and, upon reaching a set range, lifts it up to its head level.
-According to the object’s color, the robot matches it with the corresponding AprilTag label, which determines the final delivery location. Then, by controlling the pan-tilt and the robot base, it scans the map for tags. When a tag is detected, the robot takes different actions depending on whether it is the target tag.
+According to the object's color, the robot matches it with the corresponding AprilTag label, which determines the final delivery location. Then, by controlling the pan-tilt and the robot base, it scans the map for tags. When a tag is detected, the robot takes different actions depending on whether it is the target tag.
 
 * If the scanned tag is the target, the robot transports the object directly to that point and places it down.
 
-* If the scanned tag is not the target, the robot uses the tag’s position to infer the location of the target tag, then reorients itself toward the target. Once the target tag is scanned, the robot transports the object there and releases it.
+* If the scanned tag is not the target, the robot uses the tag's position to infer the location of the target tag, then reorients itself toward the target. Once the target tag is scanned, the robot transports the object there and releases it.
 
 ### 5.13.2 Getting Ready
 
 (1) The function of this section should be operated on the provided map. The right side is the items placement zone and the left side is the receiving space.
 
-<img src="../_static/media/chapter_5/section_13/media/image2.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image2.png"  class="common_img" />
 
 
 
@@ -3598,19 +3606,19 @@ Pay attention to the text format in the input of instructions.
 
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (4) Input the following command , then press Enter to start the game.
 
-```python
+```bash
 python3 Transport.py
 ```
 
@@ -3628,21 +3636,49 @@ Place the robot and sponge blocks of red, green, and blue colors randomly within
 
 ### 5.13.5 Comparison Between Voice Transport and Intelligent Transport
 
-<table><thead><tr><th></th><th>Voice transport</th><th>Intelligent transport</th></tr></thead><tbody><tr><td rowspan="2">control methods</td><td colspan="2">After starting the command-line game</td></tr><tr><td>Voice control</td><td>Auto work</td></tr><tr><td>Application scenarios</td><td>Quiet Environment (Voice commands effective within a distance of less than 30cm)</td><td>Noisy Environment (No distance requirement)</td></tr><tr><td>Work mode</td><td>Single Transport</td><td>Continuous Transport</td></tr></tbody></table>
+<table>
+<thead>
+    <tr>
+        <th></th>
+        <th>Voice transport</th>
+        <th>Intelligent transport</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="2">control methods</td>
+        <td colspan="2">After starting the command-line game</td>
+    </tr>
+    <tr>
+        <td>Voice control</td>
+        <td>Auto work</td>
+    </tr>
+    <tr>
+        <td>Application scenarios</td>
+        <td>Quiet Environment (Voice commands effective within a distance of less than 30cm)</td>
+        <td>Noisy Environment (No distance requirement)</td>
+    </tr>
+    <tr>
+        <td>Work mode</td>
+        <td>Single Transport</td>
+        <td>Continuous Transport</td>
+    </tr>
+</tbody>
+</table>
 
 ### 5.13.6 Program Parameter Instruction
 
-The source code of this program is located in: [/home/pi/TonyPi/Functions/Transport.py]().
+**The source code of this program is located in: [/home/pi/TonyPi/Functions/Transport.py](../_static/source_code/Functions.zip).**
 
 * **Import Parameter Module**
 
-(1) `import sys`:Imports Python’s sys module, used for accessing system-related functions and variables
+(1) `import sys`:Imports Python's sys module, used for accessing system-related functions and variables
 
-(2) `import os`:Imports Python’s os module, providing functions and methods to interact with the OS
+(2) `import os`:Imports Python's os module, providing functions and methods to interact with the OS
 
 (3) `import cv2`:Imports the OpenCV library for image processing and computer vision-related functions
 
-(4) `import time`:Imports Python’s time module for time-related functions, such as delays
+(4) `import time`:Imports Python's time module for time-related functions, such as delays
 
 (5) `import math`:Provides low-level access to mathematical operations, including many common math functions and constants
 
@@ -3655,7 +3691,7 @@ The source code of this program is located in: [/home/pi/TonyPi/Functions/Transp
 (9) `import hiwonder.Camera as Camera`:Imports the camera library
 
 (10) `from hiwonder.Misc import Misc`:Imports the Misc module used to process recognized rectangular data
-(11) `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the robot’s low-level control library, used to control servos, motors, RGB lights, and other hardware
+(11) `import hiwonder.ros_robot_controller_sdk as rrc`:Imports the robot's low-level control library, used to control servos, motors, RGB lights, and other hardware
 
 (12) `from hiwonder.controller import Controller`:Imports the motion control library
 
@@ -3667,9 +3703,9 @@ The source code of this program is located in: [/home/pi/TonyPi/Functions/Transp
 
 In this game, set up objects of three colors: red, green, and blue, and transport them to their corresponding tag positions, as shown in the pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image3.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image3.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image4.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image4.png"  class="common_img" />
 
 * **Detect transported object**
 
@@ -3677,9 +3713,9 @@ In this game, set up objects of three colors: red, green, and blue, and transpor
 
 At the beginning, the robot adjusts its left and right direction to find the objects to be transported. The specific settings are as shown in the following image:
 
-<img src="../_static/media/chapter_5/section_13/media/image5.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image5.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image6.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image6.png"  class="common_img" />
 
 (2) To detect the objects for transportation based on their color, the following code is used.
 
@@ -3700,11 +3736,11 @@ The main process involved in detecting object colors is as follows:
     frame_gb = cv2.GaussianBlur(frame_resize, (3, 3), 3)   
 ```
 
-The first parameter “frame_resize” is inputting image.
+The first parameter "**frame_resize**" is inputting image.
 
-The second parameter "(3, 3)" is the size of the Gaussian kernel. A larger kernel size typically results in a greater degree of filtering, making the output image more blurry, and it also increases computational complexity.
+The second parameter "**(3, 3)**" is the size of the Gaussian kernel. A larger kernel size typically results in a greater degree of filtering, making the output image more blurry, and it also increases computational complexity.
 
-The third parameter "3" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
+The third parameter "**3**" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
 
 ②By using the `inRange` function to perform binaryzation on the input image as pictured:
 
@@ -3737,23 +3773,23 @@ The second parameter `(3, 3)` is the size of the rectangle, which is 3x3 in this
 
 ④ Find out the largest contour of the object as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image7.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image7.png"  class="common_img" />
 
 To avoid interference, the `if area_max > 500` instruction is used to ensure that only contours with an area greater than 500 are considered valid for the largest area.
 
 ⑤ When the robot detects colored objects, use the `cv2.drawContours()` function to draw the contours of the colored objects as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image8.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image8.png"  class="common_img" />
 
 The first parameter `img` is the input image.
 
 The second parameter `[box]` is the contour itself, represented as a list in Python.
 
-The third parameter "-1" is the index of the contour, where the numerical value represents drawing all contours within the list.
+The third parameter "**-1**" is the index of the contour, where the numerical value represents drawing all contours within the list.
 
 The fourth parameter `(0, 255, 255)` is the contour color, with the order being B, G, R, where (0, 255, 255) represents yellow in this case.
 
-The fifth parameter "2" is the contour width. If set to "-1", it means to fill the contour with the specified color.
+The fifth parameter "**2**" is the contour width. If set to "**-1**", it means to fill the contour with the specified color.
 
 ⑥ After the robot detects the colored object, use the `cv2.circle()` function to draw the center point of the colored object on the feedback screen as pictured:
 
@@ -3767,11 +3803,11 @@ The first parameter `img` is the input image, which is the image of the detected
 
 The second parameter `(centerX, centerY)` is the coordinates of the center point of the circle to be drawn (determined based on the detected object).
 
-The third parameter "5" is the radius of the circle to be drawn.
+The third parameter "**5**" is the radius of the circle to be drawn.
 
 The fourth parameter `(0, 255, 255)` is the color of the circle to be drawn, with the order being B, G, R, and in this case, it represents yellow.
 
-The fifth parameter "-1" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
+The fifth parameter "**-1**" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
 
 * **Start transporting**
 
@@ -3781,19 +3817,19 @@ After detecting a colored object, the robot starts transporting the object, whic
 
 Before starting the transport, first control the robot to gradually approach the object to be transported as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image9.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image9.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image10.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image10.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image11.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image11.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image12.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image12.png"  class="common_img" />
 
 (2) pick up the object
 
 After approaching the object, control the robot to pick up the object to be transported as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image13.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image13.png"  class="common_img" />
 
 (3) find the transportation location
 
@@ -3809,7 +3845,7 @@ The main control parameters involved in the process are as follows:
 
 ① After obtaining the information of the four corner points of the tag code, use the `cv2.drawContours()` function to draw the contour of the tag as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image14.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image14.png"  class="common_img" />
 
 ② After the robot detects the tag, use the cv2.circle() function to draw the center point of the tag on the feedback screen as pictured:
 
@@ -3824,13 +3860,13 @@ The main control parameters involved in the process are as follows:
 
 After picking up the object, transport the object to the corresponding position as pictured:
 
-<img src="../_static/media/chapter_5/section_13/media/image15.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image15.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image16.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image16.png"  class="common_img" />
 
-<img src="../_static/media/chapter_5/section_13/media/image17.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_13/image17.png"  class="common_img" />
 
-After picking up the object, set "step = 1", then control the robot to adjust its left and right position to face the tag position as pictured:
+After picking up the object, set "**step = 1**", then control the robot to adjust its left and right position to face the tag position as pictured:
 
 {lineno-start=390}
 
@@ -3982,19 +4018,19 @@ Instructions must be entered with strict attention to case sensitivity and spaci
 
 :::
 
-(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection"]() to learn how to install and connect VNC.
+(1) Turn on robot and connect it to Raspberry Pi desktop with VNC. You can refer to ["**3. Remote Desktop Tool Installation and Connection->3.1 Remote Tool Installation and Connection**"](3_remote_desktop_tool_installation_and_connection.md#remote-tool-installation-and-connection) to learn how to install and connect VNC.
 
-(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_6/media/image4.png" /> in the Raspberry Pi desktop and open command line.
+(2) Double-click **"Terminator"** icon <img src="../_static/media/chapter_5/section_3/image4.png" /> in the Raspberry Pi desktop and open command line.
 
 (3) In the terminal, enter the command to navigate to the directory where the program is located, then press Enter:
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (4) Input the command below, then press Enter to start the game.
 
-```python
+```bash
 python3 Follow.py
 ```
 
@@ -4004,7 +4040,7 @@ python3 Follow.py
 
 :::{Note}
 
-The default recognized and tracking color is green. If you want to change to blue or red, please refer to [5.14.4 Function Extension/Modify Default Recognition Color](). Furthermore, when moving the handheld colored sponge blocks, the speed should not be too fast, and it should be within the range of camera recognition.
+The default recognized and tracking color is green. If you want to change to blue or red, please refer to "**5.14.4 Function Extension -\> Modify Default Recognition Color**". Furthermore, when moving the handheld colored sponge blocks, the speed should not be too fast, and it should be within the range of camera recognition.
 
 :::
 
@@ -4014,23 +4050,23 @@ After the game is started, slowly move the red sponge block by hand or place the
 
 * **Modify Default Recognition Color**
 
-Black, red and green are the built-in colors in the motion tracking program and red is the default color. In the following steps, we’re going to modify the tracking color as green.
+Black, red and green are the built-in colors in the motion tracking program and red is the default color. In the following steps, we're going to modify the tracking color as green.
 
 (1) Enter the following command to the directory where the game program is located.
 
-```python
+```bash
 cd TonyPi/Functions/
 ```
 
 (2) Enter the command below to go into the game program through vi editor.
 
-```python
+```bash
 vim Follow.py
 ```
 
 (3) Find the code `object_color = ('red',)`.
 
-<img src="../_static/media/chapter_5/section_14/media/image2.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image2.png"  class="common_img" />
 
 :::{Note}
 
@@ -4038,13 +4074,13 @@ After entering the code position number on the keyboard, press "**Shift+G**" to 
 
 :::
 
-(4) Press "**i**" to enter the editing mode, then modify red in `_target_color = (‘red’)` to green.
+(4) Press "**i**" to enter the editing mode, then modify red in `_target_color = ('red')` to green.
 
-<img src="../_static/media/chapter_5/section_14/media/image3.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image3.png"  class="common_img" />
 
 (5) Press "**Esc**" to enter last line command mode. Input "**:wq**" to save the file and exit the editor.
 
-<img src="../_static/media/chapter_5/section_14/media/image4.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image4.png"  class="common_img" />
 
 * **Add Recognized Color**
 
@@ -4052,29 +4088,29 @@ In addition to the built-in recognized colors, you can set other recognized colo
 
 (1) Open VNC, input command the following command to open Lab color setting document.
 
-```python
+```bash
 vim /home/pi/TonyPi/lab_config.yaml
 ```
 
-<img src="../_static/media/chapter_5/section_14/media/image5.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image5.png"  class="common_img" />
 
 (2) Click the debugging tool icon in the system desktop. Choose "**Execute**" in the pop-up window.
 
-<img src="../_static/media/chapter_5/section_14/media/image6.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image6.png"  class="common_img" />
 
 (3) Click "**Connect**" button in the lower left hand. When the interface display the camera returned image, the connection is successful. Select "**red**" in the right box first.
 
-<img src="../_static/media/chapter_5/section_14/media/image7.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image7.png"  class="common_img" />
 
 (4) Drag the corresponding sliders of L, A, and B until the color area to be recognized in the left screen becomes white and other areas become black.
 
 For example, if you want to recognize orange, you can put the orange ball in the camera's field of view. Adjust the corresponding sliders of L, A, and B until the blue part of the left screen becomes white and other colors become black, and then click "**Save**" button to keep the modified data.
 
-<img src="../_static/media/chapter_5/section_14/media/image8.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image8.png"  class="common_img" />
 
 (5) After the modification is completed, check whether the modified data was successfully written in. Enter the command again to check the color setting parameters.
 
-```py
+```bash
 vim /home/pi/TonyPi/lab_config.yaml
 ```
 
@@ -4082,7 +4118,7 @@ vim /home/pi/TonyPi/lab_config.yaml
 
 ### 5.14.5 Programming Instruction
 
-The source code of this program is locate in [/home/pi/TonyPi/Functions/Follow.py]().
+**The source code of this program is locate in [/home/pi/TonyPi/Functions/Follow.py](../_static/source_code/Functions.zip).**
 
 *  **Import Parameter Module**
 
@@ -4150,21 +4186,21 @@ The main detection parameters involved in the detection process are as follows:
 
 (1) Before converting the image to the LAB color space, noise reduction processing is required. The `GaussianBlur()` function is used for Gaussian filtering as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image9.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image9.png"  class="common_img" />
 
 The first parameter `frame_resize` is inputting image.
 
 The second parameter `(3, 3)` is the size of the Gaussian kernel. A larger kernel size typically results in a greater degree of filtering, making the output image more blurry, and it also increases computational complexity.
 
-The third parameter "3" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
+The third parameter "**3**" is the standard deviation of the Gaussian function along the X direction. In the Gaussian filter, it is used to control the variation near its mean. If this value is increased, the allowable range of variation around the mean is also increased; if decreased, the allowable range of variation around the mean is reduced.
 
 (2) By using the `inRange` function to perform binaryzation on the input image as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image10.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image10.png"  class="common_img" />
 
 (3) To reduce interference and make the image smoother, it is necessary to perform erosion and dilation operations on the image as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image11.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image11.png"  class="common_img" />
 
 In the processing, the `getStructuringElement` function is used to generate structuring elements of different shapes.
 
@@ -4174,7 +4210,7 @@ The second parameter `(3, 3)` is the size of the rectangle, which is 3x3 in this
 
 (4) Find out the largest contour of the object as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image12.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image12.png"  class="common_img" />
 
 To avoid interference, the `if area_max_contour is not None and area_max > 100` instruction is used to ensure that only contours with an area greater than 100 are considered valid for the largest area.
 
@@ -4184,7 +4220,7 @@ The main control parameters involved in the color recognition process are as fol
 
 (1) When the robot detects a colored object, use the `cv2.drawContours()` function to draw the contour of the colored object as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image13.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image13.png"  class="common_img" />
 
 The first parameter `img` is inputting image.
 
@@ -4198,27 +4234,27 @@ The fifth parameter `2` is the contour width. If set to `-1`, it means to fill t
 
 (2) After the robot detects a colored object, use the `cv2.circle()` function to draw the center point of the colored object on the feedback screen as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image14.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image14.png"  class="common_img" />
 
 The first parameter `img` is the input image, which is the image of the detected colored object in this case.
 
 The second parameter `(centerX, centerY)` is the coordinates of the center point of the circle to be drawn (determined based on the detected object).
 
-The third parameter "5" is the radius of the circle to be drawn.
+The third parameter "**5**" is the radius of the circle to be drawn.
 
 The fourth parameter `(0, 255, 255)` is the color of the circle to be drawn, with the order being B, G, R, and in this case, it represents yellow.
 
-The fifth parameter "-1" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
+The fifth parameter "**-1**" indicates that the circle should be filled with the color specified in parameter 4. If it is a number, it represents the line width of the circle to be drawn.
 
 * **Perform motion parameter**
 
 (1) After detecting a red object, control servo 1 and servo 2 of the robot to move the upper camera with the movement of the red object.
 
-<img src="../_static/media/chapter_5/section_14/media/image15.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image15.png"  class="common_img" />
 
 Take code `ctl.set_pwm_servo_pulse(1, vertical_servo_position,use_time*1000)` as example:
 
-The first parameter "1" represents controlling servo ID 1.
+The first parameter "**1**" represents controlling servo ID 1.
 
 The second parameter `vertical_servo_position` represents the pulse width of servo ID 1.
 
@@ -4226,4 +4262,4 @@ The third parameter `use_time*1000` represents the movement time of the servo, i
 
 (2) After detecting the red ball, the robot calls the action group file in the "**/home/pi/TonyPi/ActionGroups**" directory to control the robot to move along with the red object as pictured:
 
-<img src="../_static/media/chapter_5/section_14/media/image16.png"  class="common_img" />
+<img src="../_static/media/chapter_5/section_14/image16.png"  class="common_img" />
