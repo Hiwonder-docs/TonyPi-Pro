@@ -2,23 +2,21 @@
 
 ## 11.1 Face-Activated Fan
 
+<p id="anchor_11_1_1"></p>
+
 ### 11.1.1 Assembly
 
-<img src="../_static/media/chapter_11/section_1/media/图片1.png" style="width:500px" class="common_img" />
+<img src="../_static/media/chapter_11/section_1/image1.png" style="width:500px" class="common_img" />
 
-<img src="../_static/media/chapter_11/section_1/media/图片2.png" style="width:500px" class="common_img" />
-
-
+<img src="../_static/media/chapter_11/section_1/image2.png" style="width:500px" class="common_img" />
 
 ### 11.1.2 Face-Activated Fan
 
-[Source Code]()
-
 * **Getting Ready**
 
-Prepare a fan module and install it on the expansion hole of the robot's right arm. The specific installation method can refer to the section [**"11.1.1 Assembly"**](#1111-assembly).
+Prepare a fan module and install it on the expansion hole of the robot's right arm. The specific installation method can refer to the section [**"11.1.1 Assembly"**](#anchor_11_1_1).
 
-<img src="../_static/media/chapter_11/section_1/media/图片3.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_1/image3.png" style="width:500px"  class="common_img" />
 
 * **Working Principle**
 
@@ -38,17 +36,17 @@ The entered command must pay attention to case sensitivity and space.
 
 (2) Click the icon on the upper left corner of the desktop to open the command line terminal.
 
-<img src="../_static/media/chapter_11/section_1/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_1/image5.png" class="common_img" />
 
 (3) Enter the following command and press **"Enter"** to come to the directory of the game programmings.
 
-```
+```bash
 cd /home/pi/TonyPi/Extend/sensor_course/sensor_development/
 ```
 
 (4) Enter the command below, and then press **"Enter"** to start the game.
 
-```
+```bash
 python3 face_track_and_fan.py
 ```
 
@@ -60,11 +58,9 @@ After the program is started, TonyPi Pro raises left arm and detects face. When 
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code of this program is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/face_track_and_fan.py]()
-
-<img src="../_static/media/chapter_11/section_1/media/image8.png" class="common_img" />
+The source code of this program is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/face_track_and_fan.py](../_static/source_code/sensor_development.zip)
 
 * **Module Parameter Import**
 
@@ -218,20 +214,20 @@ def move():
 
 ## 11.2 Obstacle Avoidance
 
+<p id="anchor_11_2_1"></p>
+
 ### 11.2.1 Assembly
 
-<img src="../_static/media/chapter_11/section_2/media/图片1.png" style="width:500px" class="common_img" />
-<img src="../_static/media/chapter_11/section_2/media/图片2.png" style="width:500px" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image0.png" style="width:500px" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image1.png" style="width:500px" class="common_img" />
 
 ### 11.2.2 Obstacle Avoidance
 
-[Source Code]()
-
 * **Getting Ready**
 
-Prepare an ultrasonic sensor and install it on the expansion hole of robot's left hand. The specific installation method can refer to the file [11.2.1 Assembly]() under the same directory.
+Prepare an ultrasonic sensor and install it on the expansion hole of robot's left hand. The specific installation method can refer to the file [**11.2.1 Assembly**](#anchor_11_2_1) under the same directory.
 
-<img src="../_static/media/chapter_11/section_2/media/image2.png" style="width:500px" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image2.png" style="width:500px" class="common_img" />
 
 * **Working Principle**
 
@@ -283,27 +279,27 @@ vim sonar_barrier.py
 
 (3) Find the code in the program interface as the figure shown below.
 
-<img src="../_static/media/chapter_11/section_2/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image8.png" class="common_img" />
 
 (4) Press **"i"** on keyboard. When **"Insert"** appears in the lower left corner, which means it has entered the editing mode.
 
-<img src="../_static/media/chapter_11/section_2/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image9.png" class="common_img" />
 
 (5) Modify **"300"** in **"if distance <= 300"** to **"100"**, as the figure shown below:
 
-<img src="../_static/media/chapter_11/section_2/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image10.png" class="common_img" />
 
 (6) After modification, press **"Esc"** and then enter **":wq"** (Please note that the colon is in front of wq). Then press **"Enter"** to save and exit the modified content.
 
-<img src="../_static/media/chapter_11/section_2/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image11.png" class="common_img" />
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code is saved in: [home/pi/TonyPi/Extend/sensor_course/sensor_development/sonar_barrier.py]()
+The source code is saved in: [home/pi/TonyPi/Extend/sensor_course/sensor_development/sonar_barrier.py](../_static/source_code/sensor_development.zip)
 
-<img src="../_static/media/chapter_11/section_2/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_2/image12.png" class="common_img" />
 
 * **Module Parameter Import**
 
@@ -477,20 +473,21 @@ while True:
 
 ## 11.3 Shape Recognition
 
+<p id="anchor_11_3_1"></p>
+
 ### 11.3.1 Assembly
 
-<img src="../_static/media/chapter_11/section_3/media/图片1.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_3/media/图片2.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_3/image1.png" style="width:500px"  class="common_img" />
+
+<img src="../_static/media/chapter_11/section_3/image2.png" style="width:500px"  class="common_img" />
 
 ### 11.3.2 Shape Recognition
 
-[Source Code]()
-
 * **Getting Ready**
 
-Prepare a dot matrix module and install it on the expansion hole of robot's left arm. The specific installation method can refer to the file [**"1. Sensor Installation and Wiring"**]() under the same directory.
+Prepare a dot matrix module and install it on the expansion hole of robot's left arm. The specific installation method can refer to the file [**"11.3.1 Assembly"**](#anchor_11_3_1) under the same directory.
 
-<img src="../_static/media/chapter_11/section_3/media/图片3.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_3/image3.png" style="width:500px"  class="common_img" />
 
 * **Working Principle**
 
@@ -526,11 +523,11 @@ After the program is started, the robot's camera will recognize the object. When
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/shape_recognition.py]()
+The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/shape_recognition.py](../_static/source_code/sensor_development.zip)
 
-<img src="../_static/media/chapter_11/section_3/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_3/image7.png" class="common_img" />
 
 * **Module Parameter Import**
 
@@ -676,24 +673,24 @@ def run():
 
 ## 11.4 Intelligent Fill Light
 
+<p id="anchor_11_4_1"></p>
+
 ### 11.4.1 Assembly
 
-<img src="../_static/media/chapter_11/section_4/media/图片1.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/media/图片2.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/media/图片3.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/media/图片4.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/media/图片5.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/media/图片6.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image1.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image2.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image3.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image4.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image5.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image6.png" style="width:500px"  class="common_img" />
 
 ### 11.4.2 Intelligent Fill Light
 
-[Source Code]()
-
 * **Getting Ready**
 
-Prepare a light and an ultrasonic sensor, and then install the light sensor on the expansion hole of robot's shoulder and install the ultrasonic sensor on the expansion hole of left arm. The installation method can refer to the file [11.4.1 Assembly]() under the same directory.
+Prepare a light and an ultrasonic sensor, and then install the light sensor on the expansion hole of robot's shoulder and install the ultrasonic sensor on the expansion hole of left arm. The installation method can refer to the file [11.4.1 Assembly](#anchor_11_4_1) under the same directory.
 
-<img src="../_static/media/chapter_11/section_4/media/image2.png" style="width:500px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image0.png" style="width:500px"  class="common_img" />
 
 * **Working Principle**
 
@@ -747,19 +744,19 @@ vim photo_sensor_demo.py
 
 ③ Find the code in the program interface as the figure shown below.
 
-<img src="../_static/media/chapter_11/section_4/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image7.png" class="common_img" />
 
 ④ Press **"i"** on keyboard to enter the editing mode.
 
-<img src="../_static/media/chapter_11/section_4/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image8.png" class="common_img" />
 
 ⑤ Modify **"(255,255,255)"** to **"(255,0,0)"** (the range of three parameter is 0-255), as the figure shown below:
 
-<img src="../_static/media/chapter_11/section_4/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image9.png" class="common_img" />
 
 ⑥ After modification, press **"Esc"** and then enter **":wq"** (Please note that the colon is in front of wq). Then press **"Enter"** to save and exit the modified content.
 
-<img src="../_static/media/chapter_11/section_4/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image10.png" class="common_img" />
 
 ⑦ Enter the following command to restart the game, and observe the effect.
 
@@ -773,11 +770,11 @@ When this mode is activated, if the ambient light is low, the buzzer will emit a
 
 ① Refer to steps (1) and (2) in section **Adjusting the Fill Light** to enter the program editing interface. Locate the code section highlighted in the image below.
 
-<img src="../_static/media/chapter_11/section_4/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image11.png" class="common_img" />
 
 ② Following step (4) in **Adjusting the Fill Light**, change the value **"0.1"** to **"0.3"**, as shown in the image.
 
-<img src="../_static/media/chapter_11/section_4/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image12.png" class="common_img" />
 
 ③ As in step (5) of section **Adjusting the Fill Light**, save and exit the file. Then, re-run the program by entering the following command to observe the updated effect:
 
@@ -791,17 +788,17 @@ If the performance of this activity is affected due to the sensitivity of the li
 
 ① Locate the sensitivity adjustment potentiometer. Its position on the sensor is shown in the image below:
 
-<img src="../_static/media/chapter_11/section_4/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image13.png" class="common_img" style="width:400px;"/>
 
 ② Use a screwdriver to gently rotate the potentiometer while observing the status of LED1. The sensor reaches its optimal sensitivity when LED1 is at the threshold between turning on and off—this indicates the sensor is responding most accurately at the current threshold setting.
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/photo_sensor_demo.py]()
+The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_development/photo_sensor_demo.py](../_static/source_code/sensor_development.zip)
 
-<img src="../_static/media/chapter_11/section_4/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_4/image14.png" class="common_img" />
 
 * **Module Parameter Import**
 
@@ -930,17 +927,17 @@ def move():
 
 ## 11.5 Mask Recognition
 
+<p id="anchor_11_5_1"></p>
+
 ### 11.5.1 Assembly
 
 ### 11.5.2 Mask Recognition
 
-[Source Code]()
-
 * **Getting Ready**
 
-Prepare MP3 module and install it on the expansion hole of robot's shoulder. The specific installation method can refer to the file [**"Sensor Installation and Wiring"**]() under the same directory.
+Prepare MP3 module and install it on the expansion hole of robot's shoulder. The specific installation method can refer to the file [**"11.5.1 Assembly"**](#anchor_11_5_1) under the same directory.
 
-<img src="../_static/media/chapter_11/section_5/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_5/image2.png" class="common_img" />
 
 * **Working Principle**
 
@@ -978,9 +975,9 @@ After the program is started, TonyPi Pro starts search for the face. If the face
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/mask_detect.py]()
+The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/mask_detect.py](../_static/source_code/sensor_development.zip)
 
 (1) Importing Functional Modules
 
@@ -1057,17 +1054,15 @@ To avoid repetitive alerts, the prompt is played once every 5 seconds when a **"
 
 ### 11.6.1 Intelligent Temperature Control
 
-[Source Code]()
-
 * **Preparation**
 
 Connect the temperature and humidity sensor to the I2C port on the TonyPi expansion board, as shown below:
 
-<img src="../_static/media/chapter_11/section_6/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image2.png" class="common_img" />
 
 Then, connect the fan module to the IO7 and IO8 ports on the TonyPi expansion board:
 
-<img src="../_static/media/chapter_11/section_6/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image3.png" class="common_img" />
 
 * **Module Introduction**
 
@@ -1075,7 +1070,7 @@ Then, connect the fan module to the IO7 and IO8 ports on the TonyPi expansion bo
 
 This sensor detects ambient temperature and humidity, providing accurate feedback of the measured data.
 
-<img src="../_static/media/chapter_11/section_6/media/image4.png" style="width:800px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image4.png" style="width:400px"  class="common_img"/>
 
 The temperature and humidity module (AHT10) converts the surrounding air's temperature and humidity into digital signals, which are transmitted to the control board via I2C communication.
 
@@ -1083,7 +1078,7 @@ The temperature and humidity module (AHT10) converts the surrounding air's tempe
 
 The fan module operates without the need for an additional motor driver board. It uses PWM (Pulse Width Modulation) signals to control rotation. By sending PWM pulses in two directions, the fan's rotation direction can be controlled. Additionally, adjusting the PWM duty cycle allows you to set the fan's speed.
 
-<img src="../_static/media/chapter_11/section_6/media/image5.png" style="width:600px"  class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image5.png" style="width:600px"  class="common_img" />
 
 * **Operation Steps**
 
@@ -1113,13 +1108,13 @@ python3 temperature_control.py
 
 Once the program starts, the temperature and humidity sensor will begin monitoring the surrounding environment and display the readings on the terminal. When the temperature exceeds 20°C, the fan module will automatically turn on; otherwise, it will turn off.
 
-<img src="../_static/media/chapter_11/section_6/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image10.png" class="common_img" />
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_development.zip)
 
-The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/temperature_detection.py]()
+The source code is saved in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/temperature_detection.py](../_static/source_code/sensor_development.zip)
 
 (1) Importing Modules
 

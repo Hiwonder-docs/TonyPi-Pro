@@ -27,7 +27,7 @@ Using t**he Android system** as an example, these instructions also apply to iOS
 <img class="common_img" src="../_static/media/chapter_14/section_1/image2.png" style="width:700px"/>
 
 :::{Note}
-If you prefer to connect in LAN mode, refer to [14.3 Connecting in LAN Mode (optional)](#anchor_1_3).
+If you prefer to connect in LAN mode, refer to [14.3 Connecting in LAN Mode (optional)](#anchor_14_3).
 :::
 
 (3) Tap **"Connect to Device Hotspot"**. This will take you to your phone's settings to connect to the hotspot created by the robot.
@@ -52,7 +52,7 @@ If a pop-up message appears saying "**Network Unavailable, Continue Connection?*
 
 (6) If you see a prompt asking **"Switch to and Enter Found Device Screen?",** it indicates that an incorrect product version was selected in Step 1. Tap "**OK**" to switch directly to the correct version's mode selection screen.
 
-<img class="common_img" src="../_static/media/chapter_14/section_1/image14.png" style="width:350px" />
+<img class="common_img" src="../_static/media/chapter_14/section_1/image14.png" style="width:750px" />
 
 (7)  The mode selection screen appears as shown below:
 
@@ -120,7 +120,7 @@ sudo systemctl restart hw_wifi.service
 
 <img class="common_img" src="../_static/media/chapter_14/section_1/image22.png" style="width:700px" />
 
-<p id="anchor_1_3"></p>
+<p id="anchor_14_3"></p>
 
 ## 14.3 Connecting in LAN Mode (optional)
 
@@ -162,7 +162,7 @@ For LAN mode, please enable location services on your smartphone.
 
 (7) The app will now begin the connection process.
 
-<img class="common_img" src="../_static/media/chapter_14/section_1/image214.png" style="width:700px" />
+<img class="common_img" src="../_static/media/chapter_14/section_1/image28.png" style="width:700px" />
 
 (8) After a short wait, the robot's icon will appear on the main screen, and the LED on the expansion board will remain steadily lit.
 

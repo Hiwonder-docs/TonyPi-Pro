@@ -2,13 +2,15 @@
 
 ## 12.1 Large Models Basic Courses
 
+<p id="anchor_12_1_1"></p>
+
 ### 12.1.1 Large Language Model Courses
 
 * **Overview of Large Language Model**
 
 A Large Language Model (LLM) is an advanced artificial intelligence model developed to comprehend and generate human language.
 
-<img src="../_static/media/chapter_12/section_1/01/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/image2.png" class="common_img" />
 
 * **Basic Concept**
 
@@ -56,6 +58,8 @@ Large Language Models excel at machine translation, enabling the conversion of t
 
 Large Language Models can be used to build question-answering systems that respond to user queries. These applications are particularly valuable in areas such as intelligent customer support, knowledge retrieval, and information lookup.
 
+<p id="anchor_12_1_1_7"></p>
+
 * **Large Language Model Deployment**
 
 :::{Note}
@@ -64,65 +68,67 @@ This section outlines the steps to register on the official OpenAI website and o
 
 (1) OpenAI Account Registration and Setup 
 
-① Copy the following URL: [https://platform.openai.com/docs/overview]()
+① Copy the following URL: [https://platform.openai.com/docs/overview](https://platform.openai.com/docs/overview)
 
 Open the OpenAI website and click on the **"Sign Up"** button in the top right corner.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image2.png" class="common_img" />
 
 ② Follow the prompts to register and log in using your Google, Microsoft, or Apple account.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image3.png" class="common_img" />
 
 ③ Click on the settings icon, then select **Billing**, followed by **Payment Methods**, to link your payment method. Recharge your account to purchase tokens.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image5.png" class="common_img" />
 
 ④ After completing the setup, click on **API Keys**, then select **Create New Secret Key**. Follow the prompts to fill in the required information. Once the key is created, make sure to save it for future use.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image8.png" class="common_img" />
 
 ⑤ With these steps, the large model has been successfully created and deployed. You can now use the API in the upcoming lessons.
 
 (2) OpenRouter Account Registration and Setup 
 
-① Copy the following URL: [https://openrouter.ai/]()
+① Copy the following URL: [https://openrouter.ai/](https://openrouter.ai/)
 
 Open the webpage in your browser and click **"Sign In"**. Register using your Google account or another available login option.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image9.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image10.png" class="common_img" />
 
 ② After logging in, click the icon in the top-right corner and select **"Credits"** to link your payment method.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image11.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image12.png" class="common_img" />
 
 ③ To create an API key, go to **"API Keys"**, then click **"Create Key"**. Follow the prompts to complete the process. Once the key is generated, make sure to save it for future use.
 
-<img src="../_static/media/chapter_12/section_1/02/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image13.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_1/02/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/02/image14.png" class="common_img" />
 
 ④ At this point, the large model is successfully created and deployed. You can now use the API in the upcoming lessons.
+
+<p id="anchor_12_1_1_8"></p>
 
 * **Large Language Model Accessing**
 
 :::{Note}
-To proceed with this section, you will need to register on the appropriate website and obtain the API key for the large model (please refer to the file [Large Language Model Deployment](). Additionally, ensure that the images to be used in this section are imported.
+To proceed with this section, you will need to register on the appropriate website and obtain the API key for the large model (please refer to the file [Large Language Model Deployment](#anchor_12_1_1_7). Additionally, ensure that the images to be used in this section are imported.
 :::
 
 It is important to ensure a stable network connection for the development board. For optimal performance, we also recommend connecting the main controller to a wired network for enhanced stability.
 
-<img src="../_static/media/chapter_12/section_1/03/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image2.png" class="common_img" />
 
 (1) Environment Configuration
 
@@ -139,17 +145,17 @@ sudo apt install gedit
 sudo apt install python3 python3-pip python3-all-dev python3-pyaudio portaudio19-dev libsndfile1
 ```
 
-<img src="../_static/media/chapter_12/section_1/03/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image3.png" class="common_img" />
 
 (2) Importing the Large Model Program Directory
 
-① In this section, locate the [ Source Code]() folder within the same directory as this tutorial document.
+① In this section, locate the [Source Code](../_static/source_code/large_models_sdk.zip) folder within the same directory as this tutorial document.
 
-<img src="../_static/media/chapter_12/section_1/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image4.png" class="common_img" />
 
-② Using the MobaXterm remote connection tool (as outlined in the [5.5 Remote Access and File Transfer]() tutorial), drag the folder into the root directory of the main controller. The software installation package can be found in the [5 Appendix -> 5.5 Remote Access and File Transfer]() directory.
+② Using the MobaXterm remote connection tool (as outlined in the [5.5 Remote Access and File Transfer](resources_download.md) tutorial), drag the folder into the root directory of the main controller. The software installation package can be found in the [Remote Access and File Transfer](resources_download.md) directory.
 
-<img src="../_static/media/chapter_12/section_1/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image5.png" class="common_img" />
 
 ③ Next, execute the command to navigate to the **speech_pkg** directory:
 
@@ -232,13 +238,13 @@ cd ~/large_models
 vim config.py
 ```
 
-③ Once the file is open, configure the OpenAI and OpenRouter keys by filling in the **llm_api_key** and **vllm_api_key** parameters, respectively (you can obtain these keys from the [Large Language Model Deployment]() .
+③ Once the file is open, configure the OpenAI and OpenRouter keys by filling in the **llm_api_key** and **vllm_api_key** parameters, respectively (you can obtain these keys from the [Large Language Model Deployment](#anchor_12_1_1_7) .
 
-<img src="../_static/media/chapter_12/section_1/03/media/image21.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image21.png" class="common_img" />
 
 For instance, copy the key created in Section 1.2 of this chapter and paste it into the appropriate field. To paste the key, place the cursor between the quotation marks, hold the **"Shift"** key, right-click, and select **"Paste"** (Note: Do not mix keys from different models, as this may cause the functionality to malfunction).
 
-<img src="../_static/media/chapter_12/section_1/03/media/image22.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image22.png" class="common_img" />
 
 ④ After pasting, press the **'Esc'** key, then type the following command and press Enter to save the file:
 
@@ -250,7 +256,7 @@ For instance, copy the key created in Section 1.2 of this chapter and paste it i
 
 Once the keys are configured, you can run the demo program (**openai_llm_demo.py**) to experience the text generation capabilities of the large model. For example, the program's prompt might be: **'Write a 50-word article about how technology is changing life.'**
 
-<img src="../_static/media/chapter_12/section_1/03/media/image24.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image24.png" class="common_img" />
 
 ① To run the demo, enter the following command in the terminal:
 
@@ -260,15 +266,15 @@ python3 openai_llm_demo.py
 
 ② After running the program, the output will appear as shown in the image below.
 
-<img src="../_static/media/chapter_12/section_1/03/media/image26.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/03/image26.png" class="common_img" />
 
 * **Semantic Understanding with Large Language Model**
 
-Before starting this section, make sure you have completed the API key configuration outlined in the file [1.3 Large Language Model Accessing]().
+Before starting this section, make sure you have completed the API key configuration outlined in the file [Large Language Model Accessing](#anchor_12_1_1_8).
 
 In this lesson, we'll use a large language model to analyze and summarize short passages of text.
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 (1) Start by opening a new terminal window, then navigate to the large model project directory:
 
@@ -284,19 +290,19 @@ python3 openai_llm_nlu_demo.py
 
 (3) As shown in the output, the model demonstrates strong summarization abilities.
 
-<img src="../_static/media/chapter_12/section_1/04/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/image4.png" class="common_img" />
 
 (4) The result matches the prompt defined in the program — where a passage of text is provided to the model, and it generates a concise summary.
 
-<img src="../_static/media/chapter_12/section_1/04/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/image5.png" class="common_img" />
 
 * **Emotional Perception with Large Language Model**
 
-To proceed with this section, ensure that you have completed the API key configuration as described in the file [1.3 Large Language Model Accessing]().
+To proceed with this section, ensure that you have completed the API key configuration as described in the file [Large Language Model Accessing](#anchor_12_1_1_8).
 
 In this lesson, we will use a large language model to assess its ability to perceive emotions based on descriptive words. We'll provide the model with emotional expressions and evaluate its response.
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 (1) Start by opening a new terminal window, then navigate to the large model project directory:
 
@@ -312,11 +318,11 @@ python3 openai_llm_er_demo.py
 
 (3) From the output, you will see that the model successfully identifies and understands the emotions conveyed, providing a text-based response accordingly.
 
-<img src="../_static/media/chapter_12/section_1/05/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/image6.png" class="common_img" />
 
 (4) In this program, we send two emotional expressions to the model: the first is an expression of sadness, **"So Sad."** After the model responds, we then send an expression of happiness, **"Ha Ha,"** and observe how the model reacts.
 
-<img src="../_static/media/chapter_12/section_1/05/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_1/image7.png" class="common_img" />
 
 ### 12.1.2 Large Speech Model Courses
 
@@ -424,13 +430,15 @@ Integrating various voice processing technologies, WonderEcho Pro features advan
 
 ⑦ Power supply voltage: 5V
 
+<p id="6_microphone_1"></p>
+
 **6-Microphone Circular Array**
 
 **Introduction**
 
 The 6-Microphone Circular Array is a high-sensitivity, high signal-to-noise ratio microphone board. It features six analog silicon microphones arranged in a circular pattern. When paired with a main control board, it supports high-performance Acoustic Echo Cancellation (AEC), environmental noise reduction, and factory-level voice pickup from up to 10 meters.
 
-<img src="../_static/media/chapter_12/section_2/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image2.png" class="common_img" />
 
 **Features and Specifications**
 
@@ -448,15 +456,15 @@ The following demonstration uses the Raspberry Pi 5 as an example. The connectio
 
 **Connection Illustration and Detection**
 
-<img src="../_static/media/chapter_12/section_2/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image3.png" class="common_img" />
 
-If the main controller is a Raspberry Pi, you can use VNC remote desktop access (refer to the appendix: [Remote Access and File Transfer]()) to log into the Raspberry Pi system. Once connected, check the upper right corner of the desktop for microphone and speaker icons. As shown in the image below, the presence of these icons indicates a successful connection.
+If the main controller is a Raspberry Pi, you can use VNC remote desktop access (refer to the appendix: [Remote Access and File Transfer](resources_download.md)) to log into the Raspberry Pi system. Once connected, check the upper right corner of the desktop for microphone and speaker icons. As shown in the image below, the presence of these icons indicates a successful connection.
 
-<img src="../_static/media/chapter_12/section_2/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image4.png" class="common_img" />
 
 If you're using a NVIDIA Jetson device, you can connect via the NoMachine remote access tool. After logging in, check the upper right corner of the system interface for the speaker icon to confirm successful detection.
 
-<img src="../_static/media/chapter_12/section_2/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image5.png" class="common_img" />
 
 **Recording Test**
 
@@ -466,7 +474,7 @@ If you're using a NVIDIA Jetson device, you can connect via the NoMachine remote
 arecord -l
 ```
 
-<img src="../_static/media/chapter_12/section_2/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image6.png" class="common_img" />
 
 ② Then, use the following command to start recording. Replace the red-marked card number (**hw:0,0**) with the actual number you found in the previous step:
 
@@ -486,7 +494,7 @@ arecord -D hw:0,0 -f S16_LE -r 16000 -c 2 test.wav
 ls
 ```
 
-<img src="../_static/media/chapter_12/section_2/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/02/image8.png" class="common_img" />
 
 ② If **test.wav** appears in the list, the recording was successful. To play back the recording, use the following command:
 
@@ -498,7 +506,7 @@ aplay test.wav
 
 In this lesson, we'll learn how to use a large speech model to activate the voice device by speaking a predefined wake word through a program.
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 (1) WonderEcho Pro Wake-Up
 
@@ -525,7 +533,7 @@ ll /dev | grep USB
 * You should now see a newly listed USB port, such as **ttyCH341USB1**.
   Please take note of this device name—it may vary depending on the main controller being used.
 
-<img src="../_static/media/chapter_12/section_2/03/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image3.png" class="common_img" />
 
 **Wake-Up Test**
 
@@ -537,7 +545,7 @@ vim wakeup_demo.py
 
 Press **"i"** to enter edit mode and make the necessary changes as shown below (update the port number accordingly and adjust comments as needed).
 
-<img src="../_static/media/chapter_12/section_2/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image4.png" class="common_img" />
 
 Once the changes are complete, press ESC, then type **":wq"** and press Enter to save and exit the editor.
 
@@ -548,7 +556,7 @@ If the output includes **"keyword detect"**, it indicates that the firmware has 
 python3 ~/large_models/wakeup_demo.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image5.png" class="common_img" />
 
 (2) 6-Microphone Circular Array
 
@@ -571,7 +579,7 @@ vim ~/large_models/wakeup_demo.py
 
 ③ Update the port to match the device port number you previously identified. Comment out the WonderEcho Pro configuration (add **"#"** at the beginning of the corresponding line), and uncomment the line using the circular microphone array on line 11 as the input device (see red box in the referenced image).
 
-<img src="../_static/media/chapter_12/section_2/03/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image7.png" class="common_img" />
 
 ④ Press ESC to return to command mode, then type **":wq"** and press Enter to save and exit.
 
@@ -583,13 +591,13 @@ python3 ~/large_models/wakeup_demo.py
 
 ⑥ After about 30 seconds of initialization, speak the wake word **"hello hiwonder"** to test the device.
 
-<img src="../_static/media/chapter_12/section_2/03/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image10.png" class="common_img" />
 
 (3) Brief Program Overview
 
 This is a Python-based wake word detection script that utilizes the **speech** module to process audio input and detect a specific wake word (e.g., **HELLO_HIWONDER**).
 
-Source Code Path: [/home/ubuntu/large_models/wakeup_demo.py]()
+Source Code Path: [/home/ubuntu/large_models/wakeup_demo.py](../_static/source_code/large_models_sdk.zip)
 
 **Importing Required Modules**
 
@@ -687,7 +695,7 @@ vim wakeup_demo.py
 i
 ```
 
-<img src="../_static/media/chapter_12/section_2/03/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image17.png" class="common_img" />
 
 ③ Press ESC, then type **":wq"** and press Enter to save and exit.
 
@@ -701,7 +709,7 @@ i
 python3 wakeup_demo.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/03/media/image19.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/03/image19.png" class="common_img" />
 
 * **Speech Recognition**
 
@@ -715,14 +723,14 @@ The **wave** library is used to extract audio data. The extracted audio is then 
 
 (3) Preparation Before the Experiment
 
-Before proceeding, refer to the course [Large Language Models Deployment]() to obtain your API key, and make sure to add it into the configuration file (**config**).
+Before proceeding, refer to the course [12.1.1 Large Language Model Courses](#anchor_12_1_1) to obtain your API key, and make sure to add it into the configuration file (**config**).
 
 (4) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Power on the device and connect to it using MobaXterm.
-(For detailed instructions, please refer to [Appendix 5.5: Remote Connection Tools and Instructions]().)
+(For detailed instructions, please refer to [Remote Connection Tools and Instructions](resources_download.md).)
 
 ② Navigate to the program directory by entering the following command:
 
@@ -736,7 +744,7 @@ cd large_models/
 vim config.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/04/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/04/image3.png" class="common_img" />
 
 ④ Run the speech recognition program with:
 
@@ -748,13 +756,13 @@ python3 openai_asr_demo.py
 
 After the program starts, the microphone will recognize the recorded audio content from the user and print the converted text output.
 
-<img src="../_static/media/chapter_12/section_2/04/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/04/image5.png" class="common_img" />
 
 (6) Brief Program Analysis
 
 This program implements a speech recognition system by calling OpenAI's Speech-to-Text API to convert audio files into text.
 
-The program source code is located at: [/home/ubuntu/large_models/openai_asr_demo.py]()
+The program source code is located at: [/home/ubuntu/large_models/openai_asr_demo.py](../_static/source_code/large_models_sdk.zip)
 
 **Module Import**
 
@@ -809,7 +817,7 @@ vim openai_asr_demo.py
 i
 ```
 
-<img src="../_static/media/chapter_12/section_2/04/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/04/image10.png" class="common_img" />
 
 ③ Then, run the program with the command:
 
@@ -819,7 +827,7 @@ python3 asr_demo.py
 
 ④ Record a sample sentence such as **"Hello, can you hear me clearly?"**, and the recognized text will be printed on the console.
 
-<img src="../_static/media/chapter_12/section_2/04/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/04/image12.png" class="common_img" />
 
 * **Speech Synthesis**
 
@@ -835,11 +843,11 @@ The program first sends the text to the OpenAI TTS (Text-to-Speech) model. The m
 
 (3) Preparation Before the Experiment
 
-Refer to the course [Large Language Models Deployment]() to obtain your API key, and update the configuration file accordingly.
+Refer to the course [12.1.1 Large Language Model Courses](#anchor_12_1_1) to obtain your API key, and update the configuration file accordingly.
 
 (4) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Power on the device and connect to it using MobaXterm.
 
@@ -855,7 +863,7 @@ cd large_models/
 vim config.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/05/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/05/image3.png" class="common_img" />
 
 ④ Finally, run the program with the following command:
 
@@ -866,16 +874,16 @@ python3 openai_tts_demo.py
 (5) Function Realization
 
 Upon running the program, it will play an audio message saying **"Hello, Can I Help You"**, and simultaneously save the audio file with the same content to the following directory:
-[/home/ubuntu/large_models/resources/audio/]()
+/home/ubuntu/large_models/resources/audio/
 
-<img src="../_static/media/chapter_12/section_2/05/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/05/image5.png" class="common_img" />
 
 (6) Brief Program Analysis
 
 This program is a speech synthesis system based on OpenAI's Text-to-Speech (TTS) API, capable of converting text into audio files. It supports input text and outputs audio in formats like PCM, WAV, FLAC, AAC, Opus, and MP3. By specifying the desired text, the program sends the request to the API and returns the synthesized audio, which can be played or saved locally.
 
 The source code for this program is located at:
-[/home/ubuntu/large_models/openai_tts_demo.py]()
+[/home/ubuntu/large_models/openai_tts_demo.py](../_static/source_code/large_models_sdk.zip)
 
 **Module Import**
 
@@ -906,7 +914,7 @@ Voice Options: nova, shimmer, echo, onyx, fable, alloy, ash, sage, coral.
 
 For more details, you can refer to the OpenAI documentation:
 
-[https://platform.openai.com/docs/guides/text-to-speech]()
+[https://platform.openai.com/docs/guides/text-to-speech](https://platform.openai.com/docs/guides/text-to-speech)
 
 (7) Function Extension
 
@@ -924,7 +932,7 @@ vim openai_tts_demo.py
 i
 ```
 
-<img src="../_static/media/chapter_12/section_2/05/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/05/image10.png" class="common_img" />
 
 ③ Press Esc, then type **":wq"** and hit Enter to save and exit.
 
@@ -938,7 +946,7 @@ i
 python3 openai_tts_demo.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/05/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/05/image12.png" class="common_img" />
 
 Once the program starts, the speaker will play the synthesized audio using the newly selected voice style.
 
@@ -956,7 +964,7 @@ First, the wake word detection module listens for a specific wake-up word. Once 
 
 (3) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Power on the device and connect to it via MobaXterm.
 
@@ -972,7 +980,7 @@ ll /dev | grep USB
 
 * After disconnecting the microphone, no USB device should appear.
 
-<img src="../_static/media/chapter_12/section_2/06/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/06/image2.png" class="common_img" />
 
 * Upon reconnecting the microphone, a USB port (e.g., **ttyCH341USB1**) will be listed (make sure to note this device name). The device name may vary depending on the main controller.
 
@@ -988,7 +996,7 @@ cd large_models/
 vim config.py
 ```
 
-<img src="../_static/media/chapter_12/section_2/06/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/06/image4.png" class="common_img" />
 
 ⑤ Enter the port number you obtained and modify the corresponding microphone port settings for either WonderEcho Pro or the six-microphone setup. Uncomment the configuration for the port you intend to use and comment out the settings for any unused ports.
 
@@ -1000,7 +1008,7 @@ If you are using the WonderEcho Pro, modify the corresponding section:
 
 If you are using the 6-Microphone Array, modify the relevant section:
 
-<img src="../_static/media/chapter_12/section_2/06/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/06/image5.png" class="common_img" />
 
 ⑥ Run the program:
 
@@ -1016,13 +1024,13 @@ After successful execution, the voice device will announce **'I'm ready.'** Then
 
 For example: **'What are some fun places to visit in New York?'**
 
-<img src="../_static/media/chapter_12/section_2/06/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_2/06/image7.png" class="common_img" />
 
 (5) Brief Program Analysis
 
 The program integrates voice recognition, speech synthesis, and intelligent response functionalities to create a voice assistant. Interaction is initiated through the wake-up word (**HELLO_HIWONDER**). Users can converse with the assistant via voice commands, and the assistant will respond using text-to-speech technology. The overall structure is clear, with distinct modules that are easy to expand and maintain.
 
-The source code for this program is located at: [/home/ubuntu/large_models/openai_interaction_demo.py]()
+The source code for this program is located at: [/home/ubuntu/large_models/openai_interaction_demo.py](../_static/source_code/large_models_sdk.zip)
 
 **Module Import**
 
@@ -1173,14 +1181,14 @@ In the healthcare field, VLM can be used to analyze medical images (such as X-ra
 * **Vision Language Model Accessing**
 
 :::{Note}
-* This section requires the configuration of the API key in [Vision Language Model Accessing]()  before proceeding. Additionally, ensure that the images to be used in this section are imported.
+* This section requires the configuration of the API key in [12.1.1 Large Language Model Courses](#anchor_12_1_1) before proceeding. Additionally, ensure that the images to be used in this section are imported.
 * This experiment requires either an Ethernet cable or Wi-Fi connection to ensure the main control device can access the network properly.
 
 :::
 
 (1) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Execute the following command to navigate to the directory of Large Model.
 
@@ -1198,14 +1206,14 @@ python3 openai_vllm_understand.py
 
 After running the program, the output printed matches our request of **"Describe the image."**
 
-<img src="../_static/media/chapter_12/section_3/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/02/media/image5.jpeg" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/image5.jpeg" class="common_img" />
 
 * **Vision Language Model: Object Detection**
 
 :::{Note}
-* This section requires the configuration of the API key in "1.3.2 Vision Language Model Accessing" before proceeding. Additionally, ensure that the images to be used in this section are imported.
+* This section requires the configuration of the API key in "[12.1.1 Large Language Model Courses](#anchor_12_1_1)" before proceeding. Additionally, ensure that the images to be used in this section are imported.
 * This experiment requires either an Ethernet cable or Wi-Fi connection to ensure the main control device can access the network properly.
 * In this course, we will use a program to transmit an image to the large model for recognition, which will then identify and locate the objects within the image by drawing bounding boxes around them.
 
@@ -1213,7 +1221,7 @@ After running the program, the output printed matches our request of **"Describe
 
 (1) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Execute the following command to navigate to the directory of Large Model.
 
@@ -1231,9 +1239,9 @@ python3 qwen_vllm_detect_demo.py
 
 After running the program, the positions of the fruits in the image will be circled.
 
-<img src="../_static/media/chapter_12/section_3/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image5.png" class="common_img" />
 
 (3) Function Expansion
 
@@ -1241,15 +1249,15 @@ We can switch the image and change the large model to experience different funct
 
 **Change Pictures**
 
-① Click on the path box to navigate to the following directory: [/home/ubuntu/large_models/resources/pictures/]()
+① Click on the path box to navigate to the following directory: "**/home/ubuntu/large_models/resources/pictures/**"
 
 Here, you can drag in other images, for example, in the **apples.png** format.
 
-<img src="../_static/media/chapter_12/section_3/03/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/03/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/03/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image8.png" class="common_img" />
 
 ② Then, input the command:
 
@@ -1267,7 +1275,7 @@ i
 
 To: **image = cv2.imread('./resources/pictures/apples.png')**
 
-<img src="../_static/media/chapter_12/section_3/03/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image11.png" class="common_img" />
 
 ⑤ Next, input the following command and execute the program again to see the results
 
@@ -1275,12 +1283,12 @@ To: **image = cv2.imread('./resources/pictures/apples.png')**
 python3 qwen_vllm_detect_demo.py
 ```
 
-<img src="../_static/media/chapter_12/section_3/03/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/03/image12.png" class="common_img" />
 
 * **Vision Language Model: Scene Understanding**
 
 :::{Note}
-* This section requires the configuration of the API key in "1.3.2 Vision Language Model Accessing" before proceeding. Additionally, ensure that the images to be used in this section are imported.
+* This section requires the configuration of the API key in "[12.1.1 Large Language Model Courses](#anchor_12_1_1)" before proceeding. Additionally, ensure that the images to be used in this section are imported.
 * This experiment requires either an Ethernet cable or Wi-Fi connection to ensure the main control device can access the network properly.
 * In this course, we will use a program to send an image to the large model for recognition and generate a description of the content within the image.
 
@@ -1288,7 +1296,7 @@ python3 qwen_vllm_detect_demo.py
 
 (1) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Execute the following command to navigate to the directory of Large Model.
 
@@ -1306,17 +1314,17 @@ python3 openai_vllm_understand.py
 
 After running the program, the output printed matches our request of **"Describe the image."**
 
-<img src="../_static/media/chapter_12/section_3/04/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/04/media/image5.jpeg" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image5.jpeg" class="common_img" />
 
 (3) Function Expansion
 
 If you need to recognize your own image, you should place the image in the corresponding path and modify the image path in the program.
 
-① First, drag your image directly into the [~/large_models/resources/pictures/]() path using MobaXterm, and rename the image to **test.png**.
+① First, drag your image directly into the "**~/large_models/resources/pictures/**" path using MobaXterm, and rename the image to **test.png**.
 
-<img src="../_static/media/chapter_12/section_3/04/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image6.png" class="common_img" />
 
 ② Then, open the scene understanding script by entering the following command in the terminal:
 
@@ -1326,7 +1334,7 @@ vim ~/large_models/vllm_understand.py
 
 ③ Change the image path in the code to reflect the name of your image (e.g., `test.png`).
 
-<img src="../_static/media/chapter_12/section_3/04/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image8.png" class="common_img" />
 
 ④ Run the program:
 
@@ -1334,14 +1342,14 @@ vim ~/large_models/vllm_understand.py
 python3 ~/large_models/openai_vllm_understand.py
 ```
 
-<img src="../_static/media/chapter_12/section_3/04/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image10.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/04/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/04/image11.png" class="common_img" />
 
 * **Vision Language Model: Optical Character Recognition**
 
 :::{Note}
-* This section requires the configuration of the API key in "1.3.2 Vision Language Model Accessing" before proceeding. Additionally, ensure that the images to be used in this section are imported.
+* This section requires the configuration of the API key in "**[12.1.1 Large Language Model Courses](#anchor_12_1_1)**" before proceeding. Additionally, ensure that the images to be used in this section are imported.
 * This experiment requires either an Ethernet cable or Wi-Fi connection to ensure the main control device can access the network properly.
 * In this course, we use a program to transmit an image to the large model for recognition, extracting and identifying the text within the image.
 
@@ -1349,7 +1357,7 @@ python3 ~/large_models/openai_vllm_understand.py
 
 (1) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① Execute the following command to navigate to the directory of Large Model.
 
@@ -1367,9 +1375,9 @@ python3 openai_vllm_ocr.py
 
 After running the program, the output printed will be consistent with the content of the image sent.
 
-<img src="../_static/media/chapter_12/section_3/05/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/05/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/05/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/05/image5.png" class="common_img" />
 
 (3) Function Expansion
 
@@ -1377,11 +1385,11 @@ We can switch the image and change the large model to experience different funct
 
 **Change Pictures**
 
-① Drag the image directly into the [~/large_models/resources/pictures/]() path using MobaXterm. Here, we can drag in the image named **ocr1.png** as an example, and let the program recognize the text **'COME ON'**.
+① Drag the image directly into the "**~/large_models/resources/pictures/**" path using MobaXterm. Here, we can drag in the image named **ocr1.png** as an example, and let the program recognize the text **'COME ON'**.
 
-<img src="../_static/media/chapter_12/section_3/05/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/05/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_3/05/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/05/image7.png" class="common_img" />
 
 ② Then, input the command:
 
@@ -1409,7 +1417,7 @@ image = cv2.imread('./resources/pictures/ocr1.png')
 python3 ~/large_models/openai_vllm_ocr.py
 ```
 
-<img src="../_static/media/chapter_12/section_3/05/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_3/05/image12.png" class="common_img" />
 
 ### 12.1.4 Multimodal Model Basic Courses
 
@@ -1472,7 +1480,7 @@ Finally, Multimodal Model also play a role in scientific research. By processing
 * **Agent Behavior Orchestration**
 
 :::{Note}
-* This section requires the configuration of the API key in "1.3.2 Vision Language Model Accessing" before proceeding. Additionally, ensure that the images to be used in this section are imported.
+* This section requires the configuration of the API key in "**[12.1.1 Large Language Model Courses](#anchor_12_1_1)**" before proceeding. Additionally, ensure that the images to be used in this section are imported.
 * This experiment requires either an Ethernet cable or Wi-Fi connection to ensure the main control device can access the network properly.
 * The purpose of this course experiment is to obtain data in a specified format returned by the large model based on the prompt words set in the model. During development, you can use the returned data for further tasks.
 
@@ -1480,7 +1488,7 @@ Finally, Multimodal Model also play a role in scientific research. By processing
 
 (1) Experiment Steps
 
-[Source Code]()
+[Source Code](../_static/source_code/large_models_sdk.zip)
 
 ① To check the microphone's port number, first disconnect the microphone and run the command. Then reconnect the microphone and run the command again to determine the port number 
 
@@ -1494,7 +1502,7 @@ ll /dev | grep USB
 
 * After disconnecting the microphone, no USB device should appear.
 
-<img src="../_static/media/chapter_12/section_4/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image2.png" class="common_img" />
 
 * Upon reconnecting the microphone, a USB port (e.g., **ttyCH341USB1**) will be listed (make sure to note this device name). The device name may vary depending on the main controller.
 
@@ -1510,7 +1518,7 @@ cd large_models/
 vim config.py
 ```
 
-<img src="../_static/media/chapter_12/section_4/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image4.png" class="common_img" />
 
 ④ Fill in the detected port number and update the corresponding microphone port settings for either the WonderEcho Pro or the Six-channel Microphone.
 Uncomment the port you wish to use and comment out the settings for any unused ports.
@@ -1521,11 +1529,11 @@ vim openai_agent_demo.py
 
 Modify the settings as follows. For WonderEcho Pro, update the corresponding configuration
 
-<img src="../_static/media/chapter_12/section_4/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image5.png" class="common_img" />
 
 For 6-channel Microphone, update the respective settings:
 
-<img src="../_static/media/chapter_12/section_4/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image6.png" class="common_img" />
 
 ⑤ Run the program:
 
@@ -1533,22 +1541,22 @@ For 6-channel Microphone, update the respective settings:
 python3 openai_agent_demo.py
 ```
 
-<img src="../_static/media/chapter_12/section_4/02/media/image7.png" class="common_img" />
-
 ⑥ The program will print the prompts configured for the large model. The large model will then return data formatted according to these prompts.
 
-<img src="../_static/media/chapter_12/section_4/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image8.png" class="common_img" />
 
 (2) Function Realization
 
 ① After running the program, the voice device will announce, **"I'm ready."** At this point, say **"HELLO_HIWONDER"** to the device to activate the agent.
-When the device responds with **"I'm here,"** it indicates that the agent has been successfully awakened. To modify the wake word. For the Six-channel Microphone, refer to Section [6-Microphone Circular Array]() for instructions on customizing the wake word. For WonderEcho Pro, refer to Section [WonderEchoPro Firmware Generation]()
+When the device responds with **"I'm here,"** it indicates that the agent has been successfully awakened. To modify the wake word. For the Six-channel Microphone, refer to Section [6-Microphone Circular Array](#6_microphone_1) for instructions on customizing the wake word. For WonderEcho Pro, refer to Section [WonderEcho Pro Firmware Generation](6_ai_voice_interaction_course.md#firmware-flashing-method)
 
 ② After updating the wake word, you can say: **"Take two steps forward, turn left and take one step back"**. The agent will respond according to the format we have defined.
 
-<img src="../_static/media/chapter_12/section_4/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_4/image9.png" class="common_img" />
 
 ## 12.2 Multimodal Model Applications
+
+<p id="anchor_12_2_1"></p>
 
 ### 12.2.1 Obtaining and Configuring the Large Model API Key
 
@@ -1558,33 +1566,33 @@ When the device responds with **"I'm here,"** it indicates that the agent has be
 
 ① Visit the following link to access the OpenAI platform, and sign up.
 
-[https://platform.openai.com/docs/overview]()
+[https://platform.openai.com/docs/overview](https://platform.openai.com/docs/overview)
 
-<img src="../_static/media/chapter_12/section_5/01/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image2.png" class="common_img" />
 
 ② You can register using your Google, Microsoft, or Apple account as prompted.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image3.png" class="common_img" />
 
 ③ Once registered, click on the **Settings** icon, navigate to **Billing**, and then select **Payment Methods** to add a payment option. This is required to purchase tokens.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image4.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image5.png" class="common_img" />
 
 ④ After setting up your billing information, go to the **API Keys** section, click **Create New Secret Key**, and follow the on-screen instructions. Be sure to save the key for future use.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image8.png" class="common_img" />
 
 With these steps completed, you've successfully created and deployed your large model API key, which will be used in the upcoming course sessions.
 
 (2) Deploying the API Key
 
-The configuration file for this program is located at: [/home/pi/embodied_intelligence/common/config.py]()
+The configuration file for this program is located at: [/home/pi/embodied_intelligence/common/config.py](../_static/source_code/tonypi-main.zip)
 
 ① Use the following command and press Enter to navigate to the directory containing the configuration file:
 
@@ -1598,29 +1606,29 @@ cd embodied_intelligence/common
 gedit config.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/01/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image11.png" class="common_img" />
 
 * **OpenRouter API Configuration**
 
-① Visit the following link to access the OpenAI platform: [https://openrouter.ai/]()
+① Visit the following link to access the OpenAI platform: [https://openrouter.ai/](https://openrouter.ai/)
 
 Click on **"Sign in"** and use your Google account or another supported account to register or log in.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image12.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image13.png" class="common_img" />
 
 ② After logging in, click on the icon in the top-right corner, select **"Credits,"** and link your payment method.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image14.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image15.png" class="common_img" />
 
 ③ To create an API key: Navigate to **"API Keys"** and click **"Create Key."** Then follow the prompts to generate your API key, and make sure to save it for future use.
 
-<img src="../_static/media/chapter_12/section_5/01/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image16.png" class="common_img" />
 
-<img src="../_static/media/chapter_12/section_5/01/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image17.png" class="common_img" />
 
 ④ Use the following command and press Enter to navigate to the directory containing the configuration file:
 
@@ -1634,7 +1642,7 @@ cd embodied_intelligence/common
 gedit config.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/01/media/image18.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/01/image18.png" class="common_img" />
 
 ### 12.2.2 Multimodal Model: Voice Control
 
@@ -1650,15 +1658,15 @@ You can then control TonyPi using voice commands. For example, saying **"Hello, 
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
@@ -1667,11 +1675,11 @@ The robot must be connected to the internet, either in STA (local network) mode 
 * The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet.
 :::
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
 (1) Power on the robot and remotely connect to the Raspberry Pi desktop via VNC.
 
-(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/02/media/image3.png" /> on the Raspberry Pi desktop to open the command-line terminal.
+(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/02/image3.png" /> on the Raspberry Pi desktop to open the command-line terminal.
 
 (3) Execute the following command to disable the app auto-start service.
 
@@ -1679,7 +1687,7 @@ The robot must be connected to the internet, either in STA (local network) mode 
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_5/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image4.png" class="common_img" />
 
 (4) Enter the command and press the Enter key to navigate to the directory where the game program is stored:
 
@@ -1687,7 +1695,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/multimodal_large_models_course
 ```
 
-<img src="../_static/media/chapter_12/section_5/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image5.png" class="common_img" />
 
 (5) Enter the command and press the Enter key to start the game:
 
@@ -1695,21 +1703,21 @@ cd embodied_intelligence/multimodal_large_models_course
 python3 main.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image6.png" class="common_img" />
 
 (6) When the following output appears in the command line, it indicates that WonderEcho Pro has completed initialization and will announce **"I am ready."** At this point, you can say the wake word, **"hello hiwonder."**
 
-<img src="../_static/media/chapter_12/section_5/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image7.png" class="common_img" />
 
 (7) When the following output appears in the command line, WonderEcho Pro will announce **"I am Here,"** indicating that WonderEcho Pro has been successfully activated. At this point, the system will begin recording the user's command.
 
 You can freely phrase your commands to control the movement of TonyPi, such as saying, **"Go forward and greet me."**
 
-<img src="../_static/media/chapter_12/section_5/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image8.png" class="common_img" />
 
 (8) When the following output appears in the command line, it indicates that WonderEcho Pro has finished recording the user's command audio and is processing it. The parsed result will be shown in the `asr_result`.
 
-<img src="../_static/media/chapter_12/section_5/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image9.png" class="common_img" />
 
 (9) When the following output appears, it means that the Raspberry Pi has successfully called the cloud-based large language model to process the user's command, providing a verbal response under `response` and generating an action group `action` that aligns with the semantics of the user's command.
 
@@ -1719,11 +1727,11 @@ At this point, the robot will execute the actions outlined in the `action` seque
 The response is automatically generated by the large model, ensuring the accuracy of the meaning, though the wording and structure of the reply may vary.
 :::
 
-<img src="../_static/media/chapter_12/section_5/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image10.png" class="common_img" />
 
 (10) When the command line shows the output below, it indicates that one round of interaction has been completed. You can refer to Step 4) to reactivate the voice device using the wake-up word and begin a new round of interaction.
 
-<img src="../_static/media/chapter_12/section_5/02/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image11.png" class="common_img" />
 
 (11) To exit this feature, simply press **"Ctrl+C"** in the terminal. If it doesn't close on the first attempt, you may need to press it multiple times.
 
@@ -1733,7 +1741,7 @@ The response is automatically generated by the large model, ensuring the accurac
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_5/02/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/02/image12.png" class="common_img" />
 
 * **How It Works**
 
@@ -1859,9 +1867,9 @@ If a response is received, and action instructions are available, first synthesi
 
 * **Brief Game Instructions**
 
-Once the program starts running and WonderEcho Pro announces **"I am ready."**
+Once the program starts running and WonderEcho Pro announces **"I am ready"**.
 
-Say the wake-up word (the wake-up word depends on the firmware flashed, and by default, the wake-up word for our factory firmware is **"Hello, Hiwonder"**) to activate WonderEcho Pro. It will respond with **"I am here."**
+Say the wake-up word (the wake-up word depends on the firmware flashed, and by default, the wake-up word for our factory firmware is **"Hello, Hiwonder"**) to activate WonderEcho Pro. It will respond with **"I am here"**.
 
 You can then control TonyPi using voice commands. For example, saying **"kick the red ball ahead"** will prompt WonderEcho Pro to announce the response generated after processing and execute the corresponding action.
 
@@ -1869,15 +1877,15 @@ You can then control TonyPi using voice commands. For example, saying **"kick th
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."**. If you wish to change the wake-up word to **"TonyPi"**, please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
@@ -1886,11 +1894,11 @@ The robot must be connected to the internet, either in STA (local network) mode 
 * The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet.
 :::
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
 (1) Power on the robot and remotely connect to the Raspberry Pi desktop via VNC.
 
-(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/03/media/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
+(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/03/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
 
 (3) Execute the following command to disable the app auto-start service.
 
@@ -1898,7 +1906,7 @@ The robot must be connected to the internet, either in STA (local network) mode 
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_5/03/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image3.png" class="common_img" />
 
 (4) Enter the command and press the Enter key to navigate to the directory where the game program is stored:
 
@@ -1906,7 +1914,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/multimodal_large_models_course
 ```
 
-<img src="../_static/media/chapter_12/section_5/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image4.png" class="common_img" />
 
 (5) Enter the command and press the Enter key to start the game:
 
@@ -1914,21 +1922,21 @@ cd embodied_intelligence/multimodal_large_models_course
 python3 main.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image5.png" class="common_img" />
 
 (6) When the following output appears in the command line, it indicates that WonderEcho Pro has completed initialization and will announce **"I am ready."** At this point, you can say the wake word, **"hello hiwonder."**
 
-<img src="../_static/media/chapter_12/section_5/03/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image6.png" class="common_img" />
 
 (7) When the following output appears in the command line, WonderEcho Pro will announce **"I am Here,"** indicating that WonderEcho Pro has been successfully activated. At this point, the system will begin recording the user's command.
 
 You can freely organize your language and issue commands to control TonyPi to start tracking and kicking the ball, such as **"kick the red ball ahead."**
 
-<img src="../_static/media/chapter_12/section_5/03/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image7.png" class="common_img" />
 
 (8) When the following output appears in the command line, it indicates that WonderEcho Pro has finished recording the user's command audio and is processing it. The parsed result will be shown in the `asr_result`.
 
-<img src="../_static/media/chapter_12/section_5/03/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image8.png" class="common_img" />
 
 (9) When the following output appears, it means that the Raspberry Pi has successfully called the cloud-based large language model to process the user's command, providing a verbal response under `response` and generating an action group `action` that aligns with the semantics of the user's command.
 
@@ -1938,11 +1946,11 @@ At this point, the robot will execute the actions outlined in the `action` seque
 The response is automatically generated by the large model, ensuring the accuracy of the meaning, though the wording and structure of the reply may vary.
 :::
 
-<img src="../_static/media/chapter_12/section_5/03/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image9.png" class="common_img" />
 
 (10) When the command line shows the output below, it indicates that one round of interaction has been completed. You can refer to Step 5) to reactivate the voice device using the wake-up word and begin a new round of interaction.
 
-<img src="../_static/media/chapter_12/section_5/03/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image10.png" class="common_img" />
 
 (11) To exit this feature, simply press **"Ctrl+C"** in the terminal. If it doesn't close on the first attempt, you may need to press it multiple times.
 
@@ -1952,7 +1960,7 @@ The response is automatically generated by the large model, ensuring the accurac
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_5/03/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image11.png" class="common_img" />
 
 * **How It Works**
 
@@ -1968,7 +1976,7 @@ Once the feature is activated, you can issue commands in your own words, such as
 
 Here is a terminal screenshot of the entire voice interaction process.
 
-<img src="../_static/media/chapter_12/section_5/03/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image12.png" class="common_img" />
 
 :::{Note}
 When issuing commands, describe the color of the tracked ball in a straightforward manner without adding unnecessary modifiers. For example, when tracking a blue ball, simply use the term **"blue"** rather than descriptors like **"sky blue"** or **"lake blue."** Using such modifiers could confuse the model, leading to incorrect parameters in the action functions and causing the program to fail in tracking the ball due to the inability to find the correct color configuration.
@@ -1984,7 +1992,7 @@ Follow the tutorial steps accordingly. When prompted, you may say:
 
 Here is a terminal screenshot of the entire voice interaction process.
 
-<img src="../_static/media/chapter_12/section_5/03/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/03/image13.png" class="common_img" />
 
 | **NO.** | **Actions** | **NO.** | **Actions** |
 |:--:|:--:|:--:|:--:|
@@ -2171,15 +2179,15 @@ You can then control TonyPi using voice commands. For example, saying **"Start a
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
@@ -2188,11 +2196,11 @@ The robot must be connected to the internet, either in STA (local network) mode 
 * The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet.
 :::
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
 (1) Power on the robot and remotely connect to the Raspberry Pi desktop via VNC.
 
-(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/04/media/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
+(2) Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/04/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
 
 (3) Execute the following command to disable the app auto-start service.
 
@@ -2200,7 +2208,7 @@ The robot must be connected to the internet, either in STA (local network) mode 
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image3.png" class="common_img" />
 
 (4) Enter the command and press the Enter key to navigate to the directory where the game program is stored:
 
@@ -2208,7 +2216,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/multimodal_large_models_course
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image4.png" class="common_img" />
 
 (5) Enter the command and press the Enter key to start the game:
 
@@ -2216,21 +2224,21 @@ cd embodied_intelligence/multimodal_large_models_course
 python3 main.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image5.png" class="common_img" />
 
-(6) When the following output appears in the command line, it indicates that WonderEcho Pro has completed initialization and will announce **"I am ready."** At this point, you can say the wake word, **"hello hiwonder."**
+(6) When the following output appears in the command line, it indicates that WonderEcho Pro has completed initialization and will announce **"I am ready"**. At this point, you can say the wake word, **"hello hiwonder"**.
 
-<img src="../_static/media/chapter_12/section_5/04/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image6.png" class="common_img" />
 
-(7) When the following output appears in the command line, WonderEcho Pro will announce **"I am Here,"** indicating that WonderEcho Pro has been successfully activated. At this point, the system will begin recording the user's command.
+(7) When the following output appears in the command line, WonderEcho Pro will announce **"I am Here"**, indicating that WonderEcho Pro has been successfully activated. At this point, the system will begin recording the user's command.
 
-You can freely organize your language and issue commands to control TonyPi to start tracking and kicking the ball, such as **"Start athletics performance."**
+You can freely organize your language and issue commands to control TonyPi to start tracking and kicking the ball, such as **"Start athletics performance"**.
 
-<img src="../_static/media/chapter_12/section_5/04/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image7.png" class="common_img" />
 
 (8) When the command line shows the output below, it indicates that the cloud-based voice large model's speech recognition service has successfully processed the user's command audio. The recognition result will be displayed under `asr_result`.
 
-<img src="../_static/media/chapter_12/section_5/04/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image8.png" class="common_img" />
 
 (9) When the terminal displays the following output, it means the Raspberry Pi has successfully accessed the cloud-based large language model, processed the user's command, generated a spoken response, and created a corresponding action group based on the command's intent.
 
@@ -2241,7 +2249,7 @@ At this point, the robot will execute the actions outlined in the `action` seque
 * Once the Autonomous Cruise mode is activated, the program will continue running this function. To stop it, press Ctrl+C in the terminal.
 :::
 
-<img src="../_static/media/chapter_12/section_5/04/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image9.png" class="common_img" />
 
 (10) To exit this feature, simply press **"Ctrl+C"** in the terminal. If it doesn't close on the first attempt, you may need to press it multiple times.
 
@@ -2250,8 +2258,6 @@ At this point, the robot will execute the actions outlined in the `action` seque
 ```
 sudo systemctl restart tonypi.service
 ```
-
-<img src="../_static/media/chapter_12/section_5/04/media/image10.png" class="common_img" />
 
 * **How It Works**
 
@@ -2263,7 +2269,7 @@ Once the mode is activated, you can give commands such as **"Start athletics per
 
 ① In the Autonomous Cruise mode, three behaviors are pre-set: line following, hurdling, and step climbing. The program also includes predefined color thresholds for red, green, blue, black, and white. You can modify the program to control TonyPi to follow lines other than black, or to trigger the step climbing action when detecting lines other than red, or activate the hurdling action when encountering objects that are not blue.
 
-② Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/04/media/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
+② Double-click the **"Terminator"** icon <img src="../_static/media/chapter_12/section_5/04/image2.png" /> on the Raspberry Pi desktop to open the command-line terminal.
 
 ③ Enter the command and press the Enter key to navigate to the directory where the game program is stored:
 
@@ -2271,7 +2277,7 @@ Once the mode is activated, you can give commands such as **"Start athletics per
 cd embodied_intelligence/multimodal_large_models_course
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image11.png" class="common_img" />
 
 ④ Run the following command to open the program file:
 
@@ -2279,7 +2285,7 @@ cd embodied_intelligence/multimodal_large_models_course
 vim functions/athletics_perform.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image12.png" class="common_img" />
 
 ⑤ The program includes preset color thresholds for red, green, blue, black, and white (i.e., `red`, `green`, `blue`, `black`, `white`).
 
@@ -2289,7 +2295,7 @@ To change the color used for hurdle-crossing detection, refer to the code marked
 
 To modify the color used for stair-climbing detection, edit the code at position ③.
 
-<img src="../_static/media/chapter_12/section_5/04/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image13.png" class="common_img" />
 
 ⑥ Below is a screenshot example showing how to configure the robot to:
 
@@ -2299,7 +2305,7 @@ Perform hurdle-crossing when encountering green obstacles, and
 
 Execute stair-climbing when detecting blue lines.
 
-<img src="../_static/media/chapter_12/section_5/04/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image14.png" class="common_img" />
 
 ⑦ After making the changes, press the **"Esc"** key on your keyboard and enter the following command to save and exit:
 
@@ -2307,7 +2313,7 @@ Execute stair-climbing when detecting blue lines.
 :wq
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image15.png" class="common_img" />
 
 ⑧ Enter the command and press the Enter key to start the game:
 
@@ -2315,7 +2321,7 @@ Execute stair-climbing when detecting blue lines.
 python3 main.py
 ```
 
-<img src="../_static/media/chapter_12/section_5/04/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image16.png" class="common_img" />
 
 (2) Change Action
 
@@ -2324,7 +2330,7 @@ python3 main.py
 ② The following is an example of chaining actions before and after autonomous cruise. Execute the actions in the specified sequence. During the autonomous navigation phase, you can issue the command:
 **"Please step back and start the athletic performance."** (Feel free to rephrase the command in your own way, as long as the meaning remains the same.)
 
-<img src="../_static/media/chapter_12/section_5/04/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_5/04/image17.png" class="common_img" />
 
 | **NO.** | **Actions** | **NO.** | **Actions** |
 |:--:|:--:|:--:|:--:|
@@ -2513,27 +2519,27 @@ Finally, TTS (Text-to-Speech) converts the agent's generated text into speech, s
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder"**. If you wish to change the wake-up word to **"TonyPi"**, please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
-(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/01/media/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
+(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/01/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
 
 ```
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/01/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image3.png" class="common_img" />
 
 (2) Navigate to the program directory:
 
@@ -2541,7 +2547,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/embodied_intelligence_course
 ```
 
-<img src="../_static/media/chapter_12/section_6/01/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image4.png" class="common_img" />
 
 (3) Then, input the command to start the game:
 
@@ -2549,15 +2555,15 @@ cd embodied_intelligence/embodied_intelligence_course
 python3 vllm_with_camera.py
 ```
 
-<img src="../_static/media/chapter_12/section_6/01/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image5.png" class="common_img" />
 
 (4) When the terminal displays the following output, the program has successfully started.
 
-<img src="../_static/media/chapter_12/section_6/01/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image6.png" class="common_img" />
 
-(5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here."** You can then give the robot commands, such as **"Describe what you saw."** Upon successfully recognizing the command, the terminal will display the corresponding text, and the robot will announce it via voice.
+(5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here"**. You can then give the robot commands, such as **"Describe what you saw."** Upon successfully recognizing the command, the terminal will display the corresponding text, and the robot will announce it via voice.
 
-<img src="../_static/media/chapter_12/section_6/01/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image7.png" class="common_img" />
 
 (6) To exit this feature, simply press **"Ctrl+C"** in the terminal.
 
@@ -2567,21 +2573,19 @@ python3 vllm_with_camera.py
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/01/media/image8.png" class="common_img" />
-
 * **How It Works**
 
-Once successfully awakened, the robot will announce, **"I am Here."** You can then give the command, **"Describe what you saw."** The robot will analyze the current image feed, detect the content, and display the text on the terminal while also announcing it via voice.
+Once successfully awakened, the robot will announce, **"I am Here"**. You can then give the command, **"Describe what you saw"**. The robot will analyze the current image feed, detect the content, and display the text on the terminal while also announcing it via voice.
 
 :::{Note}
-If no command is given after awakening, the robot will respond with, **"Sorry, would you please repeat again."** Once a command is issued, the recognized sentence will appear on the terminal, allowing you to confirm that the robot has received the instruction.
+If no command is given after awakening, the robot will respond with, **"Sorry, would you please repeat again"**. Once a command is issued, the recognized sentence will appear on the terminal, allowing you to confirm that the robot has received the instruction.
 :::
 
-<img src="../_static/media/chapter_12/section_6/01/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/01/image7.png" class="common_img" />
 
 * **Brief Program Analysis**
 
-The configuration file for this program is located at: [`/home/pi/embodied_intelligence/embodied_intelligence_course/vllm_with_camera.py`]()
+The configuration file for this program is located at: [**/home/pi/embodied_intelligence/embodied_intelligence_course/vllm_with_camera.py**](../_static/source_code/tonypi-main.zip)
 
 **Feature Package Import**
 
@@ -2671,27 +2675,27 @@ Finally, TTS (Text-to-Speech) converts the agent's generated text into speech, s
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder"**. If you wish to change the wake-up word to **"TonyPi"**, please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
-(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/02/media/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
+(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/02/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
 
 ```
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image3.png" class="common_img" />
 
 (2) Navigate to the program directory:
 
@@ -2699,7 +2703,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/embodied_intelligence_course
 ```
 
-<img src="../_static/media/chapter_12/section_6/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image4.png" class="common_img" />
 
 (3) Then, input the command to start the game:
 
@@ -2707,22 +2711,21 @@ cd embodied_intelligence/embodied_intelligence_course
 python3 vllm_dietitianl.py
 ```
 
-<img src="../_static/media/chapter_12/section_6/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image5.png" class="common_img" />
 
 (4) When the terminal displays the following output, the program has successfully started.
 
-<img src="../_static/media/chapter_12/section_6/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image6.png" class="common_img" />
 
-(5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here."**
+(5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here"**.
 
-(6) At this stage, you can speak to the robot with a command like:
-**"I want to get some red fruits. Could you give me some suggestions?"**
+(6) At this stage, you can speak to the robot with a command like: **"I want to get some red fruits. Could you give me some suggestions?"**
 
-<img src="../_static/media/chapter_12/section_6/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image7.png" class="common_img" />
 
 (7) Upon successfully recognizing the command, the terminal will display the corresponding text, and the robot will announce it via voice.
 
-<img src="../_static/media/chapter_12/section_6/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image8.png" class="common_img" />
 
 (8) To exit this feature, simply press **"Ctrl+C"** in the terminal.
 
@@ -2732,17 +2735,17 @@ python3 vllm_dietitianl.py
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image9.png" class="common_img" />
 
 * **How It Works**
 
 Once successfully awakened, TonyPi responds to your commands instantly—not only with clear voice feedback, but also by performing corresponding actions in real time. For example, if you say, **"I want to get some red fruits. Could you give me some suggestions?"**, TonyPi will reply, **"You can have the apple on the right, it's red,"** while simultaneously raising its right arm to point at the apple.
 
-<img src="../_static/media/chapter_12/section_6/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/02/image10.png" class="common_img" />
 
 * **Brief Program Analysis**
 
-The configuration file for this program is located at: [`/home/pi/embodied_intelligence/embodied_intelligence_course/vllm_dietitianl.py`]()
+The configuration file for this program is located at: [/home/pi/embodied_intelligence/embodied_intelligence_course/vllm_dietitianl.py](../_static/source_code/tonypi-main.zip)
 
 **Feature Package Import**
 
@@ -2881,27 +2884,27 @@ Finally, TTS (Text-to-Speech) converts the agent's generated text into speech, s
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
-(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/03/media/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
+(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/03/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
 
 ```
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/03/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image3.png" class="common_img" />
 
 (2) Navigate to the program directory:
 
@@ -2909,7 +2912,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/embodied_intelligence_course
 ```
 
-<img src="../_static/media/chapter_12/section_6/03/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image4.png" class="common_img" />
 
 (3) Then, input the command to start the game:
 
@@ -2917,15 +2920,15 @@ cd embodied_intelligence/embodied_intelligence_course
 python3 llm_sensor.py
 ```
 
-<img src="../_static/media/chapter_12/section_6/03/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image5.png" class="common_img" />
 
 (4) The program is running successfully when the robot says **"I am ready"** and the corresponding message is displayed in the terminal.
 
-<img src="../_static/media/chapter_12/section_6/03/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image6.png" class="common_img" />
 
 (5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here."** You can then give the robot commands, such as **"Are you standing or lying down now?"** Upon successfully recognizing the command, the terminal will display the corresponding text, and the robot will announce it via voice.
 
-<img src="../_static/media/chapter_12/section_6/03/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image7.png" class="common_img" />
 
 (6) To exit this feature, simply press **"Ctrl+C"** in the terminal.
 
@@ -2935,17 +2938,15 @@ python3 llm_sensor.py
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/03/media/image8.png" class="common_img" />
-
 * **How It Works**
 
 Once TonyPi recognizes a command, it responds promptly with both voice feedback and corresponding actions. For instance, when asked **"Are you standing or lying down now?"**, it replies, **"I'm standing tall!"** If given the command **"Lie down"**, it responds with **"Time to hit the deck!"**, while simultaneously performing the lying-down motion.
 
-<img src="../_static/media/chapter_12/section_6/03/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/03/image9.png" class="common_img" />
 
 * **Brief Program Analysis**
 
-The configuration file for this program is located at: [`/home/pi/embodied_intelligence/embodied_intelligence_course/llm_sensor.py`]()
+The configuration file for this program is located at: [/home/pi/embodied_intelligence/embodied_intelligence_course/llm_sensor.py](../_static/source_code/tonypi-main.zip)
 
 **Feature Package Import**
 
@@ -3051,27 +3052,27 @@ After the speech is recognized, the program will invoke the corresponding functi
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
-(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/04/media/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
+(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/04/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
 
 ```
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/04/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image3.png" class="common_img" />
 
 (2) Navigate to the program directory:
 
@@ -3079,7 +3080,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/embodied_intelligence_course
 ```
 
-<img src="../_static/media/chapter_12/section_6/04/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image4.png" class="common_img" />
 
 (3) Then, input the command to start the game:
 
@@ -3087,15 +3088,15 @@ cd embodied_intelligence/embodied_intelligence_course
 python3 llm_sensor.py
 ```
 
-<img src="../_static/media/chapter_12/section_6/04/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image5.png" class="common_img" />
 
 (4) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here."**
 
-<img src="../_static/media/chapter_12/section_6/04/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image6.png" class="common_img" />
 
 (5) At this stage, you can issue a command to the robot, such as **"What is the temperature in Sydney?"**. Once the robot successfully recognizes the command, the corresponding text will be displayed on the terminal and read aloud.
 
-<img src="../_static/media/chapter_12/section_6/04/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image7.png" class="common_img" />
 
 (6) To exit this feature, simply press **"Ctrl+C"** in the terminal.
 
@@ -3105,17 +3106,15 @@ python3 llm_sensor.py
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/04/media/image8.png" class="common_img" />
-
 * **How It Works**
 
-After a successful wake-up, the robot will announce **"I am here"**. You can then issue a command, and the terminal will display the corresponding text, which will also be read aloud. You can rephrase it as needed, for example: **"Is the weather in [City] ideal for outdoor activities today?"**
+After a successful wake-up, the robot will announce **"I am here"**. You can then issue a command, and the terminal will display the corresponding text, which will also be read aloud. You can rephrase it as needed, for example: **"Is the weather in \[City\] ideal for outdoor activities today?"**
 
-<img src="../_static/media/chapter_12/section_6/04/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/04/image9.png" class="common_img" />
 
 * **Brief Program Analysis**
 
-The configuration file for this program is located at: [`/home/pi/embodied_intelligence/embodied_intelligence_course/llm_sensor.py`]()
+The configuration file for this program is located at: [/home/pi/embodied_intelligence/embodied_intelligence_course/llm_sensor.py](../_static/source_code/tonypi-main.zip)
 
 **Feature Package Import**
 
@@ -3223,27 +3222,27 @@ Finally, TTS (Text-to-Speech) converts the agent's generated text into speech, s
 
 (1) Verifying the WonderEcho Pro Firmware
 
-By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method]() for step-by-step instructions.
+By default, the wake-up word for the WonderEcho Pro factory firmware is **"Hello, HiWonder."** If you wish to change the wake-up word to **"TonyPi,"** please refer to the tutorial titled [6 AI Voice Interaction Course → 6.1 Introduction to WonderEcho Pro and Installation → 6.1.3 Firmware Flashing Method](6_ai_voice_interaction_course.md#firmware-flashing-method) for step-by-step instructions.
 
 (2) Obtaining and Configuring the Large Model API Key
 
-By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys]() to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
+By default, the program does not include the configuration of the Large AI Model-related API keys. Before activating features related to the Large AI Model, please refer to the section [12.2.1 Obtaining and Configuring Large Model API Keys](#anchor_12_2_1) to configure the necessary keys. This step is mandatory and cannot be skipped, as it is crucial for the proper functioning and experience of the large model features.
 
 (3) Network Configuration
 
-The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration]() .
+The robot must be connected to the internet, either in STA (local network) mode or AP (direct connection) mode via Ethernet. For detailed instructions on network configuration, please refer to the course [14. Robot Network Configuration](14_network_configuration.md) .
 
 * **Starting and Stopping the Game**
 
-[Source Code]()
+[Source Code](../_static/source_code/tonypi-main.zip)
 
-(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/05/media/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
+(1) Open the Terminator <img src="../_static/media/chapter_12/section_6/05/image2.png" /> on the desktop and enter the command to disable the auto-start service for the mobile app.
 
 ```
 sudo systemctl stop tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/05/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/05/image3.png" class="common_img" />
 
 (2) Navigate to the program directory:
 
@@ -3251,7 +3250,7 @@ sudo systemctl stop tonypi.service
 cd embodied_intelligence/embodied_intelligence_course
 ```
 
-<img src="../_static/media/chapter_12/section_6/05/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/05/image4.png" class="common_img" />
 
 (3) Then, input the command to start the game:
 
@@ -3259,11 +3258,11 @@ cd embodied_intelligence/embodied_intelligence_course
 python3 vllm_transport.py
 ```
 
-<img src="../_static/media/chapter_12/section_6/05/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/05/image5.png" class="common_img" />
 
 (4) Once the robot announces **"I am ready"** and the terminal displays the corresponding content, it indicates that the system is running successfully. A feedback screen will also appear.
 
-<img src="../_static/media/chapter_12/section_6/05/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/05/image6.png" class="common_img" />
 
 (5) Once running, say the wake word **"hello hiwonder"** to activate the large model, and the robot will respond with the message, **"I am Here."** You can then give the robot commands, such as **"Place the red block to the right of the green block."** Upon successfully recognizing the command, the terminal will display the corresponding text, and the robot will announce it via voice.
 
@@ -3275,8 +3274,6 @@ python3 vllm_transport.py
 sudo systemctl restart tonypi.service
 ```
 
-<img src="../_static/media/chapter_12/section_6/05/media/image7.png" class="common_img" />
-
 * **How It Works**
 
 After a successful wake-up, the robot will announce **"I am here"**. You can then issue a command, and the terminal will display the corresponding text, which will also be read aloud. For example: **"Place the red block to the right of the green block"**, and the response would be: **"Let's move the red block to the right of the green block!"**. Activate the camera to identify the corresponding colored blocks. First, pick up the red block, then place it to the right of the green block.
@@ -3285,7 +3282,7 @@ After a successful wake-up, the robot will announce **"I am here"**. You can the
 After a successful wake-up, if no command is given, the robot will respond with **"Sorry, would you please repeat again?"**. Once a command is issued and successfully recognized, the recognition result will be displayed on the terminal (as shown below), allowing you to confirm whether the robot has received the command.
 :::
 
-<img src="../_static/media/chapter_12/section_6/05/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_12/section_6/05/image8.png" class="common_img" />
 
 * **Brief Program Analysis**
 

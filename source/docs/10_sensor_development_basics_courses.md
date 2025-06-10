@@ -6,7 +6,7 @@
 
 Prepare a fan module and connect it to GPIO pins 7 and 8 on the Raspberry Pi expansion board using a 4-Pin cable. The wiring should appear as shown in the diagram below.
 
-<img src="../_static/media/chapter_10/section_1/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_1/image2.png" class="common_img" />
 
 :::{Note}
 Please do not insert forcefully because 4PIN cable uses anti-reverse plugging design.
@@ -38,11 +38,11 @@ The fan starts spinning when the program runs and automatically stops when the p
 
 ### 10.1.5 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 In this project, the fan is controlled using two GPIO ports. When one GPIO port is set to high and the other to low, the fan begins to rotate.
 
-The source code of the program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/fan_control.py]()
+The source code of the program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/fan_control.py](../_static/source_code/sensor_example.zip)
 
 {lineno-start=1}
 ```python
@@ -132,7 +132,7 @@ fanPin2.set_value(0)  # 设置引脚输出低电平(set pin output low voltage)
 
 Prepare a touch sensor and connect it to the GPIO21 and GPIO22 ports on the Raspberry Pi expansion board using a 4-Pin cable. The wiring should appear as shown in the figure below.
 
-<img src="../_static/media/chapter_10/section_2/media/image20.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_1/image20.png" class="common_img" />
 
 :::{Note}
 Do not insert the 4-pin cable with force. It features an anti-reverse design to prevent incorrect connections.
@@ -166,11 +166,11 @@ After the program starts, touch the sensor's metal plate. The buzzer will sound 
 
 ### 10.2.5 Working Principle
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 When the sensor detects a touch, it outputs a high level; otherwise, it outputs a low level. You can determine the sensor's current status by monitoring the I/O port's level changes.
 
-The program source code is located at: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/touch_buzzer.py]()
+The program source code is located at: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/touch_buzzer.py](../_static/source_code/sensor_example.zip)
 
 {lineno-start=1}
 ```python
@@ -273,7 +273,7 @@ if __name__ == '__main__':
 
 Prepare a temperature and humidity sensor module along with a dot matrix display module. Connect both modules to the Raspberry Pi expansion board using 4-pin cables as illustrated in the diagram below.
 
-<img src="../_static/media/chapter_10/section_3/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_1/image3.png" class="common_img" />
 
 :::{Note}
 The 4-pin cable features an anti-reverse design—please do not force it in.
@@ -281,7 +281,7 @@ The 4-pin cable features an anti-reverse design—please do not force it in.
 
 ### 10.3.2 Operation Overview
 
-The source code for this program can be found at: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/temperature_detection.py]()
+The source code for this program can be found at: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/temperature_detection.py](../_static/source_code/sensor_example.zip)
 
 The temperature and humidity sensor module (AHT10) communicates with the Raspberry Pi via the I2C interface, while the dot matrix display module connects through the GPIO interface. The sensor converts the ambient temperature and humidity into digital signals, which the control board reads and processes. The processed temperature and humidity data are then displayed on the dot matrix module.
 
@@ -315,7 +315,7 @@ Once the program is running, the terminal will display the temperature and humid
 
 ### 10.3.5 Program Overview
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 * **Initialization**
 
@@ -405,7 +405,7 @@ Initializes the AHT10 sensor instance (`aht10`) and the TM1640 LED display modul
 
 Prepare an ultrasonic sensor and connect it to any available I²C port on the Raspberry Pi expansion board using a 4-pin cable. The wiring setup is shown below:
 
-<img src="../_static/media/chapter_10/section_4/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_4/image2.png" class="common_img" />
 
 :::{Note}
 Do not force the 4-Pin cable into the connector; it is designed to prevent incorrect insertion.
@@ -462,13 +462,13 @@ vim sonar_rgbd.py
 
 (3) Find the code shown in the figure below.
 
-<img src="../_static/media/chapter_10/section_4/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_4/image7.png" class="common_img" />
 
 (4) Press **"i"** key on keyboard to enter the edit mode.
 
 (5) Modify data as the figure shown below:
 
-<img src="../_static/media/chapter_10/section_4/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_4/image9.png" class="common_img" />
 
 (6) After modification, press **"Esc"** and enter **":wq"** (please note that the colon is in front of wq), and then press Enter to save the modified content.
 
@@ -484,11 +484,11 @@ Similarly, we can change the RGB light color. Take changing the color of RGB lig
 
 (2) Find the code as the figure shown below in the opening interface.
 
-<img src="../_static/media/chapter_10/section_4/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_4/image11.png" class="common_img" />
 
 (3) Modify the value of RGB to change the light color. `setRGB(1,(255,255,255))` and `setRGB(0,(255,255,255))` are modified to `setRGB(1,(255, 127,0))` and `setRGB(0,(255, 127,0))`, as the figure shown below:
 
-<img src="../_static/media/chapter_10/section_4/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_4/image12.png" class="common_img" />
 
 RGB value refers to the red, green and blue components in a certain color. Theoretically, the three primary colors which are red, green and blue can be mixed in different proportion to make any color. The closer of the RGB value of a color, the closer it is to gray or black and white, and the larger the value, the whiter it is, and vice verse, the darker it is.
 
@@ -502,11 +502,11 @@ For example, the value of B is the largest in RGB (150, 152, 183), which means t
 
 ### 10.4.6 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 Firstly, set the distance measurement. Then control the on and off of the RGB light by changing the high and low levels. Finally, control the displayed light color by changing the value of each color component.
 
-The source code of program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/sonar_rgbd.py]()
+The source code of program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/sonar_rgbd.py](../_static/source_code/sensor_example.zip)
 
 {lineno-start=1}
 ```python
@@ -633,7 +633,7 @@ s.startSymphony()
 
 Prepare a dot matrix module and connect it to any available GPIO port on the Raspberry Pi expansion board using a 4-Pin cable. The wiring setup is shown below:
 
-<img src="../_static/media/chapter_10/section_5/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image2.png" class="common_img" />
 
 :::{Note}
 Avoid applying force when inserting the 4-pin cable—its anti-reverse design ensures correct orientation.
@@ -643,7 +643,7 @@ Avoid applying force when inserting the 4-pin cable—its anti-reverse design en
 
 The dot matrix module used in this lesson is composed of two red 8×8 LED dot matrix screens. The dot matrix screen can be controlled by driving the control chip. It features high display brightness, no flash during display and simple wiring, and can display number, text, pattern and other contents.
 
-<img src="../_static/media/chapter_10/section_5/media/image3.jpeg" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image3.jpeg" class="common_img" />
 
 ### 10.5.3 Operation Steps
 
@@ -673,23 +673,23 @@ Before making modifications, we need to obtain the address symbols of the letter
 
 (1) Double-click to open the modulus software located in the same directory as this section.
 
-<img src="../_static/media/chapter_10/section_5/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image6.png" class="common_img" />
 
 (2) First, click on **"New Image"**, then in the popup settings box, set the size parameters of the dot matrix module to **"16*8"**. Once set, click **"OK"** to confirm.
 
-<img src="../_static/media/chapter_10/section_5/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image7.png" class="common_img" />
 
 (3) Click **"Simulated Animation"** and **"Enlarge Grid Points"** in turn to enlarge the dot matrix simulation area on the right side.
 
-<img src="../_static/media/chapter_10/section_5/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image8.png" class="common_img" />
 
 (4) Next, use the mouse to click and draw the displayed content in the right area.
 
-<img src="../_static/media/chapter_10/section_5/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image9.png" class="common_img" />
 
 (5) After finishing the drawing, click on **"Modulation Mode"** and then **"51 Format"** in turn to obtain the address symbols.
 
-<img src="../_static/media/chapter_10/section_5/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image10.png" class="common_img" />
 
 (6) Open terminal and input the following command. Press Enter to locate to the content of the game program.
 
@@ -705,13 +705,13 @@ vim lattice_display.py
 
 (8) Locate the following code in the interface.
 
-<img src="../_static/media/chapter_10/section_5/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image12.png" class="common_img" />
 
 (9) Press **"i"** key on the keyboard to proceed to the edition mode.
 
 (10) Replace the default address symbols in the program with the address symbols obtained from the modulus software, as shown in the following image:
 
-<img src="../_static/media/chapter_10/section_5/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_5/image14.png" class="common_img" />
 
 (11) After completing the modifications, press the **"Esc"** key once, then type **":wq"** (note the colon before wq), and press Enter to save the changes.
 
@@ -721,11 +721,11 @@ vim lattice_display.py
 
 ### 10.5.6 Working Principle
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 In this project, we control the display module of the dot matrix module through a set of hexadecimal data. A set of data contains 16 data in total, and each data control one column of the LED screen.
 
-The source code of program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/lattice_display.py]()
+The source code of program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/lattice_display.py](../_static/source_code/sensor_example.zip)
 
 {lineno-start=1}
 ```python
@@ -794,7 +794,7 @@ dms = dot_matrix_sensor.TM1640(dio=7, clk=8)
 
 Prepare a light sensor and connect it to any one of GPIO ports on Raspberry Pi expansion board through 4PIN cable. The wiring effect is as follow:
 
-<img src="../_static/media/chapter_10/section_6/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_10/section_1/image6.png" class="common_img" />
 
 :::{Note}
 Please do not insert forcefully because 4PIN cable uses anti-reverse plugging design.
@@ -830,11 +830,11 @@ After the program is started, the buzzer will sound once when the external brigh
 
 ### 10.6.5 Working Principle
 
-[Source Code]()
+[Source Code](../_static/source_code/sensor_example.zip)
 
 When the external brightness is higher than the threshold set by the module, the signal terminal OUT outputs a low level, otherwise it output a high level. We can judge the current status of the sensor according to the level change of the signal terminal OUT.
 
-The source code of the program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/photo_sensitive_control.py]()
+The source code of the program is located in: [/home/pi/TonyPi/Extend/sensor_course/sensor_example/photo_sensitive_control.py](../_static/source_code/sensor_example.zip)
 
 {lineno-start=1}
 ```python

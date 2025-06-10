@@ -16,7 +16,7 @@ The handle receiver must be inserted before the robot is turned on.
 
 (1) Prepare two AAA batteries. Take off the back cover of the handle and insert them into the battery slot. Please pay attention to the direction of the positive and negative poles.
 
-<img src="../_static/media/chapter_13/section_1/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_13/section_1/image3.png" class="common_img" />
 
 ### 13.1.2 Device Connection
 
@@ -61,9 +61,9 @@ The corresponding relation between the button and the action is as the following
 | **↓** | Move backward |
 | **←** | Move to left |
 | **→** | Move to right |
-| <img src="../_static/media/chapter_13/section_1/media/image4.jpeg"  /> | Wave |
+| <img src="../_static/media/chapter_13/section_1/image4.jpeg"  /> | Wave |
 | **×** | Bow |
-| <img src="../_static/media/chapter_13/section_1/media/image5.jpeg"  /> | Twist waist |
+| <img src="../_static/media/chapter_13/section_1/image5.jpeg"  /> | Twist waist |
 | **○** | Right-footed shot |
 | Push up the left slider | Move forward |
 | Push down the left slider | Move backward |
@@ -82,7 +82,7 @@ The corresponding relation between the button and the action is as the following
 
 (1) Prepare at least two or more TonyPi Pro (this lesson takes two robots as example).
 
-(2) Set development environment. Please refer to [**3.1 Remote Tool Installation and Connection**]() and download and install VNC remote connection tool.
+(2) Set development environment. Please refer to [**3.1 Remote Tool Installation and Connection**](3_remote_desktop_tool_installation_and_connection.md#3-remote-desktop-tool-installation-and-connection) and download and install VNC remote connection tool.
 
 ### 13.2.2 Working Principle
 
@@ -94,7 +94,7 @@ Through configuring the master robot and the slave robot in the same network, th
 
 (1) Firstly, choose a robot as the master. After booting up the robot, connect it to the remote desktop. Take the robot whose hotspot is **"HW-F199CEEE"** as example.
 
-<img src="../_static/media/chapter_13/section_2/media/image2.jpeg" class="common_img" />
+<img src="../_static/media/chapter_13/section_2/image2.jpeg" class="common_img" />
 
 :::{Note}
 Please remember the name of the connected hotspot and it will be used in the following steps.
@@ -114,7 +114,7 @@ sudo vim wifi_conf.py
 
 (4) Press **"i"** on keyboard to enter the editing mode.
 
-<img src="../_static/media/chapter_13/section_2/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_13/section_2/image5.png" class="common_img" />
 
 (5) Modify the WiFi password of the master to **"123456789"** and then uncomment it.
 
@@ -146,7 +146,7 @@ sudo vim wifi_conf.py
 
 (11) The hotspot name and password of the slave are set to be the same as the hotspot name and password of the master (this lesson takes **"ID: HW-F119CEEE"** as example). Then uncomment the code.
 
-<img src="../_static/media/chapter_13/section_2/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_13/section_2/image8.png" class="common_img" />
 
 (12) After modification, press **"Esc"** and then enter **":wq"** to save modification and exit it.
 

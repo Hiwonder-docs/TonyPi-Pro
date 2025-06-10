@@ -26,4 +26,4 @@ TonyPi Pro
    docs/13_group_control_lessons.md
    docs/14_network_configuration.md
    docs/resources_download.md
-   Download <https://drive.google.com/drive/folders/1Yo69FSOeFzGTlrr88d8FpKwNurD5-W56?usp=sharing>
+   Download <https://drive.google.com/drive/folders/1HsYi21H4fkIuNB8lpkcdnTRUkJyE4ObE?usp=sharing>
