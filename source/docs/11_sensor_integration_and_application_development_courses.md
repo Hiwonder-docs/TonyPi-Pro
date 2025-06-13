@@ -481,6 +481,8 @@ while True:
 
 <img src="../_static/media/chapter_11/section_3/image2.png" style="width:500px"  class="common_img" />
 
+<img src="../_static/media/chapter_11/section_3/image0.png" style="width:500px"  class="common_img" />
+
 ### 11.3.2 Shape Recognition
 
 * **Getting Ready**
