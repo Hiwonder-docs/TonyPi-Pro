@@ -682,9 +682,10 @@ def run():
 <img src="../_static/media/chapter_11/section_4/image1.png" style="width:500px"  class="common_img" />
 <img src="../_static/media/chapter_11/section_4/image2.png" style="width:500px"  class="common_img" />
 <img src="../_static/media/chapter_11/section_4/image3.png" style="width:500px"  class="common_img" />
+
 <img src="../_static/media/chapter_11/section_4/image4.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/image5.png" style="width:500px"  class="common_img" />
-<img src="../_static/media/chapter_11/section_4/image6.png" style="width:500px"  class="common_img" />
+
+
 
 ### 11.4.2 Intelligent Fill Light
 
@@ -1054,17 +1055,27 @@ To avoid repetitive alerts, the prompt is played once every 5 seconds when a **"
 
 ## 11.6 Intelligent Temperature Control
 
-### 11.6.1 Intelligent Temperature Control
+### 11.6.1 Assembly
+
+
+
+### 11.6.2 Intelligent Temperature Control
 
 * **Preparation**
 
-Connect the temperature and humidity sensor to the I2C port on the TonyPi expansion board, as shown below:
+Connect the temperature and humidity sensor to the I2C port on the TonyPi expansion board, Then, connect the fan module to the IO7 and IO8 ports on the TonyPi expansion board:
 
-<img src="../_static/media/chapter_11/section_6/image2.png" class="common_img" />
+<img src="../_static/media/chapter_11/section_6/image1.png" style="width:500px"  class="common_img"/>
 
-Then, connect the fan module to the IO7 and IO8 ports on the TonyPi expansion board:
+<img src="../_static/media/chapter_11/section_6/image2.png" style="width:500px"  class="common_img"/>
 
-<img src="../_static/media/chapter_11/section_6/image3.png" class="common_img" />
+
+
+<img src="../_static/media/chapter_11/section_6/image6.png" style="width:500px"  class="common_img"/>
+
+<img src="../_static/media/chapter_11/section_6/image7.png" style="width:500px"  class="common_img"/>
+
+<img src="../_static/media/chapter_11/section_6/image8.png" style="width:500px"  class="common_img"/>
 
 * **Module Introduction**
 
