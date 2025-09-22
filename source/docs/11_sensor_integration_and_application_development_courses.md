@@ -934,6 +934,8 @@ def move():
 
 ### 11.5.1 Assembly
 
+<img src="../_static/media/chapter_11/section_5/image2.png" class="common_img" />
+
 ### 11.5.2 Mask Recognition
 
 * **Getting Ready**
@@ -1057,7 +1059,23 @@ To avoid repetitive alerts, the prompt is played once every 5 seconds when a **"
 
 ### 11.6.1 Assembly
 
+(1) Remove two M2*6 screws.
 
+<img src="../_static/media/chapter_11/section_6/image11.png" style="width:500px"  class="common_img"/>
+
+(2) Use two M2×6 screws to secure the black shoulder bracket to the robot’s shoulder. Then, use two M4×5+6 single-pass nylon standoffs and two M4×6 round-head screws to attach the temperature and humidity sensor to the shoulder bracket.
+
+<img src="../_static/media/chapter_11/section_6/image12.png" style="width:500px"  class="common_img"/>
+
+(3) Secure the fan module to the robot hand using 1 M4 * 6 screw, 1 M4 * 5+6 single-pass nylon standoff and 1 M4 screw.
+
+<img src="../_static/media/chapter_11/section_6/image1.png" style="width:500px"  class="common_img"/>
+
+<img src="../_static/media/chapter_11/section_6/image14.png" style="width:500px"  class="common_img"/>
+
+(4) Connect the sensor wires to the corresponding positions shown in the diagram below:
+
+<img src="../_static/media/chapter_11/section_6/image15.png" style="width:500px"  class="common_img"/>
 
 ### 11.6.2 Intelligent Temperature Control
 
@@ -1065,17 +1083,7 @@ To avoid repetitive alerts, the prompt is played once every 5 seconds when a **"
 
 Connect the temperature and humidity sensor to the I2C port on the TonyPi expansion board, Then, connect the fan module to the IO7 and IO8 ports on the TonyPi expansion board:
 
-<img src="../_static/media/chapter_11/section_6/image1.png" style="width:500px"  class="common_img"/>
-
-<img src="../_static/media/chapter_11/section_6/image2.png" style="width:500px"  class="common_img"/>
-
-
-
-<img src="../_static/media/chapter_11/section_6/image6.png" style="width:500px"  class="common_img"/>
-
-<img src="../_static/media/chapter_11/section_6/image7.png" style="width:500px"  class="common_img"/>
-
-<img src="../_static/media/chapter_11/section_6/image8.png" style="width:500px"  class="common_img"/>
+<img src="../_static/media/chapter_11/section_6/image15.png" style="width:500px"  class="common_img"/>
 
 * **Module Introduction**
 
