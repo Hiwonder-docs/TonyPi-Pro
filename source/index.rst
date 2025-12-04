@@ -25,6 +25,7 @@ TonyPi & TonyPi Pro
    docs/12_aI_large_model_course.md
    docs/13_group_control_lessons.md
    docs/14_network_configuration.md
+   docs/15_Group Control Course.md
    docs/resources_download.md
    TonyPi Download <https://drive.google.com/drive/folders/1EJppBKT0G0KF8uXjyMVlsAD1MwwAzq_2?usp=sharing>
    TonyPi Pro Download <https://drive.google.com/drive/folders/1HsYi21H4fkIuNB8lpkcdnTRUkJyE4ObE?usp=sharing>
