@@ -109,7 +109,7 @@ First, connect all robots that need group control to the same local network usin
 
 <img class="common_img" src="../_static/media/chapter_15\section_2\media\image3.png" style="width:500px" />
 
-4)  Modify the WIFI_SSID and PASSWORD fields to match your Wi-Fi network name and password.
+4)  Modify the value of HW_WIFI_MODE to 2, and change the values of WIFI_SSID and PASSWORD fields to match your Wi-Fi network name and password.
 
 <img class="common_img" src="../_static/media/chapter_15\section_2\media\image4.png" style="width:500px" />
 
