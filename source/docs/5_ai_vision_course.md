@@ -1534,7 +1534,7 @@ python3 KickBall.py
 Please use the robot and ball on the flat surface.
 :::
 
-Place the red ball in front of the TonyPi. After recognition, the robot will adjust its position to close the ball and kick it forward.
+Place the red ball in front of TonyPi, then click it with the mouse for automatic color sampling and recognition. Once the ball is recognized, the robot moves into position, approaches it, and kicks it forward.
 
 <img src="../_static/media/chapter_5/section_5/image6.png" class="common_img" />
 
