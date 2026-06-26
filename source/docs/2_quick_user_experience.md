@@ -196,7 +196,7 @@ The creation and deployment of the large model have been completed, and this API
 
 #### 2.2.3 API Configuration
 
-1. Click <img class="common_img" src="../_static/media/chapter_2/section_2.2/image14.png"  style="width:30px" style="5display:inline;vertical-align:middle;"/> to open a terminal and enter the following command to open the configuration file. Press the i key to enter input mode.
+1. Click <img src="../_static/media/chapter_2/section_2.2/image14.png"  style="width:30px" style="5display:inline;vertical-align:middle;"/> to open a terminal and enter the following command to open the configuration file. Press the i key to enter input mode.
 
 ```bash
 vim /home/pi/embodied_intelligence/common/config.py
