@@ -252,6 +252,10 @@ Audio file directory: **/home/pi/TonyPi/audio/**
 When entering commands, ensure that case sensitivity is strictly followed. You can use the **"Tab"** key to auto-complete keywords.
 :::
 
+> [!NOTE]
+>
+> * **Please click the drop-down menu in the upper-left corner to select your corresponding version, **Esp32-Version** or **Ros-Version**. Currently, only the **Esp32-Version** documentation is available. The **Ros-Version** documentation will be released soon.**
+
 (1) Power on the device and connect via VNC remote tool.
 
 (2) Click on the icon in the upper-left corner of the system desktop or press the shortcut **"Ctrl+Alt+T"** to open the LX terminal.
